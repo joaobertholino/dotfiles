@@ -3,6 +3,8 @@ alias ll='ls -la'
 alias la='ls -a'
 alias cat='bat'
 alias sysfetch='fastfetch'
+alias cls='clear'
+alias clsh='cd && clear'
 
 alias docker-rm-all='sudo docker rm -f $(sudo docker ps -aq)'
 alias docker-rmi-all='sudo docker rmi -f $(sudo docker image -aq)'
