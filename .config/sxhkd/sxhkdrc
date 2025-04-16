@@ -20,6 +20,7 @@ super + Escape
 # bspwm hotkeys
 Print
 	scrot -s '/home/joaob/Imagens/capturas-de-tela/%Y-%m-%d_%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}

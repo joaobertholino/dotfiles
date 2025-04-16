@@ -2,7 +2,7 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -a'
 alias cat='bat'
-alias sysfetch='fastfetch'
+alias sysf='fastfetch'
 alias cls='clear'
 alias clsh='cd && clear'
 

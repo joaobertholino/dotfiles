@@ -1,0 +1,23 @@
+# Ignorar tudo no diretório HOME
+/*
+
+# Não ignorar os seguintes arquivos específicos
+!/.bashrc
+!/.bash_aliases
+!/.xsessionrc
+!/README.md
+!/.gitignore
+
+# Não ignorar o diretório .config, mas ignorar seu conteúdo por padrão
+!/.config/
+/.config/*
+
+# Não ignorar diretórios específicos dentro de .config e seus conteúdos
+!/.config/bspwm/
+!/.config/bspwm/**
+!/.config/polybar/
+!/.config/polybar/**
+!/.config/sxhkd/
+!/.config/sxhkd/**
+!/.config/kitty/
+!/.config/kitty/**
