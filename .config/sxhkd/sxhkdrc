@@ -6,6 +6,10 @@
 super + Return
 	kitty
 
+# doom emacs
+super + ctrl + e
+	/home/joaob/.config/emacs/bin/doom run
+
 # program launcher
 super + @space
 	dmenu_run \
