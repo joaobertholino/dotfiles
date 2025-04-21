@@ -1,3 +1,4 @@
+# System
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -a'
@@ -6,6 +7,23 @@ alias sysf='fastfetch'
 alias cls='clear'
 alias clsh='cd && clear'
 
+# Docker
 alias docker-rm-all='sudo docker rm -f $(sudo docker ps -aq)'
 alias docker-rmi-all='sudo docker rmi -f $(sudo docker image -aq)'
 alias docker-stop-all='sudo docker stop $(sudo docker ps -q)'
+
+# Git
+alias ginit='git init'
+alias gbranch='git branch'
+alias gcheckb='git checkout'
+alias gdelb='git branch -d'
+alias gdelbf='git branch -D'
+alias gadda='git add .'
+alias gadd='git add'
+alias gcommit='git commit -m'
+alias gpush='git push origin'
+alias gpushm='git push origin main'
+alias greseth='git reset --hard'
+alias gresets='git reset --soft'
+alias glog='git log'
+alias gstat='git status'
