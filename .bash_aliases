@@ -6,6 +6,8 @@ alias cat='bat'
 alias sysf='fastfetch'
 alias cls='clear'
 alias clsh='cd && clear'
+alias power-off='sudo systemctl poweroff'
+alias suspend='sudo systemctl suspend'
 
 # Docker
 alias docker-rm-all='sudo docker rm -f $(sudo docker ps -aq)'
