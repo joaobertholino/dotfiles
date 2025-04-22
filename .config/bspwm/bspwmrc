@@ -1,6 +1,6 @@
 #! /bin/sh
 
-feh --bg-scale ~/Imagens/lain-wallpapers/black.png
+feh --bg-scale ~/Imagens/lain-wallpapers/lain19.jpg
 
 xrandr --output HDMI-A-0 --scale 1.4x1.4
 
