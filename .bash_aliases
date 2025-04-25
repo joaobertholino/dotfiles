@@ -6,7 +6,8 @@ alias cat='bat'
 alias sysf='fastfetch'
 alias cls='clear'
 alias clsh='cd && clear'
-alias power-off='sudo systemctl poweroff'
+alias rmpkg='sudo rm -rf /var/cache/pacman/pkg/* && sudo rm -rf /home/joaob/.cache/yay/*'
+alias poweroff='sudo systemctl poweroff'
 alias suspend='sudo systemctl suspend'
 
 # Docker
