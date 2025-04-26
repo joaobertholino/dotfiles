@@ -8,6 +8,7 @@ alias cls='clear'
 alias clsh='cd && clear'
 alias rmpkg='sudo rm -rf /var/cache/pacman/pkg/* && sudo rm -rf /home/joaob/.cache/yay/*'
 alias poweroff='sudo systemctl poweroff'
+alias rebootsys='sudo systemctl reboot'
 alias suspend='sudo systemctl suspend'
 
 # Docker
