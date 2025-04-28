@@ -21,3 +21,5 @@
 !/.config/sxhkd/**
 !/.config/kitty/
 !/.config/kitty/**
+!/.config/picom/
+!/.config/picom/picom.conf
