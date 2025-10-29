@@ -7,8 +7,16 @@ super + Return
 	kitty
 
 # doom emacs
-super + ctrl + e
-	/home/joaob/.config/emacs/bin/doom run
+super + alt + e
+	emacs
+
+# open calculator
+super + alt + c
+	gnome-calculator
+
+# open zen browser
+super + alt + b
+	zen-browser
 
 # program launcher
 super + @space

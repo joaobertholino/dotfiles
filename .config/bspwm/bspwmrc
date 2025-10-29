@@ -5,6 +5,7 @@ feh --bg-scale ~/Images/lain-wallpapers/Lain003.png
 picom -b --config ~/.config/picom/picom.conf
 
 xrandr --output HDMI-A-0 --scale 1.4x1.4
+xrandr --output HDMI-A-0 --brightness 0.5
 
 polybar bar1 &
 
@@ -22,4 +23,6 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Emacs state=tiled
+bspc rule -a Emacs state=floating center=true rectangle=920x700+0+0
+bspc rule -a gnome-calculator state=floating rectangle=700x600+1200+200
+bspc rule -a kitty state=floating center=true rectangle=820x600+0+0
