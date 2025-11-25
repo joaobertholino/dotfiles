@@ -1,12 +1,13 @@
 #! /bin/sh
 
-feh --bg-scale ~/Images/lain-wallpapers/Lain003.png
+feh --bg-scale ~/Images/screenshots/2025-11-20_00-21-50.png
 
 picom -b --config ~/.config/picom/picom.conf
 
 xrandr --output HDMI-A-0 --scale 1.4x1.4
-xrandr --output HDMI-A-0 --brightness 0.5
+xrandr --output HDMI-A-0 --brightness 0.4
 
+killall polybar && killall sxhkd
 polybar bar1 &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -15,7 +16,7 @@ bspc monitor -d 1 2 3 4 5 6
 
 bspc config pointer_follows_focus true
 bspc config border_width         2
-bspc config focused_border_color "#8c8c8c"
+bspc config focused_border_color "#448888"
 bspc config top_padding          20
 bspc config window_gap           3
 
@@ -25,4 +26,5 @@ bspc config gapless_monocle      true
 
 bspc rule -a Emacs state=floating center=true rectangle=920x700+0+0
 bspc rule -a gnome-calculator state=floating rectangle=700x600+1200+200
+# bspc rule -a qalculate-gtk state=floating rectangle=700x600+1200+200
 bspc rule -a kitty state=floating center=true rectangle=820x600+0+0

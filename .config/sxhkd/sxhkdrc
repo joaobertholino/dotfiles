@@ -10,9 +10,13 @@ super + Return
 super + alt + e
 	emacs
 
+# open geogebra
+super + alt + g
+	geogebra
+
 # open calculator
 super + alt + c
-	gnome-calculator
+	qalculate-gtk
 
 # open zen browser
 super + alt + b
@@ -21,7 +25,7 @@ super + alt + b
 # program launcher
 super + @space
 	dmenu_run \
-		-nb '#000000' -nf '#fbfbfb' -sb '#babeb7' -sf '#1e1e2e' \ 
+		-nb '#ffffff' -nf '#3B3A3A' -sb '#3B3A3A' -sf '#ffffff' \ 
 		-fn "DepartureMono Nerd Font Mono-11"
 
 # make sxhkd reload its configuration files:
@@ -31,7 +35,7 @@ super + Escape
 #
 # bspwm hotkeys
 Print
-	scrot -s '/home/joaob/Images/screenshots/%Y-%m-%d_%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
+	scrot -s '/home/joaob/Images/screenshots/%d-%m-%Y__%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 # quit/restart bspwm
 super + alt + {q,r}
