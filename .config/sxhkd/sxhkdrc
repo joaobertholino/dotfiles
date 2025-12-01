@@ -14,7 +14,11 @@ super + alt + e
 super + alt + g
 	geogebra
 
-# open calculator
+# open calculate
+super + alt + v
+	gnome-calculator
+
+# open qalculate
 super + alt + c
 	qalculate-gtk
 

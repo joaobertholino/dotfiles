@@ -4,8 +4,7 @@ feh --bg-scale ~/Images/screenshots/2025-11-20_00-21-50.png
 
 picom -b --config ~/.config/picom/picom.conf
 
-xrandr --output HDMI-A-0 --scale 1.4x1.4
-xrandr --output HDMI-A-0 --brightness 0.4
+xrandr --output HDMI-A-0 --scale 1.4x1.4 --brightness 0.4
 
 killall polybar && killall sxhkd
 polybar bar1 &
@@ -26,5 +25,5 @@ bspc config gapless_monocle      true
 
 bspc rule -a Emacs state=floating center=true rectangle=920x700+0+0
 bspc rule -a gnome-calculator state=floating rectangle=700x600+1200+200
-# bspc rule -a qalculate-gtk state=floating rectangle=700x600+1200+200
+bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1100+200
 bspc rule -a kitty state=floating center=true rectangle=820x600+0+0
