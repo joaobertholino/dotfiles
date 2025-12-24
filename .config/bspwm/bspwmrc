@@ -5,10 +5,10 @@ feh --bg-scale ~/Images/screenshots/2025-11-20_00-21-50.png
 picom -b --config ~/.config/picom/picom.conf
 
 xrandr --output HDMI-A-0 --scale 1.4x1.4 --brightness 0.4
+#xrandr --output HDMI-A-0 --scale 1x1 --brightness 0.3
 
 killall polybar && killall sxhkd
 polybar bar1 &
-
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6

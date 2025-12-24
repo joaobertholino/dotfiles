@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# Adwaita darker
+# Selenized Light
 include current-theme.conf
 # END_KITTY_THEME
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
