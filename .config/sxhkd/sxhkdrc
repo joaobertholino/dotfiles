@@ -26,6 +26,10 @@ super + alt + c
 super + alt + b
 	zen-browser
 
+# open nautilus
+super + alt + n
+	nautilus ~/
+
 # program launcher
 super + @space
 	dmenu_run \

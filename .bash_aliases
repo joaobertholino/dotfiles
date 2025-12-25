@@ -10,13 +10,8 @@ alias rmpkg='sudo rm -rf /var/cache/pacman/pkg/* && sudo rm -rf /home/joaob/.cac
 alias pwoff='sudo systemctl poweroff'
 alias rebootsys='sudo systemctl reboot'
 alias suspend='sudo systemctl suspend'
-alias light-low='xrandr --output HDMI-A-0 --brightness 0.5'
+alias light-low='xrandr --output HDMI-A-0 --brightness 0.3'
 alias light-default='xrandr --output HDMI-A-0 --brightness 1'
-
-# Docker
-alias docker-rm-all='sudo docker rm -f $(sudo docker ps -aq)'
-alias docker-rmi-all='sudo docker rmi -f $(sudo docker image -aq)'
-alias docker-stop-all='sudo docker stop $(sudo docker ps -q)'
 
 # Git
 alias ginit='git init'
