@@ -2,8 +2,9 @@
 /*
 
 # Não ignorar os seguintes arquivos específicos
-#!/.bashrc
-#!/.bash_aliases
+!/.vimrc
+!/.bashrc
+!/.bash_aliases
 !/.xsessionrc
 !/README.md
 !/.gitignore
@@ -13,13 +14,13 @@
 /.config/*
 
 # Não ignorar diretórios específicos dentro de .config e seus conteúdos
-#!/.config/bspwm/
-#!/.config/bspwm/**
-#!/.config/polybar/
-#!/.config/polybar/**
-#!/.config/sxhkd/
-#!/.config/sxhkd/**
-#!/.config/kitty/
-#!/.config/kitty/**
-#!/.config/picom/
-#!/.config/picom/picom.conf
+!/.config/bspwm/
+!/.config/bspwm/**
+!/.config/polybar/
+!/.config/polybar/**
+!/.config/sxhkd/
+!/.config/sxhkd/**
+!/.config/kitty/
+!/.config/kitty/**
+!/.config/picom/
+!/.config/picom/picom.conf
