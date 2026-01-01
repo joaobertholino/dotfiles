@@ -24,4 +24,5 @@
 !/.config/kitty/**
 !/.config/picom/
 !/.config/picom/picom.conf
+!/.config/rofi/
 !/.config/rofi/**
