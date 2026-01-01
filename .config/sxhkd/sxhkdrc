@@ -6,10 +6,6 @@
 super + Return
 	kitty
 
-# doom emacs
-super + alt + e
-	emacs
-
 # open geogebra
 super + alt + g
 	geogebra
@@ -43,7 +39,7 @@ super + Escape
 #
 # bspwm hotkeys
 Print
-	scrot -s '/home/joaob/Images/screenshots/%d-%m-%Y__%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
+	scrot -s '/home/joaob/Images/screenshots/H:%d-%m-%YT:%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 # quit/restart bspwm
 super + alt + {q,r}
