@@ -27,10 +27,14 @@ super + alt + n
 	nautilus ~/
 
 # program launcher
+#super + @space
+#	dmenu_run \
+#		-nb '#ffffff' -nf '#3B3A3A' -sb '#3B3A3A' -sf '#ffffff' \ 
+#		-fn "DepartureMono Nerd Font Mono-11"
+
+# open rofi
 super + @space
-	dmenu_run \
-		-nb '#ffffff' -nf '#3B3A3A' -sb '#3B3A3A' -sf '#ffffff' \ 
-		-fn "DepartureMono Nerd Font Mono-11"
+  rofi -show
 
 # make sxhkd reload its configuration files:
 super + Escape
