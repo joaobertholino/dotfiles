@@ -7,8 +7,6 @@
 !/.bash_aliases
 !/.xsessionrc
 !/README.md
-!/.zshrc
-!/.zshrc.pre-oh-my-zsh
 !/.gitignore
 
 # Não ignorar o diretório .config, mas ignorar seu conteúdo por padrão
@@ -28,5 +26,3 @@
 !/.config/picom/picom.conf
 !/.config/rofi/
 !/.config/rofi/**
-!/.oh-my-zsh/
-!/.oh-my-zsh/**
