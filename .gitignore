@@ -26,3 +26,5 @@
 !/.config/picom/picom.conf
 !/.config/rofi/
 !/.config/rofi/**
+!/.config/htop/
+!/.config/htop**
