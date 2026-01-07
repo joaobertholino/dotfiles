@@ -1,6 +1,6 @@
 #! /bin/sh
 
-feh --bg-scale ~/Images/wallpapers/plan9-background-color.png
+feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
 picom -b --config ~/.config/picom/picom.conf
 
