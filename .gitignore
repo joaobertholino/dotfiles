@@ -28,3 +28,5 @@
 !/.config/rofi/**
 !/.config/htop/
 !/.config/htop**
+!/.config/xournalpp/
+!/.config/xournalpp/**

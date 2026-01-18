@@ -10,8 +10,8 @@ alias rmpkg='sudo rm -rfv /var/cache/pacman/pkg/* && sudo rm -rfv /home/joaob/.c
 alias pwoff='sudo systemctl poweroff'
 alias rebootsys='sudo systemctl reboot'
 alias suspend='sudo systemctl suspend'
-alias light-low='xrandr --output HDMI-A-0 --brightness 0.3'
-alias light-default='xrandr --output HDMI-A-0 --brightness 1'
+alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
+alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
 
 # Git
 alias ginit='git init'
@@ -35,6 +35,7 @@ alias gmremotermo='git remote remove origin'
 alias glog='git log'
 alias gstat='git status'
 alias gpusham='git add . && git commit -m "." && git push origin main'
+alias grmcache='git rm -r --cached .'
 
 # Kitty
 alias icat='kitten icat'

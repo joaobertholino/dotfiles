@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# open study setup
+super + alt + u
+  zen-browser && xournalpp
+
 # terminal emulator
 super + Return
 	kitty
@@ -9,10 +13,6 @@ super + Return
 # open geogebra
 super + alt + g
 	geogebra
-
-# open calculate
-super + alt + v
-	gnome-calculator
 
 # open qalculate
 super + alt + c
@@ -22,15 +22,13 @@ super + alt + c
 super + alt + b
 	zen-browser
 
-# open nautilus
-super + alt + n
-	nautilus ~/
+# open xournal
+super + alt + x
+  xournalpp
 
-# program launcher
-#super + @space
-#	dmenu_run \
-#		-nb '#ffffff' -nf '#3B3A3A' -sb '#3B3A3A' -sf '#ffffff' \ 
-#		-fn "DepartureMono Nerd Font Mono-11"
+# open thunar
+super + alt + n
+	thunar ~/
 
 # open rofi
 super + @space
