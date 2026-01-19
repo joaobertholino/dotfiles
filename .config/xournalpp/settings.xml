@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/Ferretto/Atualidades/2025"/>
+  <property name="lastSavePath" value="/home/joaob/.cache/xournalpp/autosaves"/>
   <property name="lastOpenPath" value="/home/joaob/Downloads"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
@@ -15,7 +15,7 @@
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
   <property name="mainWndWidth" value="967"/>
-  <property name="mainWndHeight" value="1114"/>
+  <property name="mainWndHeight" value="529"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
@@ -65,7 +65,7 @@
   <property name="autoloadPdfXoj" value="false"/>
   <property name="defaultSaveName" value="%F-Note-%H-%M"/>
   <property name="defaultPdfExportName" value="%{name}_annotated"/>
-  <property name="autosaveEnabled" value="true"/>
+  <property name="autosaveEnabled" value="false"/>
   <property name="autosaveTimeout" value="1"/>
   <property name="addHorizontalSpace" value="false"/>
   <property name="addHorizontalSpaceAmountRight" value="150"/>
@@ -263,11 +263,11 @@
       <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffffffff"/>
-      <attribute name="drawingType" type="string" value="strokeRecognizer"/>
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="THIN"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
     <data name="playObject">
