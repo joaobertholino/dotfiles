@@ -7,7 +7,7 @@ feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
 picom -b --config ~/.config/picom/picom.conf
 
-xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.35
+xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.5
 
 killall polybar && killall sxhkd
 polybar bar1 &
@@ -28,3 +28,5 @@ bspc config gapless_monocle      true
 
 bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1225+200
 bspc rule -a kitty state=floating center=true rectangle=820x600+0+0
+bspc rule -a pavucontrol state=floating center=true
+bspc rule -a Thunar state=floating center=true rectangle=1050x600+0+0
