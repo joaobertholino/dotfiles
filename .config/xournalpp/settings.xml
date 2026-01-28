@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/Ferretto/Atualidades/2025"/>
-  <property name="lastOpenPath" value="/home/joaob/Downloads"/>
+  <property name="lastSavePath" value="/home/joaob/Ferretto/Leituras-Obrigatorias"/>
+  <property name="lastOpenPath" value="/home/joaob/Ferretto/Leituras-Obrigatorias"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
@@ -23,7 +23,7 @@
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="true"/>
+  <property name="menubarVisible" value="false"/>
   <property name="filepathShownInTitlebar" value="false"/>
   <property name="pageNumberShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
@@ -73,7 +73,7 @@
   <property name="addVerticalSpace" value="false"/>
   <property name="addVerticalSpaceAmountAbove" value="150"/>
   <property name="addVerticalSpaceAmountBelow" value="150"/>
-  <property name="unlimitedScrolling" value="false"/>
+  <property name="unlimitedScrolling" value="true"/>
   <property name="drawDirModsEnabled" value="false"/>
   <property name="drawDirModsRadius" value="50"/>
   <property name="snapRotation" value="true"/>
@@ -203,13 +203,13 @@
     </data>
   </data>
   <data name="lastUsedPageBgColor">
-    <attribute name="color00" type="hex" value="ff000000"/>
-    <attribute name="color01" type="hex" value="ffffffff"/>
-    <attribute name="color02" type="hex" value="ffffffff"/>
-    <attribute name="color03" type="hex" value="ffffffff"/>
-    <attribute name="color04" type="hex" value="ffffffff"/>
-    <attribute name="color05" type="hex" value="ffffffff"/>
-    <attribute name="color06" type="hex" value="ffffffff"/>
+    <attribute name="color00" type="hex" value="ff282a36"/>
+    <attribute name="color01" type="hex" value="ff282a36"/>
+    <attribute name="color02" type="hex" value="ff282a36"/>
+    <attribute name="color03" type="hex" value="ff282a36"/>
+    <attribute name="color04" type="hex" value="ff282a36"/>
+    <attribute name="color05" type="hex" value="ff282a36"/>
+    <attribute name="color06" type="hex" value="ff000000"/>
     <attribute name="color07" type="hex" value="ffffffff"/>
     <attribute name="color08" type="hex" value="ffffffff"/>
     <attribute name="count" type="int" value="9"/>
@@ -263,10 +263,10 @@
       <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="ffffffff"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
-      <attribute name="fillAlpha" type="int" value="128"/>
+      <attribute name="fillAlpha" type="int" value="127"/>
       <attribute name="size" type="string" value="THIN"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
