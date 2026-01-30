@@ -5,8 +5,6 @@ xsetwacom set 15 PressureCurve 0 0 30 70
 
 feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
-picom -b --config ~/.config/picom/picom.conf
-
 xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.5
 
 killall polybar && killall sxhkd
