@@ -5,7 +5,7 @@ xsetwacom set 15 PressureCurve 0 0 30 70
 
 feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
-xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.5
+xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.4
 
 killall polybar && killall sxhkd
 polybar bar1 &
