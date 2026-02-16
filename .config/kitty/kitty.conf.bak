@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# 3024 Day
+# Alabaster
 include current-theme.conf
 # END_KITTY_THEME
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
@@ -720,7 +720,7 @@ dim_opacity 0.75
 
 #: Advanced {{{
 
-shell /bin/bash --login 
+shell /bin/bash --login
 
 #: The shell program to execute. The default value of . means to use
 #: whatever shell is set as the default shell for the current user.
