@@ -3,6 +3,7 @@ syntax on               " Enable syntax highlighting
 set number              " Show line numbers
 set ruler               " Show cursor position in the status line
 set laststatus=2        " Always show the status line
+set termguicolors       " Enable colors support
 
 " --- Indentation and Formatting ---
 set nocompatible        " Behave as Vim, not Vi (essential for modern features)
@@ -22,4 +23,17 @@ set hlsearch            " Highlight search results
 
 " Use the system clipboard (requires vim compiled with +clipboard or +xterm_clipboard)
 " set clipboard=unnamedplus
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_syntax_enable = 1 
+
+
+call plug#begin()
+
+Plug 'SirVer/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+call plug#end()
 

@@ -14,7 +14,7 @@
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="2026"/>
+  <property name="mainWndWidth" value="1048"/>
   <property name="mainWndHeight" value="1114"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -237,7 +237,7 @@
     <data name="eraser">
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="VERY_FINE"/>
-      <attribute name="type" type="string" value="whiteout"/>
+      <attribute name="type" type="string" value="default"/>
     </data>
     <data name="hand">
       <attribute name="drawingType" type="string" value="default"/>
