@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/Downloads"/>
+  <property name="lastSavePath" value="/home/joaob/Ferretto/Leituras-Obrigatorias"/>
   <property name="lastOpenPath" value="/home/joaob/Downloads"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
@@ -137,7 +137,7 @@
   <property name="stabilizerFinalizeStroke" value="true"/>
   <property name="colorPalette" value="/home/joaob/.config/xournalpp/palettes/Dracula.gpl"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
-  <property name="latexSettings.defaultText" value="x^2"/>
+  <property name="latexSettings.defaultText" value=""/>
   <property name="latexSettings.globalTemplatePath" value="/usr/share/xournalpp/resources/default_template.tex"/>
   <property name="latexSettings.genCmd" value="pdflatex -halt-on-error -interaction=nonstopmode '{}'"/>
   <property name="latexSettings.sourceViewThemeId" value="kate"/>
@@ -158,17 +158,17 @@
     </data>
     <data name="eraser">
       <attribute name="eraserMode" type="string" value="deleteStroke"/>
-      <attribute name="size" type="string" value="medium"/>
+      <attribute name="size" type="string" value="thin"/>
       <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="left">
       <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="middle">
-      <attribute name="tool" type="string" value="hand"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="right">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="tool" type="string" value="hand"/>
     </data>
     <data name="stylus">
       <attribute name="eraserMode" type="string" value="deleteStroke"/>
@@ -215,7 +215,7 @@
     <attribute name="count" type="int" value="9"/>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="pen"/>
+    <attribute name="current" type="string" value="selectRect"/>
     <data name="drawArrow">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
@@ -247,7 +247,7 @@
       <attribute name="drawingType" type="string" value="line"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="image">
       <attribute name="drawingType" type="string" value="default"/>
@@ -263,7 +263,7 @@
       <attribute name="size" type="string" value="VERY_FINE"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="ffff5555"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="51"/>
