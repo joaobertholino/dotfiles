@@ -17,6 +17,10 @@ alias suspend='sudo systemctl suspend'
 alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
 alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
 
+# Backup of System
+alias aconfs='aconfmgr save'
+alias aconfa='aconfmgr apply'
+
 # Git
 alias ginit='git init'
 alias gbranch='git branch'
