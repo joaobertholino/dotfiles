@@ -2,9 +2,9 @@
 # wm independent hotkeys
 #
 
-# open study setup
-super + alt + u
-  zen-browser && xournalpp
+# emacs
+super + alt + e
+  emacs
 
 # terminal emulator
 super + Return
@@ -25,10 +25,6 @@ super + alt + b
 # open xournal
 super + alt + x
   xournalpp
-
-# open thunar
-super + alt + n
-	thunar ~/
 
 # open rofi
 super + @space

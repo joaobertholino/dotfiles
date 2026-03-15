@@ -29,5 +29,6 @@ bspc config gapless_monocle      true
 
 bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1225+200
 bspc rule -a kitty state=floating center=true rectangle=1125x730+0+0
+# bspc rule -a Emacs state=floating center=true rectangle=1145x760+0+0
 bspc rule -a pavucontrol state=floating center=true
 bspc rule -a Thunar state=floating center=true rectangle=1050x600+0+0
