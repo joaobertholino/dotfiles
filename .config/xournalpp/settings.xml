@@ -7,14 +7,14 @@
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
   <property name="lastSavePath" value="/home/joaob/USP-DOCUMENTOS"/>
-  <property name="lastOpenPath" value="/home/joaob"/>
+  <property name="lastOpenPath" value="/home/joaob/Downloads"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1367"/>
+  <property name="mainWndWidth" value="1234"/>
   <property name="mainWndHeight" value="1120"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -101,7 +101,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#000000&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=283.460000x566.920000&#10;backgroundType=dotted&#10;backgroundColor=#000000&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -263,7 +263,7 @@
       <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffff79c6"/>
+      <attribute name="color" type="hex" value="ffbd93f9"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="102"/>
@@ -283,7 +283,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextLinear">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="fff8f8f2"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextRect">
