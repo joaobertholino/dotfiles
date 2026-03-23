@@ -14,7 +14,7 @@
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1234"/>
+  <property name="mainWndWidth" value="1069"/>
   <property name="mainWndHeight" value="1120"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -263,10 +263,10 @@
       <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffbd93f9"/>
+      <attribute name="color" type="hex" value="ffff79c6"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
-      <attribute name="fillAlpha" type="int" value="102"/>
+      <attribute name="fillAlpha" type="int" value="255"/>
       <attribute name="size" type="string" value="VERY_FINE"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
