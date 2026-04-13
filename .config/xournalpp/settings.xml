@@ -6,15 +6,15 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/USP-DOCUMENTOS"/>
-  <property name="lastOpenPath" value="/home/joaob/Downloads"/>
+  <property name="lastSavePath" value="/home/joaob/USP/1-Semestre/MAT0112/Anotações"/>
+  <property name="lastOpenPath" value="/home/joaob/USP/1-Semestre/MAT0112/Anotações"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1069"/>
+  <property name="mainWndWidth" value="2032"/>
   <property name="mainWndHeight" value="1120"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -52,10 +52,10 @@
   <!--Dark/light mode, allowed values are "useSystem", "forceLight", "forceDark"-->
   <property name="themeVariant" value="useSystem"/>
   <property name="highlightPosition" value="true"/>
-  <property name="cursorHighlightColor" value="2583691008"/>
+  <property name="cursorHighlightColor" value="2566914048"/>
   <property name="cursorHighlightBorderColor" value="2566914303"/>
   <property name="cursorHighlightRadius" value="3"/>
-  <property name="cursorHighlightBorderWidth" value="0"/>
+  <property name="cursorHighlightBorderWidth" value="1"/>
   <property name="useStockIcons" value="false"/>
   <property name="disableScrollbarFadeout" value="false"/>
   <property name="disableAudio" value="true"/>
@@ -101,7 +101,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=283.460000x566.920000&#10;backgroundType=dotted&#10;backgroundColor=#000000&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=283.460000x566.920000&#10;backgroundType=graph&#10;backgroundColor=#deddda&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -162,13 +162,13 @@
       <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="left">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="tool" type="string" value="hand"/>
     </data>
     <data name="middle">
       <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="right">
-      <attribute name="tool" type="string" value="hand"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="stylus">
       <attribute name="eraserMode" type="string" value="deleteStroke"/>
@@ -215,33 +215,18 @@
     <attribute name="count" type="int" value="9"/>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="pen"/>
-    <data name="drawArrow">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawCoordinateSystem">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawDoubleArrow">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawEllipse">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawSpline">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <attribute name="current" type="string" value="hand"/>
+    <data name="drawArrow"/>
+    <data name="drawCoordinateSystem"/>
+    <data name="drawDoubleArrow"/>
+    <data name="drawEllipse"/>
+    <data name="drawRect"/>
+    <data name="drawSpline"/>
     <data name="eraser">
-      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="VERY_FINE"/>
       <attribute name="type" type="string" value="default"/>
     </data>
-    <data name="hand">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="hand"/>
     <data name="highlighter">
       <attribute name="color" type="hex" value="ffbd93f9"/>
       <attribute name="drawingType" type="string" value="line"/>
@@ -249,63 +234,40 @@
       <attribute name="fillAlpha" type="int" value="128"/>
       <attribute name="size" type="string" value="THIN"/>
     </data>
-    <data name="image">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="image"/>
     <data name="laserPointerHighlighter">
       <attribute name="color" type="hex" value="ffff0000"/>
-      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="laserPointerPen">
-      <attribute name="color" type="hex" value="ffffb86c"/>
-      <attribute name="drawingType" type="string" value="default"/>
-      <attribute name="size" type="string" value="THIN"/>
+      <attribute name="color" type="hex" value="ffff5555"/>
+      <attribute name="size" type="string" value="VERY_FINE"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffff79c6"/>
+      <attribute name="color" type="hex" value="ff282a36"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="255"/>
       <attribute name="size" type="string" value="VERY_FINE"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
-    <data name="playObject">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectMultiLayerRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectMultiLayerRegion">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectObject">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="playObject"/>
+    <data name="selectMultiLayerRect"/>
+    <data name="selectMultiLayerRegion"/>
+    <data name="selectObject"/>
     <data name="selectPdfTextLinear">
       <attribute name="color" type="hex" value="fff8f8f2"/>
-      <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextRect">
       <attribute name="color" type="hex" value="ff000000"/>
-      <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="selectRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectRegion">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="showFloatingToolbox">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="selectRect"/>
+    <data name="selectRegion"/>
+    <data name="showFloatingToolbox"/>
     <data name="text">
       <attribute name="color" type="hex" value="ffffffff"/>
-      <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="verticalSpace">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="verticalSpace"/>
   </data>
   <data name="touch">
     <attribute name="cmdDisable" type="string" value=""/>

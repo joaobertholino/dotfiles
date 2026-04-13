@@ -113,4 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="/usr/local/texlive/2026/texmf-dist/doc/info:$PATH"
+export PATH="/usr/local/texlive/2026/texmf-dist/doc/man:$PATH"
+export PATH="/usr/local/texlive/2026/bin/x86_64-linux:$PATH"

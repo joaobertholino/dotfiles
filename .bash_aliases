@@ -13,9 +13,13 @@ alias tshr='trash-restore'
 alias tshe='trash-empty'
 alias pwoff='sudo systemctl poweroff'
 alias rebootsys='sudo systemctl reboot'
+alias logout='loginctl terminate-user $(whoami)'
 alias suspend='sudo systemctl suspend'
 alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
 alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
+
+#SSH
+alias ssh-ime='ssh joaob@linux.ime.usp.br'
 
 # Backup of System
 alias aconfs='aconfmgr save'
