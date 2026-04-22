@@ -116,3 +116,4 @@ fi
 export PATH="/usr/local/texlive/2026/texmf-dist/doc/info:$PATH"
 export PATH="/usr/local/texlive/2026/texmf-dist/doc/man:$PATH"
 export PATH="/usr/local/texlive/2026/bin/x86_64-linux:$PATH"
+export PATH="/home/joaob/.config/emacs/bin:$PATH"

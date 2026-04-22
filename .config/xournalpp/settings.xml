@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/IME-USP--Mathematica/1-Semestre/MAT0112/Anotacoes"/>
-  <property name="lastOpenPath" value="/home/joaob/IME-USP--Mathematica/1-Semestre/MAT0112/Anotacoes"/>
+  <property name="lastSavePath" value="/home/joaob/IME-USP--Mathematica/1-Semestre/MAE0121/Anotacoes"/>
+  <property name="lastOpenPath" value="/home/joaob/IME-USP--Mathematica/1-Semestre/MAE0121/Anotacoes"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
@@ -53,7 +53,7 @@
   <property name="themeVariant" value="useSystem"/>
   <property name="highlightPosition" value="true"/>
   <property name="cursorHighlightColor" value="2566914048"/>
-  <property name="cursorHighlightBorderColor" value="2566914303"/>
+  <property name="cursorHighlightBorderColor" value="2582576896"/>
   <property name="cursorHighlightRadius" value="3"/>
   <property name="cursorHighlightBorderWidth" value="1"/>
   <property name="useStockIcons" value="false"/>
@@ -101,7 +101,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=283.460000x566.920000&#10;backgroundType=graph&#10;backgroundColor=#deddda&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#000000&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -244,7 +244,7 @@
       <attribute name="size" type="string" value="VERY_FINE"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff282a36"/>
+      <attribute name="color" type="hex" value="fff8f8f2"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="255"/>
