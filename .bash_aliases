@@ -17,6 +17,7 @@ alias logout='loginctl terminate-user $(whoami)'
 alias suspend='sudo systemctl suspend'
 alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
 alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
+alias yaya='yay --noconfirm'
 
 #SSH
 alias ssh-ime='ssh joaob@linux.ime.usp.br'
@@ -51,3 +52,6 @@ alias grmcache='git rm -r --cached .'
 
 # Kitty
 alias icat='kitten icat'
+
+# Vim
+alias vimf='vim +'

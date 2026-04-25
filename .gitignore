@@ -30,3 +30,5 @@
 !/.config/htop**
 !/.config/xournalpp/
 !/.config/xournalpp/**
+!/.config/yay/
+!/.config/yay/**

@@ -28,7 +28,7 @@ super + alt + x
 
 # open rofi
 super + @space
-  rofi -show
+  rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape
