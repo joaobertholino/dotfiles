@@ -32,3 +32,5 @@
 !/.config/xournalpp/**
 !/.config/yay/
 !/.config/yay/**
+!/.config/ranger/
+!/.config/ranger/**
