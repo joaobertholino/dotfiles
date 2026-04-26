@@ -33,3 +33,4 @@ bspc rule -a kitty state=floating center=true rectangle=1125x730+0+0
 # bspc rule -a Emacs state=floating center=true rectangle=1145x760+0+0
 bspc rule -a pavucontrol state=floating center=true
 bspc rule -a Thunar state=floating center=true rectangle=1050x600+0+0
+bspc rule -a Gigolo state=floating center=true rectangle=700x450+0+0

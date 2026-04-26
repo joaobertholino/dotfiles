@@ -20,7 +20,7 @@ alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
 alias yaya='yay --noconfirm'
 
 #SSH
-alias ssh-ime='ssh joaob@linux.ime.usp.br'
+alias ssh-ime='ssh linux-ime'
 
 # Backup of System
 alias aconfs='aconfmgr save'
