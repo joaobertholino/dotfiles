@@ -34,3 +34,5 @@
 !/.config/yay/**
 !/.config/ranger/
 !/.config/ranger/**
+!/.config/doom/
+!/.config/doom/**
