@@ -36,6 +36,8 @@
 !/.config/ranger/**
 !/.config/doom/
 !/.config/doom/**
+!/.config/emacs/
+!/.config/emacs/**
 !/.config/gigolo/
 !/.config/gigolo/**
 !/.config/zathura/
