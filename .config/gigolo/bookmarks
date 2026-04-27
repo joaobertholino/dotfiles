@@ -1,0 +1,8 @@
+[linux-ime]
+host=linux-ime
+folder=/home/bm/joaob/
+user=joaob
+scheme=sftp
+color=rgb(28,113,216)
+port=22
+autoconnect=1

@@ -1,0 +1,90 @@
+# ------------------------------------
+# Options
+# ------------------------------------
+
+# Set the default font and size for the status and input bars
+set font "Wigrum Regular 10"
+
+# Enable smooth scrolling (useful for trackpads)
+set smooth-scroll true
+
+set save-history-on-close false
+
+set show-recent 0
+
+set notification-error-bg       rgba(255,85,85,1)     # Red
+set notification-error-fg       rgba(248,248,242,1)   # Foreground
+set notification-warning-bg     rgba(255,184,108,1)   # Orange
+set notification-warning-fg     rgba(68,71,90,1)      # Selection
+set notification-bg             rgba(40,42,54,1)      # Background
+set notification-fg             rgba(248,248,242,1)   # Foreground
+
+set completion-bg               rgba(40,42,54,1)      # Background
+set completion-fg               rgba(98,114,164,1)    # Comment
+set completion-group-bg         rgba(40,42,54,1)      # Background
+set completion-group-fg         rgba(98,114,164,1)    # Comment
+set completion-highlight-bg     rgba(68,71,90,1)      # Selection
+set completion-highlight-fg     rgba(248,248,242,1)   # Foreground
+
+set index-bg                    rgba(40,42,54,1)      # Background
+set index-fg                    rgba(248,248,242,1)   # Foreground
+set index-active-bg             rgba(68,71,90,1)      # Current Line
+set index-active-fg             rgba(248,248,242,1)   # Foreground
+
+set inputbar-bg                 rgba(40,42,54,1)      # Background
+set inputbar-fg                 rgba(248,248,242,1)   # Foreground
+set statusbar-bg                rgba(40,42,54,1)      # Background
+set statusbar-fg                rgba(248,248,242,1)   # Foreground
+
+set highlight-color             rgba(255,184,108,0.5) # Orange
+set highlight-active-color      rgba(255,121,198,0.5) # Pink
+
+set default-bg                  rgba(40,42,54,1)      # Background
+set default-fg                  rgba(248,248,242,1)   # Foreground
+
+set render-loading              true
+set render-loading-fg           rgba(40,42,54,1)      # Background
+set render-loading-bg           rgba(248,248,242,1)   # Foreground
+set statusbar-home-tilde true
+set recolor-lightcolor          rgba(40,42,54,1)      # Background
+set recolor-darkcolor           rgba(248,248,242,1)   # Foreground
+
+# Enable recoloring (dark mode for PDF content)
+set recolor true
+# Keep the original hue when recoloring, otherwise it's black and white
+set recolor-keephue true 
+
+# Use the system's clipboard for selection (select text with mouse and it's copied)
+set selection-clipboard clipboard
+
+# Set window title to show the document's filename only
+set window-title-basename true
+
+# Set the default adjust mode on opening a document
+set adjust-open "best-fit"
+
+# Configure Synctex for forward/inverse search (requires an editor command)
+set synctex true
+# Example for neovim:
+# set synctex-editor-command "nvr --remote-silent +\%{line} \%{input}"
+
+# ------------------------------------
+# Mappings
+# ------------------------------------
+
+# Map 'Q' to quit Zathura
+map Q quit
+
+# Map '=' and '-' to zoom in and out
+map = zoom in
+map - zoom out
+# Map <C-0> to zoom to original size (100%)
+map <C-0> zoom original
+
+# Map 'w' to adjust window width and 'b' to best fit
+map w adjust_window width
+map b adjust_window best-fit
+
+# Map 'r' to toggle recolor mode
+map r recolor
+
