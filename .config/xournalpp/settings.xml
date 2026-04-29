@@ -6,15 +6,15 @@
   <property name="pressureMultiplier" value="1.5"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/joaob/IME-USP--Mathematics/1-Semestre/MAE0121/Anotacoes"/>
-  <property name="lastOpenPath" value="/home/joaob/IME-USP--Mathematics/1-Semestre/MAE0121/Anotacoes"/>
+  <property name="lastSavePath" value="/home/joaob/IME-USP--Mathematics/1-Semestre/MAT2453/Anotacoes/Guidorizzi"/>
+  <property name="lastOpenPath" value="/home/joaob/IME-USP--Mathematics/1-Semestre/MAT2453/Anotacoes/Guidorizzi"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1178"/>
+  <property name="mainWndWidth" value="2032"/>
   <property name="mainWndHeight" value="1120"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -215,7 +215,7 @@
     <attribute name="count" type="int" value="9"/>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="hand"/>
+    <attribute name="current" type="string" value="pen"/>
     <data name="drawArrow"/>
     <data name="drawCoordinateSystem"/>
     <data name="drawDoubleArrow"/>
@@ -244,7 +244,7 @@
       <attribute name="size" type="string" value="VERY_FINE"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="fff8f8f2"/>
+      <attribute name="color" type="hex" value="fff1fa8c"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="255"/>
