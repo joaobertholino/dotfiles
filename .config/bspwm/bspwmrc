@@ -1,11 +1,11 @@
 #! /bin/sh
 
-xsetwacom set 15 Rotate half
-xsetwacom set 15 PressureCurve 0 0 30 70
+xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d+') Rotate half
+xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d+') PressureCurve 0 0 30 70
 
 feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
-xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.8
+xrandr --output HDMI-A-0 --scale 1.5x1.5 --brightness 0.6
 
 killall polybar && killall sxhkd
 polybar bar1 &

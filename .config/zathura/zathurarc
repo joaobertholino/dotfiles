@@ -10,7 +10,9 @@ set smooth-scroll true
 
 set save-history-on-close false
 
-set show-recent 0
+set show-recent 5
+set guioptions shv
+set database sqlite
 
 set notification-error-bg       rgba(255,85,85,1)     # Red
 set notification-error-fg       rgba(248,248,242,1)   # Foreground
@@ -87,4 +89,3 @@ map b adjust_window best-fit
 
 # Map 'r' to toggle recolor mode
 map r recolor
-
