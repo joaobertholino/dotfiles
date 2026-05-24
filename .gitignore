@@ -2,6 +2,7 @@
 /*
 
 # Não ignorar os seguintes arquivos específicos
+!/texmf
 !/.vimrc
 !/.bashrc
 !/.bash_aliases

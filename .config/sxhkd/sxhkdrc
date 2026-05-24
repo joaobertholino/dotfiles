@@ -2,9 +2,9 @@
 # wm independent hotkeys
 #
 
-# emacs
+# VS Code
 super + alt + e
-  emacs
+  code
 
 # terminal emulator
 super + Return
