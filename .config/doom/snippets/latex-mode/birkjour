@@ -1,0 +1,49 @@
+# -*- mode: snippet -*-
+# name: birkjour
+# key: bj
+# --
+\documentclass{birkjour}
+
+\usepackage[english]{babel}
+
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{amsmath, amssymb, amsthm, amscd, amsbsy, mathtools, mathrsfs}
+\mathtoolsset{showonlyrefs}
+\usepackage{enumitem}
+
+\usepackage{graphicx, xcolor , float, pgfplots, tikz}
+\pgfplotsset{compat=newest}
+
+\usepackage[font=small]{caption}
+\usepackage{subcaption}
+\usepackage{footmisc}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\title[${1:Title of article}]{${2:Title}}
+\author[J.~Bertholino]{João Victor Bertholino Cestari}
+\address{Instituto de Matemática, Estatística e Ciência da Computação, Universidade de São Paulo\\Rua do Matão 1010, São Paulo, SP - CEP 05508-090, Brazil}
+\email{joao.bertholino@usp.br}
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+
+\end{document}

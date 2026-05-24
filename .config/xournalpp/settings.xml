@@ -14,7 +14,7 @@
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1150"/>
+  <property name="mainWndWidth" value="1912"/>
   <property name="mainWndHeight" value="1050"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -101,7 +101,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=true&#10;copyLastPageSettings=true&#10;size=283.460000x425.190000&#10;backgroundType=plain&#10;backgroundColor=#000000&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=true&#10;copyLastPageSettings=true&#10;size=198.422000x340.152000&#10;backgroundType=plain&#10;backgroundColor=#000000&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>

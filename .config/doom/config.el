@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-xcode)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -93,8 +93,7 @@
   ;; ── latexmk: compilação completa ─────────
   ;; Resolve referências, BibTeX e índices automaticamente
   (add-to-list 'TeX-command-list
-               '("LatexMk" "latexmk -pvc -lualatex -synctex=1 \
-                  -interaction=nonstopmode -shell-escape %s"
+               '("LatexMk" "latexmk -pvc -lualatex -interaction=nonstopmode %t"
                  TeX-run-command nil t
                  :help "Compila e recompila automaticamente com latexmk"))
 
@@ -199,7 +198,7 @@
 (after! lsp-latex
   ;; Digestif deve estar no PATH (luarocks install digestif)
   (setq lsp-latex-texlab-executable "texlab")  ; ou "digestif"
-  (setq lsp-latex-build-on-save t)             ; compila ao salvar
+  (setq lsp-latex-build-on-save nil)             ; compila ao salvar
   (setq lsp-latex-lint-on-save  t))
 
 ;;; ─────────────────────────────────────────
@@ -208,7 +207,7 @@
 
 (map! :after latex
       :map LaTeX-mode-map
-      :localleader
+      :leader
       ;; Compilação
       "b"  #'TeX-command-master         ; compila
       "v"  #'TeX-view                   ; abre PDF
