@@ -76,7 +76,7 @@
   <property name="unlimitedScrolling" value="true"/>
   <property name="drawDirModsEnabled" value="false"/>
   <property name="drawDirModsRadius" value="50"/>
-  <property name="snapRotation" value="false"/>
+  <property name="snapRotation" value="true"/>
   <property name="snapRotationTolerance" value="0.3"/>
   <property name="snapGrid" value="false"/>
   <property name="snapGridTolerance" value="0.5"/>
@@ -215,7 +215,7 @@
     <attribute name="count" type="int" value="9"/>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="pen"/>
+    <attribute name="current" type="string" value="hand"/>
     <data name="drawArrow"/>
     <data name="drawCoordinateSystem"/>
     <data name="drawDoubleArrow"/>
