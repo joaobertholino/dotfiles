@@ -53,5 +53,8 @@ alias grmcache='git rm -r --cached .'
 # Kitty
 alias icat='kitten icat'
 
+# Alacritty and Tmux
+alias exit-at='tmux kill-session -t main && exit'
+
 # Vim
 alias vimf='vim +'

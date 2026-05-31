@@ -23,7 +23,7 @@
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="false"/>
+  <property name="menubarVisible" value="true"/>
   <property name="filepathShownInTitlebar" value="false"/>
   <property name="pageNumberShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
@@ -76,7 +76,7 @@
   <property name="unlimitedScrolling" value="true"/>
   <property name="drawDirModsEnabled" value="false"/>
   <property name="drawDirModsRadius" value="50"/>
-  <property name="snapRotation" value="true"/>
+  <property name="snapRotation" value="false"/>
   <property name="snapRotationTolerance" value="0.3"/>
   <property name="snapGrid" value="false"/>
   <property name="snapGridTolerance" value="0.5"/>
@@ -101,7 +101,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=true&#10;copyLastPageSettings=true&#10;size=425.190000x566.920000&#10;backgroundType=plain&#10;backgroundColor=#000000&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=true&#10;copyLastPageSettings=true&#10;size=425.190000x566.920000&#10;backgroundType=graph&#10;backgroundColor=#ffffff&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -215,7 +215,7 @@
     <attribute name="count" type="int" value="9"/>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="hand"/>
+    <attribute name="current" type="string" value="pen"/>
     <data name="drawArrow"/>
     <data name="drawCoordinateSystem"/>
     <data name="drawDoubleArrow"/>
@@ -240,11 +240,11 @@
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="laserPointerPen">
-      <attribute name="color" type="hex" value="ffffb86c"/>
-      <attribute name="size" type="string" value="VERY_FINE"/>
+      <attribute name="color" type="hex" value="ffff5555"/>
+      <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="fff8f8f2"/>
+      <attribute name="color" type="hex" value="ff282a36"/>
       <attribute name="drawingType" type="string" value="strokeRecognizer"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="255"/>

@@ -8,7 +8,7 @@ super + alt + e
 
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # open geogebra
 super + alt + g

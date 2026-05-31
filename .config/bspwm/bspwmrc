@@ -5,7 +5,7 @@ xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d
 
 feh --bg-scale ~/Images/wallpapers/wallpaper.png
 
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120 --brightness 0.7
+xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120 --brightness 1
 
 killall polybar && killall sxhkd
 polybar bar1 &
@@ -30,6 +30,7 @@ bspc config gapless_monocle      true
 
 bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1150+200
 bspc rule -a kitty state=floating center=true rectangle=1125x730+0+0
+bspc rule -a Alacritty state=floating center=true rectangle=1280x795+0+0
 bspc rule -a pavucontrol state=floating center=true
 bspc rule -a Thunar state=floating center=true rectangle=1050x600+0+0
 bspc rule -a Gigolo state=floating center=true rectangle=700x450+0+0
