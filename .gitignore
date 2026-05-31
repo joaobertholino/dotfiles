@@ -23,6 +23,10 @@
 !/.config/sxhkd/**
 !/.config/kitty/
 !/.config/kitty/**
+!/.config/alacritty/
+!/.config/alacritty/**
+!/.config/tmux/
+!/.config/tmux/**
 !/.config/picom/
 !/.config/picom/picom.conf
 !/.config/rofi/
