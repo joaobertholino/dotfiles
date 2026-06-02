@@ -46,3 +46,5 @@
 !/.config/gigolo/**
 !/.config/zathura/
 !/.config/zathura/**
+!/.config/systemd/
+!/.config/systemd/**
