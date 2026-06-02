@@ -15,7 +15,7 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1150+200
+bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1100+200
 bspc rule -a kitty state=floating center=true rectangle=1125x730+0+0
 bspc rule -a Alacritty state=floating center=true rectangle=1125x750+0+0
 bspc rule -a pavucontrol state=floating center=true
