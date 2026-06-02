@@ -7,14 +7,14 @@
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
   <property name="lastSavePath" value="/home/joaob"/>
-  <property name="lastOpenPath" value="/home/joaob/IME-USP--Mathematics/1-Semestre/MAT2453/Anotacoes/Guidorizzi"/>
+  <property name="lastOpenPath" value="/home/joaob"/>
   <property name="lastImagePath" value="/home/joaob/Downloads"/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="4.5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="1244"/>
+  <property name="mainWndWidth" value="1912"/>
   <property name="mainWndHeight" value="1050"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>

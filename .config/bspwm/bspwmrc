@@ -1,4 +1,9 @@
 #! /bin/sh
+
+killall polybar && killall sxhkd
+polybar bar1 &
+pgrep -x sxhkd > /dev/null || sxhkd &
+
 bspc monitor -d 1 2 3 4 5 6
 
 bspc config pointer_follows_focus true
