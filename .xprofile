@@ -1,8 +1,4 @@
-# Configurações de hardware e desktop
-dbus-update-activation-environment --systemd --all
-systemctl --user import-environment DISPLAY XAUTHORITY
 xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d+') Rotate half
 xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d+') PressureCurve 0 0 30 70
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120 --brightness 1
-feh --bg-scale ~/Images/wallpapers/wallpaper.png
-xsetroot -cursor_name left_ptr
+xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120
+xsetroot -cursor_name left_ptr -solid "#797979"

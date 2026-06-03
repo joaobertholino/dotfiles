@@ -1,0 +1,21 @@
+* {
+    background-color: #ffffff;
+    text-color: #333333;
+}
+
+window {
+    width: 30%;
+    padding: 20px;
+    border: 2px;
+    border-color: #cccccc;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: #f0f0f0;
+}
+
+element selected {
+    background-color: #e0e0e0;
+    text-color: #000000;
+}
