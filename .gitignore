@@ -48,5 +48,4 @@
 !/.config/zathura/**
 !/.config/systemd/
 !/.config/systemd/**
-!/.config/Code/User/snippets/
-!/.config/Code/User/snippets/**
+!/.config/Code/User/snippets
