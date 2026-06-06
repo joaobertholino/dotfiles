@@ -1,7 +1,3 @@
-# -*- mode: snippet -*-
-# name: birkjour
-# key: bj
-# --
 \documentclass{birkjour}
 
 \usepackage[english]{babel}
@@ -10,6 +6,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
+\usepackage{multicol}
+\usepackage{cite}
 
 \usepackage{setspace}
 \onehalfspacing
@@ -27,23 +25,24 @@
 \usepackage{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{proposition}{Proposition}[section]
-\newtheorem{corollary}{Corollary}[section]
 \theoremstyle{definition}
-\newtheorem{remark}{Remark}[section]
 \newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{solution}{Solution}[example]
 
-\title[${1:Title of article}]{${2:Title}}
+\title[Title of article]{Title of article}
 \author[J.~Bertholino]{João Victor Bertholino Cestari}
-\address{Instituto de Matemática, Estatística e Ciência da Computação, Universidade de São Paulo\\Rua do Matão 1010, São Paulo, SP - CEP 05508-090, Brazil}
+\address{Institute of Mathematics, Statistics and Computer Science, University of São Paulo\\Rua do Matão 1010, São Paulo, SP - CEP 05508-090, Brazil}
 \email{joao.bertholino@usp.br}
 
 \begin{document}
-\begin{abstract}
-
-\end{abstract}
 \maketitle
 
+
+\bibliographystyle{amsplain}
+\bibliography{../References/references-all}
 \end{document}
