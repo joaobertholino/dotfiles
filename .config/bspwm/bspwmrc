@@ -4,7 +4,7 @@ killall polybar && killall sxhkd
 polybar bar1 &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 bspc config pointer_follows_focus true
 bspc config border_width         1

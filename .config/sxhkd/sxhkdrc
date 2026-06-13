@@ -4,7 +4,7 @@
 
 # VS Code
 super + alt + e
-  code
+  code --profile Latex
 
 # terminal emulator
 super + Return
