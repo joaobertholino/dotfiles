@@ -12,13 +12,27 @@
 ;;; LaTeX Config
 (after! latex
 
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (add-hook 'TeX-after-compilation-finished-functions
-                        #'TeX-revert-document-buffer)))
+  (defun my/latex-force-cleanup ()
+    "Limpeza bruta via shell para garantir que nenhum arquivo auxiliar reste."
+    (let* ((base-dir (projectile-project-root))
+           ;; Lista de extensões que queremos exterminar
+           (exts '("aux" "bbl" "blg" "idx" "ind" "lof" "lot" "out" "toc"
+                   "acn" "acr" "alg" "glg" "glo" "gls" "fls" "log"
+                   "fdb_latexmk" "snm" "synctex.gz" "nav" "vrb"))
+           ;; Constrói o comando find para rodar no terminal
+           (find-cmd (format "find %s -type f \\( %s \\) -delete"
+                             base-dir
+                             (mapconcat (lambda (e) (format "-name \"*.%s\"" e)) exts " -o "))))
 
-  ;; Opcional: configurar para sempre limpar automaticamente
-  (setq TeX-clean-confirm nil)
+      ;; Executa o comando no background
+      (shell-command find-cmd)
+      (message "Limpeza forçada via shell concluída.")))
+
+  ;; Executa 2 segundos após o término da compilação para garantir que o
+  ;; LaTeX liberou os arquivos (o atraso evita erros de "file busy")
+  (add-hook 'TeX-after-compilation-finished-functions
+            (lambda (&rest _)
+              (run-with-timer 2 nil #'my/latex-force-cleanup)))
 
   ;; Auto-save
   (setq auto-save-visited-interval 0.5)
