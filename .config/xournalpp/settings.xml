@@ -14,8 +14,8 @@
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="5"/>
   <property name="displayDpi" value="-1"/>
-  <property name="mainWndWidth" value="916"/>
-  <property name="mainWndHeight" value="1050"/>
+  <property name="mainWndWidth" value="565"/>
+  <property name="mainWndHeight" value="1058"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
@@ -109,7 +109,7 @@
   <property name="audioSampleRate" value="16000"/>
   <property name="audioGain" value="1"/>
   <property name="defaultSeekTime" value="1"/>
-  <property name="pluginEnabled" value=""/>
+  <property name="pluginEnabled" value="/usr/share/xournalpp/plugins/ToggleGrid"/>
   <property name="pluginDisabled" value=""/>
   <property name="strokeFilterIgnoreTime" value="150"/>
   <property name="strokeFilterIgnoreLength" value="1"/>

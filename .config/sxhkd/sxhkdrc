@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# emacs everywhere
+super + alt + n
+  emacsclient --eval "(emacs-everywhere)"
+
 # VS Code
 super + alt + e
   code --profile Latex
