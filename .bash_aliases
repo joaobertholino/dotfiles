@@ -18,6 +18,7 @@ alias suspend='systemctl suspend'
 alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
 alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
 alias yaya='yay --noconfirm'
+alias emcli='emacsclient -nw'
 
 #SSH
 alias ssh-ime='ssh linux-ime'
