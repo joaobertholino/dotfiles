@@ -49,6 +49,7 @@ alias gmremotermo='git remote remove origin'
 alias glog='git log'
 alias gstat='git status'
 alias gpusham='git add . && git commit -m "." && git push origin main'
+alias gpushsb='git pushall'
 alias grmcache='git rm -r --cached .'
 
 # Kitty
