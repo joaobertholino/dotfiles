@@ -1,3 +1,6 @@
 [submodule "Latex"]
     path = Latex
 	url = git@github.com:joaobertholino/Latex.git
+[submodule ".config/doom"]
+	path = .config/doom
+	url = git@github.com:joaobertholino/doom.git
