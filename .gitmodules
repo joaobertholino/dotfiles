@@ -4,3 +4,6 @@
 [submodule ".config/doom"]
 	path = .config/doom
 	url = git@github.com:joaobertholino/doom.git
+[submodule ".config/xournalpp"]
+	path = .config/xournalpp
+	url = git@github.com:joaobertholino/xournalpp.git
