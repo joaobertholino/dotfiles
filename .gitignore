@@ -10,6 +10,7 @@
 !/.xsessionrc
 !/README.md
 !/.gitignore
+!/Latex
 
 # Não ignorar o diretório .config, mas ignorar seu conteúdo por padrão
 !/.config/
