@@ -1,4 +1,4 @@
-/* GNOME OLED Black theme */
+/* GNOME White theme */
 
 configuration {
     show-icons:      false;
@@ -8,16 +8,16 @@ configuration {
 
 * {
     font: "Jetbrains Mono 12";
-    foreground: #ffffff;
-    background-color: #000000;
-    active-background: #262626;
-    urgent-background: #ff4d4d;
-    urgent-foreground: #ffffff;
+    foreground: #333333;
+    background-color: #ffffff;
+    active-background: #e0e0e0;
+    urgent-background: #ffcccc;
+    urgent-foreground: #333333;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
-    separatorcolor: #262626;
-    bordercolor: #262626;
+    separatorcolor: #cccccc;
+    bordercolor: #cccccc;
 }
 
 #window {

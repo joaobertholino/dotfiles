@@ -25,31 +25,30 @@ multiplier = 5
 [mouse]
 hide_when_typing = true
 
-# --- Esquema de Cores OLED Dark ---
 [colors.primary]
-background = "#000000"
-foreground = "#ffffff"
+foreground = "#171421"
+background = "#FFFFFF"
 
 [colors.selection]
-text = "#000000"
-background = "#ffffff"
+text = "#FFFFFF"
+background = "#000000"
 
 [colors.normal]
-black =   "#262626"
-red =     "#ff4d4d"
-green =   "#009100"
-yellow =  "#ff9900"
-blue =    "#66b2ff"
-magenta = "#c061cb"
-cyan =    "#33c7de"
-white =   "#e0e0e0"
+black =   "#171421"
+red =     "#C01C28"
+green =   "#26A269"
+yellow =  "#A2734C"
+blue =    "#12488B"
+magenta = "#A347BA"
+cyan =    "#2AA1B3"
+white =   "#D0CFCC"
 
 [colors.bright]
-black =   "#666666"
-red =     "#ff6666"
-green =   "#33d17a"
-yellow =  "#e9ad0c"
-blue =    "#80bfff"
-magenta = "#d896ff"
-cyan =    "#66e0f5"
+black =   "#5E5C64"
+red =     "#F66151"
+green =   "#33D17A"
+yellow =  "#E9AD0C"
+blue =    "#2A7BDE"
+magenta = "#C061CB"
+cyan =    "#33C7DE"
 white =   "#ffffff"
