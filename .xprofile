@@ -2,5 +2,3 @@ xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d
 xsetwacom set $(xsetwacom --list devices | grep -i "eraser" | grep -oP 'id: \K\d+') PressureCurve 0 0 30 70
 xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120
 xsetroot -cursor_name left_ptr -solid "#000000"
-
-#exec dbus-launch --exit-with-session emacs
