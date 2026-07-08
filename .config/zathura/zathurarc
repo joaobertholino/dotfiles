@@ -1,5 +1,5 @@
 # ------------------------------------
-# Configurações de Tema (Gnome Light / Dark Toggle)
+# Configurações de Tema (OLED Black - Match Polybar)
 # ------------------------------------
 
 set font "Wigrum Regular 10"
@@ -9,53 +9,52 @@ set show-recent 5
 set guioptions shv
 set database sqlite
 
-# Cores baseadas no tema Light do Kitty (Default)[cite: 2]
-set default-bg                  rgba(252,252,252,1)
-set default-fg                  rgba(35,38,39,1)
+# Cores baseadas no tema OLED
+set default-bg                  "#000000"
+set default-fg                  "#ffffff"
 
 # Notificações
-set notification-error-bg       rgba(237,21,21,1)
-set notification-error-fg       rgba(252,252,252,1)
-set notification-warning-bg     rgba(246,116,0,1)
-set notification-warning-fg     rgba(35,38,39,1)
-set notification-bg             rgba(252,252,252,1)
-set notification-fg             rgba(35,38,39,1)
+set notification-error-bg       "#ff4d4d"
+set notification-error-fg       "#ffffff"
+set notification-warning-bg     "#ff9900"
+set notification-warning-fg     "#000000"
+set notification-bg             "#262626"
+set notification-fg             "#ffffff"
 
 # Completar
-set completion-bg               rgba(252,252,252,1)
-set completion-fg               rgba(127,140,141,1)
-set completion-group-bg         rgba(252,252,252,1)
-set completion-group-fg         rgba(127,140,141,1)
-set completion-highlight-bg     rgba(35,38,39,1)
-set completion-highlight-fg     rgba(252,252,252,1)
+set completion-bg               "#262626"
+set completion-fg               "#e0e0e0"
+set completion-group-bg         "#000000"
+set completion-group-fg         "#66b2ff"
+set completion-highlight-bg     "#ffffff"
+set completion-highlight-fg     "#000000"
 
 # Índice
-set index-bg                    rgba(252,252,252,1)
-set index-fg                    rgba(35,38,39,1)
-set index-active-bg             rgba(35,38,39,1)
-set index-active-fg             rgba(252,252,252,1)
+set index-bg                    "#000000"
+set index-fg                    "#ffffff"
+set index-active-bg             "#262626"
+set index-active-fg             "#66b2ff"
 
 # Barras
-set inputbar-bg                 rgba(252,252,252,1)
-set inputbar-fg                 rgba(35,38,39,1)
-set statusbar-bg                rgba(252,252,252,1)
-set statusbar-fg                rgba(35,38,39,1)
+set inputbar-bg                 "#262626"
+set inputbar-fg                 "#ffffff"
+set statusbar-bg                "#000000"
+set statusbar-fg                "#ffffff"
 
-# Destaques
-set highlight-color             rgba(246,116,0,0.5)
-set highlight-active-color      rgba(155,89,182,0.5)
+# Destaques (Seleção de texto/links)
+set highlight-color             "rgba(102,178,255,0.4)"
+set highlight-active-color      "rgba(255,77,77,0.4)"
 
-# Configurações de Recolor (Inversão para Dark Mode)
-# Quando 'recolor' é ativado, o zathura usa estas cores:
-set recolor                     false
+# Configurações de Recolor (Inversão automática de páginas de PDFs para OLED)
+set recolor                     true
 set recolor-keephue             true 
-set recolor-lightcolor          rgba(35,38,39,1)   # Fundo Escuro do Kitty[cite: 2]
-set recolor-darkcolor           rgba(252,252,252,1) # Texto Claro do Kitty[cite: 2]
+set recolor-lightcolor          "#000000"   # Fundo do PDF vira Preto Puro
+set recolor-darkcolor           "#ffffff"   # Texto do PDF vira Branco
 
 # Geral
 set render-loading              true
-set render-loading-fg           rgba(252,252,252,1)
-set render-loading-bg           rgba(35,38,39,1)
+set render-loading-fg           "#ffffff"
+set render-loading-bg           "#000000"
 set statusbar-home-tilde        true
 set selection-clipboard         clipboard
 set window-title-basename       true

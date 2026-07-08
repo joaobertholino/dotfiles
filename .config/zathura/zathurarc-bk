@@ -1,0 +1,76 @@
+# ------------------------------------
+# Configurações de Tema (Gnome Light / Dark Toggle)
+# ------------------------------------
+
+set font "Wigrum Regular 10"
+set smooth-scroll true
+set save-history-on-close false
+set show-recent 5
+set guioptions shv
+set database sqlite
+
+# Cores baseadas no tema Light do Kitty (Default)[cite: 2]
+set default-bg                  rgba(252,252,252,1)
+set default-fg                  rgba(35,38,39,1)
+
+# Notificações
+set notification-error-bg       rgba(237,21,21,1)
+set notification-error-fg       rgba(252,252,252,1)
+set notification-warning-bg     rgba(246,116,0,1)
+set notification-warning-fg     rgba(35,38,39,1)
+set notification-bg             rgba(252,252,252,1)
+set notification-fg             rgba(35,38,39,1)
+
+# Completar
+set completion-bg               rgba(252,252,252,1)
+set completion-fg               rgba(127,140,141,1)
+set completion-group-bg         rgba(252,252,252,1)
+set completion-group-fg         rgba(127,140,141,1)
+set completion-highlight-bg     rgba(35,38,39,1)
+set completion-highlight-fg     rgba(252,252,252,1)
+
+# Índice
+set index-bg                    rgba(252,252,252,1)
+set index-fg                    rgba(35,38,39,1)
+set index-active-bg             rgba(35,38,39,1)
+set index-active-fg             rgba(252,252,252,1)
+
+# Barras
+set inputbar-bg                 rgba(252,252,252,1)
+set inputbar-fg                 rgba(35,38,39,1)
+set statusbar-bg                rgba(252,252,252,1)
+set statusbar-fg                rgba(35,38,39,1)
+
+# Destaques
+set highlight-color             rgba(246,116,0,0.5)
+set highlight-active-color      rgba(155,89,182,0.5)
+
+# Configurações de Recolor (Inversão para Dark Mode)
+# Quando 'recolor' é ativado, o zathura usa estas cores:
+set recolor                     false
+set recolor-keephue             true 
+set recolor-lightcolor          rgba(35,38,39,1)   # Fundo Escuro do Kitty[cite: 2]
+set recolor-darkcolor           rgba(252,252,252,1) # Texto Claro do Kitty[cite: 2]
+
+# Geral
+set render-loading              true
+set render-loading-fg           rgba(252,252,252,1)
+set render-loading-bg           rgba(35,38,39,1)
+set statusbar-home-tilde        true
+set selection-clipboard         clipboard
+set window-title-basename       true
+set adjust-open                 "best-fit"
+set synctex                     true
+
+# ------------------------------------
+# Mapeamentos
+# ------------------------------------
+map Q quit
+map = zoom in
+map - zoom out
+map <C-0> zoom original
+map w adjust_window width
+map b adjust_window best-fit
+
+# Mapeia 'r' para alternar o modo recolor
+map r recolor
