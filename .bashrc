@@ -18,9 +18,9 @@ shopt -s checkwinsize
 
 # Configuração de prompt colorido
 if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "xterm-kitty" ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
 fi
 
 # Alias para ls, grep e cores
@@ -52,4 +52,5 @@ export PATH="/home/joaob/.config/emacs/bin:$PATH"
 export MANPATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texlive/2026/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texlive/2026/texmf-dist/doc/info:$INFOPATH"
 export PATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texlive/2026/bin/x86_64-linux:$PATH"
-export BIBINPUTS="/home/joaob/Latex/References:"
+export BIBINPUTS="/home/joaob/Latex/References"
+export TMPDIR="/home/joaob/.tmp/"
