@@ -17,7 +17,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Configuração de prompt colorido
-if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "xterm-kitty" ]; then
+if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "xterm-kitty" ] || [ "$TERM" = "screen-256color" ] || [ "$TERM" = "tmux-256color" ] || [ "$TERM" = "alacritty" ] || [ "$TERM" = "screen" ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
