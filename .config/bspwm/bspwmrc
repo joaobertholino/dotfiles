@@ -10,8 +10,8 @@ bspc config pointer_motion_interval 8
 bspc config pointer_follows_focus true
 bspc config border_width         1
 bspc config normal_border_color "#000000"
-bspc config active_border_color "#00000"
-bspc config focused_border_color "#66b2ff"
+bspc config active_border_color "#ffffff"
+bspc config focused_border_color "#121212"
 bspc config presel_feedaback_color "#6272a4"
 bspc config top_padding          0
 bspc config bottom_padding       0
@@ -22,6 +22,7 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc rule -a '*' state=floating
 bspc rule -a Emacs state=floating center=true rectangle=1125x750+0+0
 bspc rule -a Qalculate-gtk state=floating rectangle=700x600+1100+200
 bspc rule -a Alacritty state=floating center=true rectangle=850x500+0+0
