@@ -1,0 +1,10 @@
+[linux-ime]
+host=linux.ime.usp.br
+folder=
+user=joaob
+scheme=sftp
+share=
+domain=
+path=
+color=rgb(153,193,241)
+port=22

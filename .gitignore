@@ -1,0 +1,53 @@
+# Ignorar tudo no diretório HOME
+/*
+
+# Não ignorar os seguintes arquivos específicos
+!/texmf
+!/.vimrc
+!/.bashrc
+!/.bash_aliases
+!/.xprofile
+!/.xsessionrc
+!/README.md
+!/.gitignore
+!/.gitmodules
+
+# Não ignorar o diretório .config, mas ignorar seu conteúdo por padrão
+!/.config/
+/.config/*
+
+# Não ignorar diretórios específicos dentro de .config e seus conteúdos
+!/.config/bspwm/
+!/.config/bspwm/**
+!/.config/polybar/
+!/.config/polybar/**
+!/.config/sxhkd/
+!/.config/sxhkd/**
+!/.config/kitty/
+!/.config/kitty/**
+!/.config/alacritty/
+!/.config/alacritty/**
+!/.config/tmux/
+!/.config/tmux/**
+!/.config/picom/
+!/.config/picom/picom.conf
+!/.config/rofi/
+!/.config/rofi/**
+!/.config/htop/
+!/.config/htop**
+!/.config/xournalpp/
+!/.config/xournalpp/**
+!/.config/yay/
+!/.config/yay/**
+!/.config/ranger/
+!/.config/ranger/**
+!/.config/doom/
+!/.config/doom/**
+!/.config/gigolo/
+!/.config/gigolo/**
+!/.config/zathura/
+!/.config/zathura/**
+!/.config/Code/User/snippets/
+!/.config/Code/User/snippets/**
+!/.config/ly-dur/
+!/.config/ly-dur/**

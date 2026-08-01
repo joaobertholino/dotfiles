@@ -1,0 +1,62 @@
+# System
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias la='ls -a'
+alias cat='bat'
+alias sysf='fastfetch -c all-personal.jsonc --logo none --color blue'
+alias cls='clear'
+alias clsh='cd && clear'
+alias rmpkg='sudo rm -rfv /var/cache/pacman/pkg/* && sudo rm -rfv /home/joaob/.cache/yay/*'
+alias tshp='trash-put -rvf'
+alias tshl='trash-list'
+alias tshr='trash-restore'
+alias tshe='trash-empty'
+alias pwoff='systemctl poweroff'
+alias rebootsys='systemctl reboot'
+alias logout='loginctl terminate-user $(whoami)'
+alias suspend='systemctl suspend'
+alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
+alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
+alias yaya='yay --noconfirm'
+alias emcli='emacsclient -nw'
+
+#SSH
+alias ssh-ime='ssh linux-ime'
+
+# Backup of System
+alias aconfs='aconfmgr save'
+alias aconfa='aconfmgr apply'
+
+# Git
+alias ginit='git init'
+alias gbranch='git branch'
+alias gcheckb='git checkout'
+alias gdelb='git branch -d'
+alias gdelbf='git branch -D'
+alias gadda='git add .'
+alias gadd='git add'
+alias gcommit='git commit -m'
+alias gpush='git push'
+alias gpusho='git push origin'
+alias gpushom='git push origin main'
+alias greseth='git reset --hard'
+alias gresets='git reset --soft'
+alias gremotev='git remote -v'
+alias gremotea='git remote add'
+alias gremoteao='git remote add origin'
+alias gremoterm='git remote remove'
+alias gmremotermo='git remote remove origin'
+alias glog='git log'
+alias gstat='git status'
+alias gpusham='git add . && git commit -m "." && git push origin main'
+alias gpushfa='git submodule foreach "git push origin main"'
+alias grmcache='git rm -fr --cached ./'
+
+# Kitty
+alias icat='kitten icat'
+
+# Alacritty and Tmux
+alias exit-at='tmux kill-session -t main && exit'
+
+# Vim
+alias vimf='vim +'

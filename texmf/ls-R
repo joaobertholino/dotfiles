@@ -1,0 +1,17 @@
+% ls-R -- filename database for kpathsea; do not change this line.
+./:
+.:
+ls-R
+tex
+
+
+./tex:
+latex
+
+./tex/latex:
+birkjour
+
+./tex/latex/birkjour:
+birkjour.cls
+cite.sty
+spmpsci.bst

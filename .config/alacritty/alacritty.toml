@@ -1,0 +1,55 @@
+# ~/.config/alacritty/alacritty.toml
+
+[terminal]
+# Inicia o tmux automaticamente ao abrir
+shell = { program = "/usr/bin/tmux", args = ["new-session", "-A", "-s", "main"] }
+
+[window]
+padding = { x = 0, y = 0 }
+opacity = 1.0
+
+[font]
+size = 9.5
+normal = { family = "0xProto Nerd Font", style = "Regular" }
+bold = { family = "0xProto Nerd Font", style = "Bold" }
+italic = { family = "0xProto Nerd Font", style = "Italic" }
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+unfocused_hollow = true
+
+[scrolling]
+history = 2000
+multiplier = 5
+
+[mouse]
+hide_when_typing = true
+
+# --- Esquema de Cores OLED Dark ---
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[colors.selection]
+text = "#000000"
+background = "#ffffff"
+
+[colors.normal]
+black =   "#262626"
+red =     "#ff4d4d"
+green =   "#009100"
+yellow =  "#ff9900"
+blue =    "#66b2ff"
+magenta = "#c061cb"
+cyan =    "#33c7de"
+white =   "#e0e0e0"
+
+[colors.bright]
+black =   "#666666"
+red =     "#ff6666"
+green =   "#33d17a"
+yellow =  "#e9ad0c"
+blue =    "#80bfff"
+magenta = "#d896ff"
+cyan =    "#66e0f5"
+white =   "#ffffff"
