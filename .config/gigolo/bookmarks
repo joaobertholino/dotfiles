@@ -1,6 +1,6 @@
-[linux-ime]
+[LINUX-IME-USP]
 host=linux.ime.usp.br
-folder=
+folder=/home/bm/joaob
 user=joaob
 scheme=sftp
 share=
