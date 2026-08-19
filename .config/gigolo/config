@@ -4,7 +4,7 @@ terminal=alacritty
 autoconnect_interval=60
 
 [ui]
-geometry=564;320;715;450;0;
+geometry=609;314;700;450;0;
 save_geometry=true
 show_in_systray=true
 start_in_systray=false
