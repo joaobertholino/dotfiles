@@ -51,3 +51,5 @@
 !/.config/Code/User/snippets/**
 !/.config/ly-dur/
 !/.config/ly-dur/**
+!/.config/gtk-3.0/
+!/.config/gtk-3.0/**
