@@ -8,16 +8,16 @@ configuration {
 
 * {
     font: "Jetbrains Mono 12";
-    foreground: #ffffff;
-    background-color: #000000;
+    foreground: #000000;
+    background-color: #ffffff;
     active-background: #262626;
     urgent-background: #ff4d4d;
-    urgent-foreground: #ffffff;
+    urgent-foreground: #000000;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
-    separatorcolor: #262626;
-    bordercolor: #262626;
+    separatorcolor: #;
+    bordercolor: #000000;
 }
 
 #window {
