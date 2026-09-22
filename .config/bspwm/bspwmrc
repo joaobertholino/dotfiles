@@ -22,7 +22,6 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-#bspc rule -a '*' state=floating
 bspc rule -a Emacs state=floating center=true rectangle=1125x750+0+0
 bspc rule -a Qalculate-gtk state=floating rectangle=580x470+1320+300
 bspc rule -a Alacritty state=floating center=true rectangle=850x500+0+0

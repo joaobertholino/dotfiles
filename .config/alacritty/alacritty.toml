@@ -1,7 +1,4 @@
-# ~/.config/alacritty/alacritty.toml
-
 [terminal]
-# Inicia o tmux automaticamente ao abrir
 shell = { program = "/usr/bin/tmux", args = ["new-session", "-A", "-s", "main"] }
 
 [window]
@@ -25,7 +22,6 @@ multiplier = 5
 [mouse]
 hide_when_typing = true
 
-# --- Esquema de Cores Light ---
 [colors.primary]
 background = "#FFFFFF"
 foreground = "#000000"

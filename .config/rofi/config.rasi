@@ -1,5 +1,3 @@
-/* GNOME OLED Black theme */
-
 configuration {
     show-icons:      false;
     display-drun:    "";
