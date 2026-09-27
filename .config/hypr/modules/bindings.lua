@@ -1,5 +1,5 @@
 local terminal = "alacritty"
-local launcher = "/home/joaob/.config/rofi/applaunch/launcher.sh"
+local launcher = "hyprlauncher -t"
 local mod = "SUPER"
 
 local function bind(key, dispatcher, opts)
