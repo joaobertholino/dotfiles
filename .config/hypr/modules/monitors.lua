@@ -4,4 +4,8 @@ hl.monitor({
     position = "auto",
     scale = 1,
     vrr = 1,
+    bitdepth = 8,
+    cm = "hdr",
+    sdrbrightness = 1.0,
+    sdrsaturation = 1.0,
 })
