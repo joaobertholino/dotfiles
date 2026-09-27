@@ -15,18 +15,11 @@ alias pwoff='systemctl poweroff'
 alias rebootsys='systemctl reboot'
 alias logout='loginctl terminate-user $(whoami)'
 alias suspend='systemctl suspend'
-alias lightl='xrandr --output HDMI-A-0 --brightness 0.4'
-alias lighth='xrandr --output HDMI-A-0 --brightness 0.7'
 alias yaya='yay --noconfirm'
-alias emcli='emacsclient -nw'
 alias btral='sudo -E btrfs-assistant-launcher'
 
 #SSH
 alias ssh-ime='ssh linux-ime'
-
-# Backup of System
-alias aconfs='aconfmgr save'
-alias aconfa='aconfmgr apply'
 
 # Git
 alias ginit='git init'
@@ -52,9 +45,6 @@ alias gstat='git status'
 alias gpusham='git add . && git commit -m "." && git push origin main'
 alias gpushfa='git submodule foreach "git push origin main"'
 alias grmcache='git rm -fr --cached ./'
-
-# Kitty
-alias icat='kitten icat'
 
 # Alacritty and Tmux
 alias exit-at='tmux kill-session -t main && exit'
