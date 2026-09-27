@@ -1,4 +1,4 @@
-## My dotfiles ArchLinux with BSPWM environment.
+## My dotfiles ArchLinux with Hyprland environment.
 ![Initial buffer](https://i.imgur.com/Df2s31V.png)
 
 ### Clone and configure
