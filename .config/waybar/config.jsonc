@@ -1,0 +1,90 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 20,
+  "spacing": 4,
+  "modules-left": [
+    "hyprland/workspaces",
+    "disk#root",
+    "custom/filesystem-secondary",
+    "custom/diskio-sdb",
+    "custom/diskio-sda"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/memory",
+    "cpu",
+    "temperature",
+    "network",
+    "pulseaudio",
+    "custom/mic"
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "persistent-workspaces": { "*": 5 }
+  },
+  "disk#root": {
+    "path": "/",
+    "interval": 25,
+    "format": "/ {percentage_used}%",
+    "tooltip-format": "{path}: {used} usados de {total}"
+  },
+  "custom/filesystem-secondary": {
+    "exec": "mountpoint -q /mnt/WDC-128 && df -h /mnt/WDC-128 | awk 'NR==2 {print $6 \" \" $5}' || printf '/mnt/WDC-128 não montado'",
+    "interval": 25,
+    "tooltip": false
+  },
+  "custom/diskio-sdb": {
+    "exec": "/home/joaob/.config/waybar/disk-io-sdb.sh",
+    "interval": 2,
+    "tooltip": false
+  },
+  "custom/diskio-sda": {
+    "exec": "/home/joaob/.config/waybar/disk-io-sda.sh",
+    "interval": 2,
+    "tooltip": false
+  },
+  "custom/memory": {
+    "exec": "/home/joaob/.config/waybar/memory.sh",
+    "interval": 1,
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "CPU {usage}%",
+    "tooltip": false
+  },
+  "temperature": {
+    "interval": 1,
+    "critical-threshold": 50,
+    "format": "CPU-TEMP {temperatureC}°C",
+    "format-critical": "CPU-TEMP {temperatureC}°C",
+    "tooltip": false
+  },
+  "network": {
+    "interval": 3,
+    "format-ethernet": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
+    "format-wifi": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
+    "format-disconnected": "desconectado",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "muted",
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "custom/mic": {
+    "exec": "/home/joaob/.config/waybar/mic-activity.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "/home/joaob/.config/waybar/toggle-microphone.sh"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%A - %d/%b(%m)/%Y - %H:%M}",
+    "format-alt": "{:%H:%M}"
+  }
+}
