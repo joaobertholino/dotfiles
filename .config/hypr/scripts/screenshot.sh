@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
+set -u
+
 directory="/home/joaob/Images/screenshots"
-file="$directory/$(date '+%d-%m-%YT%H-%M-%S').png"
+filename="$(date '+%d-%m-%YT%H-%M-%S').png"
+
 mkdir -p "$directory"
-grim -g "$(slurp)" "$file" && wl-copy < "$file"
+
+# hyprshot mantém o seletor de região em primeiro plano até a seleção ser
+# concluída. Cancelar com Esc não cria um arquivo parcial.
+hyprshot -m region -o "$directory" -f "$filename" -s
