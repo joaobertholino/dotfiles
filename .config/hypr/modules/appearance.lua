@@ -5,6 +5,7 @@ hl.config({
         border_size = 1,
         col = { active_border = "rgba(737373ff)", inactive_border = "rgba(262626ff)" },
         resize_on_border = false,
+        hover_icon_on_border = false,
         allow_tearing = false,
         layout = "dwindle",
     },

@@ -1,7 +1,5 @@
 hl.window_rule({ name = "emacs", match = { class = "^Emacs$" }, float = true, center = true, size = "1125 750" })
--- Sem tamanho imposto pelo compositor, o Qalculate usa sua própria geometria
--- mínima (largura configurada em 500 px) e calcula a altura necessária.
-hl.window_rule({ name = "qalculate", match = { class = "^Qalculate-gtk$" }, float = true, center = true })
+hl.window_rule({ name = "qalculate", match = { class = "^Qalculate-gtk$" }, float = true, center = true, fullscreen = false, size = "850 500" })
 hl.window_rule({ name = "alacritty", match = { class = "^Alacritty$" }, float = true, center = true, size = "850 500" })
 hl.window_rule({ name = "pavucontrol", match = { class = "^Pavucontrol$" }, float = true, center = true })
 hl.window_rule({ name = "thunar", match = { class = "^Thunar$" }, float = true, center = true, size = "1050 600" })
