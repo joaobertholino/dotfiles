@@ -15,6 +15,7 @@ bind("SPACE", hl.dsp.exec_cmd(launcher))
 bind("ESCAPE", hl.dsp.reload_config())
 bind("ALT + Q", hl.dsp.exit())
 bind("ALT + R", hl.dsp.reload_config())
+bind("ALT + O", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/toggle-orientation.sh"))
 hl.bind("PRINT", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/screenshot.sh"))
 
 bind("W", hl.dsp.window.close())
