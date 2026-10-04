@@ -54,3 +54,4 @@ export INFOPATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texliv
 export PATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texlive/2026/bin/x86_64-linux:$PATH"
 export BIBINPUTS="/home/joaob/Latex/References"
 export TMPDIR="/home/joaob/.tmp/"
+export PATH="$HOME/.elan/bin:$PATH"
