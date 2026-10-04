@@ -1,0 +1,7 @@
+[Unit]
+Description=Automated Git push for dotfiles, submodules and Ly configuration
+ConditionPathIsDirectory=/etc/ly
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/auto-push.sh

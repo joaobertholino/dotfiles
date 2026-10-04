@@ -129,6 +129,7 @@ Prefira instalar somente o que pretende usar:
 | Bash e Vim | `.bashrc`, `.bash_aliases`, `.vimrc` | `~/` |
 | Terminal | `.config/alacritty`, `.config/tmux` | `~/.config/` |
 | Hyprland | `.config/hypr`, `.config/waybar`, `.config/ly-dur` | `~/.config/` |
+| Ly display manager | `.config/ly-dm` (link simbólico) | aponta para `/etc/ly` |
 | Emacs | `.config/doom` (submódulo) | `~/.config/doom` |
 | Anotações | `.config/xournalpp` (submódulo) | `~/.config/xournalpp` |
 | Aplicativos | `.config/zathura`, `.config/htop`, `.config/gigolo`, `.config/yay` | `~/.config/` |
@@ -148,6 +149,7 @@ Estes valores não são portáteis e devem ser editados ou removidos antes de ha
 - **Armazenamento:** Waybar consulta `/mnt/WDC-128`, `sda` e `sdb`.
 - **Arquivos pessoais:** `.bashrc` aponta para uma instalação local de TeX Live 2026, cache do yay, `~/Latex/References` e `~/.tmp`. Doom aponta para `~/Org-Notes/`, `~/Projects/` e `~/Documents/{refs.bib,papers,notes}`.
 - **Papel de parede:** `hyprpaper.conf` espera `/home/joaob/Images/wallpapers/black-wall.png`; esse arquivo não está versionado. Há alternativas versionadas em `.config/hypr/wallpaper-oled.png` e `.config/hypr/wallpaper.svg`.
+- **Ly:** `~/.config/ly-dm` é um link simbólico para `/etc/ly`. Este destino é um repositório Git independente, pois a configuração do display manager é administrada pelo sistema.
 - **Carregador Lua:** o arquivo de entrada é `hyprland.lua` e usa a API global `hl`, mas o checkout não inclui a implementação nem informa como o Hyprland carrega esse arquivo. Não há `hyprland.conf` tradicional. Descubra/instale o carregador Lua compatível antes de apontar a sessão para essa configuração.
 
 ## Atualização, remoção e rollback
@@ -192,6 +194,7 @@ Não há um comando de desinstalação seguro fornecido pelo projeto, porque a c
 │   ├── alacritty/    # terminal; inicia tmux
 │   ├── doom/         # submódulo: configuração Doom Emacs
 │   ├── hypr/         # entrada Lua, módulos, scripts e papéis de parede
+│   ├── ly-dm → /etc/ly # link para a configuração do display manager
 │   ├── tmux/         # prefixo C-a e layout de panes
 │   ├── waybar/       # painel e scripts de métricas/áudio
 │   ├── xournalpp/    # submódulo: preferências e modelos
