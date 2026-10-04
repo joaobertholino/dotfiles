@@ -36,17 +36,5 @@
 !/.config/hypr/**
 !/.config/waybar/
 !/.config/waybar/**
-!/.config/ly-dm
-
-# Automação de backup Git
-!/.config/systemd/
-/.config/systemd/*
-!/.config/systemd/user/
-/.config/systemd/user/*
-!/.config/systemd/user/git-auto-push.service
-!/.config/systemd/user/git-auto-push.timer
-!/.local/
-/.local/*
-!/.local/bin/
-/.local/bin/*
-!/.local/bin/auto-push.sh
+!/.config/ly-dm/
+!/.config/ly-dm/**
