@@ -4,3 +4,6 @@
 [submodule ".config/doom"]
 	path = .config/doom
 	url = git@github.com:joaobertholino/doom.git
+[submodule ".config/ly-dm"]
+	path = .config/ly-dm
+	url = git@github.com:joaobertholino/ly-dm.git
