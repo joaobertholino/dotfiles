@@ -6,7 +6,6 @@ Configurações pessoais para uma sessão **Arch Linux/Wayland com Hyprland**. E
 
 ![Captura de tela originalmente associada ao projeto](https://i.imgur.com/0QaopZ4.png)
 
-> A imagem acima já fazia parte deste README, mas é hospedada externamente. O repositório não possui uma captura de tela do desktop pronta para incorporação. Ele contém papéis de parede em `.config/hypr/`, que são recursos de configuração, não screenshots.
 
 ## Escopo e compatibilidade
 
