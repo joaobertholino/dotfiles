@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "bottom",
   "height": 20,
-  "spacing": 2,
+  "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",
     "disk#root",
@@ -27,23 +27,23 @@
   },
   "disk#root": {
     "path": "/",
-    "interval": 25,
+    "interval": 10,
     "format": "/ {percentage_used}%",
     "tooltip-format": "{path}: {used} usados de {total}"
   },
   "custom/filesystem-secondary": {
     "exec": "mountpoint -q /mnt/WDC-128 && df -h /mnt/WDC-128 | awk 'NR==2 {print $6 \" \" $5}' || printf '/mnt/WDC-128 não montado'",
-    "interval": 25,
+    "interval": 10,
     "tooltip": false
   },
   "custom/diskio-sdb": {
     "exec": "/home/joaob/.config/waybar/disk-io-sdb.sh",
-    "interval": 2,
+    "interval": 1,
     "tooltip": false
   },
   "custom/diskio-sda": {
     "exec": "/home/joaob/.config/waybar/disk-io-sda.sh",
-    "interval": 2,
+    "interval": 1,
     "tooltip": false
   },
   "custom/memory": {
@@ -64,7 +64,7 @@
     "tooltip": false
   },
   "network": {
-    "interval": 3,
+    "interval": 1,
     "format-ethernet": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
     "format-wifi": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
     "format-disconnected": "desconectado",
