@@ -32,7 +32,7 @@
     "tooltip-format": "{path}: {used} usados de {total}"
   },
   "custom/filesystem-secondary": {
-    "exec": "mountpoint -q /mnt/WDC-128 && df -h /mnt/WDC-128 | awk 'NR==2 {print $6 \" \" $5}' || printf '/mnt/WDC-128 não montado'",
+    "exec": "mountpoint -q /home && df -h /home | awk 'NR==2 {print \"/home \" $5}' || printf '/home não montado'",
     "interval": 10,
     "tooltip": false
   },
