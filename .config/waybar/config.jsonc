@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "bottom",
   "height": 20,
-  "spacing": 4,
+  "spacing": 2,
   "modules-left": [
     "hyprland/workspaces",
     "disk#root",
