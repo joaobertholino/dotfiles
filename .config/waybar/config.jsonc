@@ -1,16 +1,16 @@
 {
   "layer": "top",
-  "position": "bottom",
+  "position": "top",
   "height": 20,
   "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",
     "disk#root",
-    "custom/filesystem-secondary",
-    "custom/diskio-sdb",
-    "custom/diskio-sda"
+    "custom/filesystem-secondary"
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "custom/memory",
     "cpu",
@@ -23,7 +23,9 @@
     "format": "{name}",
     "disable-scroll": true,
     "all-outputs": true,
-    "persistent-workspaces": { "*": 5 }
+    "persistent-workspaces": {
+      "*": 5
+    }
   },
   "disk#root": {
     "path": "/",
@@ -34,17 +36,7 @@
   "custom/filesystem-secondary": {
     "exec": "mountpoint -q /home && df -h /home | awk 'NR==2 {print \"/home \" $5}' || printf '/home não montado'",
     "interval": 10,
-    "tooltip": false
-  },
-  "custom/diskio-sdb": {
-    "exec": "/home/joaob/.config/waybar/disk-io-sdb.sh",
-    "interval": 1,
-    "tooltip": false
-  },
-  "custom/diskio-sda": {
-    "exec": "/home/joaob/.config/waybar/disk-io-sda.sh",
-    "interval": 1,
-    "tooltip": false
+    "tooltip-format": "{path}: {used} usados de {total}"
   },
   "custom/memory": {
     "exec": "/home/joaob/.config/waybar/memory.sh",
@@ -53,22 +45,22 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "CPU {usage}%",
+    "format": "CPU: {usage}%",
     "tooltip": false
   },
   "temperature": {
     "interval": 1,
     "critical-threshold": 50,
-    "format": "CPU-TEMP {temperatureC}°C",
-    "format-critical": "CPU-TEMP {temperatureC}°C",
+    "format": "CPU-TEMP: {temperatureC}°C",
+    "format-critical": "CPU-TEMP: {temperatureC}°C",
     "tooltip": false
   },
   "network": {
     "interval": 1,
-    "format-ethernet": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
-    "format-wifi": "{ifname} ↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
-    "format-disconnected": "desconectado",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    "format-wifi": "WIFI: Connected",
+    "format-ethernet": "Ethernet: Connected",
+    "format-disconnected": "Connection: Disconnected",
+    "tooltip": false
   },
   "pulseaudio": {
     "format": "VOL {volume}%",
@@ -85,6 +77,7 @@
   "clock": {
     "interval": 1,
     "format": "{:%A - %d/%b(%m)/%Y - %H:%M}",
-    "format-alt": "{:%H:%M}"
+    "format-alt": "{:%H:%M}",
+    "tooltip": false
   }
 }
