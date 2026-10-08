@@ -63,7 +63,7 @@
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "VOL {volume}%",
+    "format": "VOL: {volume}%",
     "format-muted": "muted",
     "scroll-step": 5,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
