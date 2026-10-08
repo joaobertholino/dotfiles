@@ -8,7 +8,7 @@ transform=$(hyprctl monitors -j | jq -r --arg monitor "$monitor" '.[] | select(.
 if [[ "$transform" == "0" ]]; then
     # 1 is a 90-degree clockwise portrait transform. Hyprland retains its configured animations.
     hyprctl keyword monitor "$monitor,1920x1080@120,auto,1,1"
-    sed -i 's/^[[:space:]]*transform = [0-9],/    transform = 3,/' /home/joaob/.config/hypr/modules/monitors.lua
+    sed -i 's/^[[:space:]]*transform = [0-9],/    transform = 1,/' /home/joaob/.config/hypr/modules/monitors.lua
     notify-send --app-name=Hyprland 'Orientação da tela' 'Vertical'
 else
     hyprctl keyword monitor "$monitor,1920x1080@120,auto,1,0"
