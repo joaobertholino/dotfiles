@@ -10,6 +10,7 @@ hl.config({
             left_handed = true,
             output = "HDMI-A-1",
             relative_input = false,
+            transform = 1,
         },
     },
 })
@@ -20,4 +21,5 @@ hl.device({
     name = "wacom-one-by-wacom-s-pen",
     left_handed = true,
     output = "HDMI-A-1",
+    transform = 1,
 })
