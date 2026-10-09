@@ -6,3 +6,14 @@ hl.window_rule({ name = "thunar", match = { class = "^Thunar$" }, float = true, 
 hl.window_rule({ name = "gigolo", match = { class = "^Gigolo$" }, float = true, center = true, size = "700 450" })
 hl.window_rule({ name = "code", match = { class = "^Code$" }, float = true, center = true, size = "1125 730" })
 hl.window_rule({ name = "xwayland-drag", match = { class = "^$", title = "^$", xwayland = true, float = true }, no_focus = true })
+
+-- Hyprlauncher uses a layer-shell surface rather than a regular window.  Give it
+-- its own gentle pop-in so opening it with Super+Space feels immediate but alive.
+hl.layer_rule({
+    name = "hyprlauncher-glass",
+    match = { namespace = "^hyprlauncher$" },
+    animation = "popin 94%",
+    blur = true,
+    ignore_alpha = 0.0,
+    xray = true,
+})
