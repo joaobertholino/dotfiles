@@ -57,9 +57,9 @@
   },
   "network": {
     "interval": 1,
-    "format-wifi": "WIFI: Connected",
-    "format-ethernet": "Ethernet: Connected",
-    "format-disconnected": "Connection: Disconnected",
+    "format-wifi": "<span foreground='#f5f5f5'>WIFI:</span> <span foreground='#4ade80'>Connected</span>",
+    "format-ethernet": "<span foreground='#f5f5f5'>Ethernet:</span> <span foreground='#4ade80'>Connected</span>",
+    "format-disconnected": "<span foreground='#f5f5f5'>Connection:</span> <span foreground='#f87171'>Disconnected</span>",
     "tooltip": false
   },
   "pulseaudio": {

@@ -18,6 +18,23 @@ bind("ALT + R", hl.dsp.reload_config())
 bind("ALT + O", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/toggle-orientation.sh"))
 hl.bind("PRINT", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/screenshot.sh"))
 
+-- Símbolos matemáticos: SUPER + ALT + número; com SHIFT, operadores e cálculo.
+local math_symbol = "/home/joaob/.config/hypr/scripts/insert-math-symbol.sh "
+local math_symbols = {
+    ["1"] = "∀", ["2"] = "∃", ["3"] = "∈", ["4"] = "∉", ["5"] = "∩",
+    ["6"] = "∪", ["7"] = "→", ["8"] = "↔", ["9"] = "≤", ["0"] = "≥",
+}
+local math_symbols_shift = {
+    ["1"] = "≠", ["2"] = "±", ["3"] = "×", ["4"] = "÷", ["5"] = "√",
+    ["6"] = "∞", ["7"] = "∑", ["8"] = "∏", ["9"] = "∫", ["0"] = "∂",
+}
+for key, symbol in pairs(math_symbols) do
+    bind("ALT + " .. key, hl.dsp.exec_cmd(math_symbol .. symbol))
+end
+for key, symbol in pairs(math_symbols_shift) do
+    bind("ALT + SHIFT + " .. key, hl.dsp.exec_cmd(math_symbol .. symbol))
+end
+
 bind("W", hl.dsp.window.close())
 bind("SHIFT + W", hl.dsp.window.kill())
 bind("M", hl.dsp.window.fullscreen({ action = "toggle" }))
