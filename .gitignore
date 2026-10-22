@@ -38,3 +38,6 @@
 !/.config/waybar/**
 !/.config/ly-dm/
 !/.config/ly-dm/**
+
+# Configuração de notificações versionada como submódulo
+!/.config/dunst/
