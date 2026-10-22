@@ -2,7 +2,7 @@
 
 Configurações pessoais para uma sessão **Arch Linux/Wayland com Hyprland**. Este repositório não contém um instalador, um manifesto de pacotes nem um mecanismo de *stow*/*symlinks*: a instalação é deliberadamente manual, por cópia dos arquivos escolhidos.
 
-> **Estado verificado:** `main` em `c867d011a453ecf0887f542125a9f9848781de4d` (03/10/2026), incluindo os submódulos `doom` e `xournalpp`. O submódulo `dunst` foi adicionado em 22/10/2026. As instruções abaixo foram conferidas contra esse checkout.
+> **Estado verificado:** `main` em `c867d011a453ecf0887f542125a9f9848781de4d` (03/10/2026), incluindo os submódulos `doom` e `xournalpp`. Os submódulos `dunst` e `zen-cal` foram adicionados em 22/10/2026. As instruções abaixo foram conferidas contra esse checkout.
 
 ![Captura de tela originalmente associada ao projeto](https://i.imgur.com/WTW3yCB.png)
 
@@ -33,9 +33,10 @@ Para inicializar submódulos via SSH, as URLs atuais exigem acesso à chave SSH 
 git@github.com:joaobertholino/doom.git
 git@github.com:joaobertholino/xournalpp.git
 git@github.com:joaobertholino/Dunst.git
+git@github.com:joaobertholino/zen-cal.git
 ```
 
-Se a chave SSH não estiver disponível, o clone dos submódulos falhará. É possível clonar só o repositório principal sem `--recurse-submodules` e instalar os componentes que não dependem deles; Doom, Xournal++ e a configuração do Dunst ficarão ausentes.
+Se a chave SSH não estiver disponível, o clone dos submódulos falhará. É possível clonar só o repositório principal sem `--recurse-submodules` e instalar os componentes que não dependem deles; Doom, Xournal++, Dunst e a configuração do Zen-Cal ficarão ausentes.
 
 ## Dependências observadas
 
@@ -92,7 +93,7 @@ Esse comando é uma conveniência para os binários listados, não um manifesto 
    for path in .bashrc .bash_aliases .vimrc \
      .config/alacritty .config/doom .config/dunst .config/gigolo .config/htop \
      .config/hypr .config/ly-dur .config/tmux .config/waybar \
-     .config/xournalpp .config/yay .config/zathura; do
+     .config/xournalpp .config/yay .config/zathura .config/zen-cal; do
      if [ -e "$HOME/$path" ]; then
        mkdir -p "$backup_dir/$(dirname "$path")"
        cp -a "$HOME/$path" "$backup_dir/$path"
@@ -134,6 +135,7 @@ Prefira instalar somente o que pretende usar:
 | Emacs | `.config/doom` (submódulo) | `~/.config/doom` |
 | Anotações | `.config/xournalpp` (submódulo) | `~/.config/xournalpp` |
 | Notificações | `.config/dunst` (submódulo) | `~/.config/dunst` |
+| Calendário | `.config/zen-cal` (submódulo) | `~/.config/zen-cal` |
 | Aplicativos | `.config/zathura`, `.config/htop`, `.config/gigolo`, `.config/yay` | `~/.config/` |
 
 Exemplo para um único componente:
@@ -179,7 +181,7 @@ Não há um comando de desinstalação seguro fornecido pelo projeto, porque a c
 
 ## Solução de problemas
 
-- **Submódulo falhou:** confirme acesso SSH ao GitHub ou clone sem `--recurse-submodules`; os submódulos são Doom, Xournal++ e Dunst.
+- **Submódulo falhou:** confirme acesso SSH ao GitHub ou clone sem `--recurse-submodules`; os submódulos são Doom, Xournal++, Dunst e Zen-Cal.
 - **Alacritty não abre:** ele chama `/usr/bin/tmux`; instale tmux ou altere `shell` em `.config/alacritty/alacritty.toml`. Instale também a 0xProto Nerd Font ou ajuste a família de fonte.
 - **Hyprland não carrega ou `hl` não existe:** a camada que fornece a API Lua não é versionada. Não há como inferir um pacote ou comando de instalação confiável a partir deste repositório; mantenha uma configuração Hyprland funcional separada até resolver isso.
 - **Waybar mostra discos errados ou scripts não executam:** corrija `/home/joaob`, `/mnt/WDC-128`, `sda` e `sdb` nos arquivos de Waybar.
@@ -196,6 +198,7 @@ Não há um comando de desinstalação seguro fornecido pelo projeto, porque a c
 │   ├── alacritty/    # terminal; inicia tmux
 │   ├── doom/         # submódulo: configuração Doom Emacs
 │   ├── dunst/        # submódulo: tema das notificações
+│   ├── zen-cal/      # submódulo: calendário compacto da Waybar
 │   ├── hypr/         # entrada Lua, módulos, scripts e papéis de parede
 │   ├── ly-dm → /etc/ly # link para a configuração do display manager
 │   ├── tmux/         # prefixo C-a e layout de panes
@@ -209,3 +212,7 @@ Não há um comando de desinstalação seguro fornecido pelo projeto, porque a c
 ## Atalhos principais do Hyprland
 
 Com `Super` como modificador: `Super+Enter` abre Alacritty, `Super+Space` abre `hyprlauncher`, `Super+W` fecha a janela, `Super+M` alterna tela cheia, `Super+H/J/K/L` muda o foco e `Super+1…0` troca de espaço de trabalho. `Print` chama o script de captura e as teclas de mídia controlam PipeWire/Playerctl. Consulte `.config/hypr/modules/bindings.lua` para a lista completa.
+
+## Calendário da Waybar
+
+O clique esquerdo no relógio abre ou fecha o Zen-Cal em uma janela de 320 × 240 pixels. O clique direito alterna o formato do relógio. O tema, o script e a regra Lua estão no submódulo `.config/zen-cal`; o executável oficial deve ser instalado separadamente em `~/.local/bin/zen-cal`. Consulte o README do submódulo para os requisitos e as instruções de instalação.

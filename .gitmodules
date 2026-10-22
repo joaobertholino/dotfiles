@@ -7,3 +7,6 @@
 [submodule ".config/dunst"]
 	path = .config/dunst
 	url = git@github.com:joaobertholino/Dunst.git
+[submodule ".config/zen-cal"]
+	path = .config/zen-cal
+	url = git@github.com:joaobertholino/zen-cal.git

@@ -6,3 +6,6 @@ hl.window_rule({ name = "thunar", match = { class = "^Thunar$" }, float = true, 
 hl.window_rule({ name = "gigolo", match = { class = "^Gigolo$" }, float = true, center = true, size = "700 450" })
 hl.window_rule({ name = "code", match = { class = "^Code$" }, float = true, center = true, size = "1125 730" })
 hl.window_rule({ name = "xwayland-drag", match = { class = "^$", title = "^$", xwayland = true, float = true }, no_focus = true })
+
+-- Integração do calendário mantida no submódulo zen-cal.
+dofile(os.getenv("HOME") .. "/.config/zen-cal/hyprland.lua")

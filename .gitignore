@@ -41,3 +41,6 @@
 
 # Configuração de notificações versionada como submódulo
 !/.config/dunst/
+
+# Calendário da Waybar versionado como submódulo
+!/.config/zen-cal/

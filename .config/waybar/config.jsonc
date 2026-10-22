@@ -77,7 +77,9 @@
   "clock": {
     "interval": 1,
     "format": "{:%A - %d/%b(%m)/%Y - %H:%M}",
-    "format-alt": "{:%H:%M}",
-    "tooltip": false
+    "format-alt": "{:%A - %d/%b(%m)/%Y - %H:%M}",
+    "tooltip": false,
+    "on-click": "/home/joaob/.config/zen-cal/toggle.sh",
+    "format-alt-click": 3
   }
 }
