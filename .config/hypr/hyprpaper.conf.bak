@@ -1,0 +1,6 @@
+# The selected wallpaper lives in its own file so it can be changed without
+# tying Hyprpaper to a particular wallpaper directory.
+source = ~/.config/hypr/hyprpaper.d/*.conf
+
+splash = false
+ipc = on
