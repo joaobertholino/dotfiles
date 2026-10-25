@@ -16,7 +16,7 @@ alias rebootsys='systemctl reboot'
 alias logout='loginctl terminate-user $(whoami)'
 alias suspend='systemctl suspend'
 alias yaya='yay --noconfirm'
-alias btral='sudo -E btrfs-assistant-launcher'
+alias btral='btrfs-assistant-launcher'
 
 #SSH
 alias ssh-ime='ssh linux-ime'
@@ -62,7 +62,7 @@ alias ebin='sudo emerge --ask --getbinpkg --usepkgonly --with-bdeps=n'
 alias esrc='sudo emerge --ask --usepkg=n --getbinpkg=n'
 alias edepclean='sudo emerge --ask --depclean'
 alias erebuild='sudo emerge --ask @preserved-rebuild'
-alias enews='eselect news read'
+alias enews='sudo eselect news read'
 
 # Nix: perfil de aplicativos e binários pré-compilados.
 # Exemplo: ni nixpkgs#hello ; ns firefox ; nr hello
