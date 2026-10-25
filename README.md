@@ -1,218 +1,184 @@
-# Dotfiles — Arch Linux + Hyprland
+# Dotfiles — Gentoo + Hyprland
 
-Configurações pessoais para uma sessão **Arch Linux/Wayland com Hyprland**. Este repositório não contém um instalador, um manifesto de pacotes nem um mecanismo de *stow*/*symlinks*: a instalação é deliberadamente manual, por cópia dos arquivos escolhidos.
+Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Doom Emacs e Xournal++. Estado da máquina conferido em **25/10/2026**.
 
-> **Estado verificado:** `main` em `c867d011a453ecf0887f542125a9f9848781de4d` (03/10/2026), incluindo os submódulos `doom` e `xournalpp`. Os submódulos `dunst` e `zen-cal` foram adicionados em 22/10/2026. As instruções abaixo foram conferidas contra esse checkout.
+O repositório principal tem sua árvore de trabalho em `~/`. O `.gitignore` permite apenas os arquivos de configuração selecionados; documentos, credenciais, chaves SSH, caches e estado local ficam fora do versionamento. Este projeto não contém um instalador completo do sistema.
 
-![Captura de tela originalmente associada ao projeto](https://i.imgur.com/gtIDuco.png)
+## Organização
 
+| Caminho | Conteúdo |
+| --- | --- |
+| `.bashrc`, `.bash_aliases`, `.bash_profile`, `.profile` | Ambiente Bash e aliases Gentoo/Nix |
+| `.config/hypr/` | Entrada Lua, módulos, atalhos, captura e papel de parede |
+| `.config/waybar/` | Painel, relógio, métricas e áudio |
+| `.config/alacritty/`, `.config/tmux/` | Terminal e sessão tmux `main` |
+| `.config/Thunar/` | Ações personalizadas e atalhos do gerenciador de arquivos |
+| `.config/xfce4/xfconf/xfce-perchannel-xml/thunar*.xml` | Preferências do Thunar e Volman |
+| `.config/systemd/user/` | Unidades selecionadas de Thunar, Tumbler e push automático |
+| `.local/share/dbus-1/services/` | Ativação dos serviços Thunar e Tumbler |
+| `.local/bin/auto-push.sh` | Commit e push recursivo dos dotfiles |
+| `.config/zathura/`, `.config/htop/`, `.config/gigolo/` | Configurações de aplicativos |
 
-## Escopo e compatibilidade
+Existem arquivos e aliases herdados do Arch, como `.config/yay/` e atalhos para `yay`. Eles não constituem o método de instalação do Gentoo atual.
 
-- **Distribuição declarada:** Arch Linux (o README original diz “ArchLinux”). Os aliases usam `pacman` e `yay`; não há suporte declarado para outra distribuição.
-- **Sessão gráfica:** Hyprland em Wayland, painel Waybar, terminal Alacritty e multiplexador tmux.
-- **Shell:** Bash. Os arquivos de topo são `.bashrc`, `.bash_aliases` e `.vimrc`.
-- **Editor:** Doom Emacs (submódulo) e Vim. Há configurações de LaTeX, Org, Python, Lean, Markdown, JSON, YAML, shell e web no Doom Emacs.
-- **Outros aplicativos configurados:** Zathura, htop, yay, Gigolo e Xournal++ (submódulo).
+## Submódulos
 
-Não há configuração de GNOME, KDE, i3, Sway, fish ou zsh neste checkout.
-
-## Antes de começar
-
-Faça a instalação em uma conta de usuário normal, **não** como root. Leia primeiro a seção [Ajustes obrigatórios desta máquina](#ajustes-obrigatórios-desta-máquina): várias configurações apontam para `/home/joaob`, dispositivos e discos específicos.
-
-Ferramentas necessárias para obter os arquivos:
-
-```bash
-sudo pacman -S git
-```
-
-Para inicializar submódulos via SSH, as URLs atuais exigem acesso à chave SSH do GitHub:
-
-```text
-git@github.com:joaobertholino/doom.git
-git@github.com:joaobertholino/xournalpp.git
-git@github.com:joaobertholino/Dunst.git
-git@github.com:joaobertholino/zen-cal.git
-```
-
-Se a chave SSH não estiver disponível, o clone dos submódulos falhará. É possível clonar só o repositório principal sem `--recurse-submodules` e instalar os componentes que não dependem deles; Doom, Xournal++, Dunst e a configuração do Zen-Cal ficarão ausentes.
-
-## Dependências observadas
-
-Como não existe uma lista de pacotes no repositório, a tabela lista somente programas, fontes e serviços **referenciados diretamente** pelos arquivos. A coluna “uso” não implica que todos sejam necessários para uma instalação parcial.
-
-| Área | Programas/recursos referenciados | Uso observado |
+| Diretório | Repositório | Finalidade |
 | --- | --- | --- |
-| Base gráfica | `hyprland`, `hyprctl`, `hyprpaper`, `waybar`, `dunst`, `hyprlauncher`, `nm-applet` | Sessão, papel de parede, painel, notificações, lançador e applet de rede |
-| Terminal | `alacritty`, `tmux`, fonte **0xProto Nerd Font** | Alacritty abre `tmux new-session -A -s main`; a fonte é definida no `alacritty.toml` |
-| Áudio e mídia | `wpctl`, `pactl`, `playerctl`, `notify-send` | Teclas multimídia e indicador/mute de microfone |
-| Scripts Hyprland | `hyprshot`, `jq`, `sed`, `mkdir`, `date` | Captura de região e alternância de orientação |
-| Aplicativos de atalhos | `emacs`, `qalculate-gtk`, `zen-browser`, `xournalpp` | Atalhos `Super+Alt+E/C/B/X` |
-| Shell/aliases | `bat`, `fastfetch`, `trash-put`, `trash-list`, `trash-restore`, `trash-empty`, `btrfs-assistant`, `yay`, `vim` | Aliases em `.bash_aliases` |
-| Doom Emacs/LaTeX | Doom Emacs, `aspell` com dicionário `pt_BR`, `latexmk`, LuaLaTeX, `texlab`, `pandoc` | Configurações em `.config/doom/config.el` |
-| Documentos | `zathura`, fonte **Wigrum Regular** | Tema/configuração do Zathura |
+| `.config/doom` | [doom](https://github.com/joaobertholino/doom) | Configuração pessoal do Doom Emacs |
+| `.config/xournalpp` | [xournalpp](https://github.com/joaobertholino/xournalpp) | Preferências, paletas e modelos de anotação |
+| `.config/dunst` | [Dunst](https://github.com/joaobertholino/Dunst) | Tema das notificações |
+| `.config/zen-cal` | [zen-cal](https://github.com/joaobertholino/zen-cal) | Calendário do relógio da Waybar |
 
-Em Arch, diversos nomes de pacote podem ser confirmados no momento da instalação com `pacman -Si <nome>`. O repositório não informa de onde vêm `hyprlauncher`, `zen-browser`, a fonte 0xProto Nerd Font, Wigrum, o carregador Lua de Hyprland, Doom Emacs ou os pacotes do AUR; portanto, não há um comando de instalação confiável para esses itens neste README.
+Os quatro diretórios são submódulos Git, não cópias comuns. As URLs em `.gitmodules` usam SSH e exigem autenticação no GitHub.
 
-Para a base cuja instalação é verificável nos repositórios configurados desta máquina, uma instalação inicial possível é:
+## Obter e adaptar as configurações
 
-```bash
-sudo pacman -S \
-  hyprland hyprpaper waybar alacritty tmux dunst \
-  pipewire wireplumber pipewire-pulse playerctl jq libnotify hyprshot \
-  qalculate-gtk xournalpp zathura zathura-pdf-mupdf \
-  htop bat fastfetch trash-cli btrfs-assistant vim emacs \
-  aspell aspell-pt texlive-binextra texlab
+Para avaliar o projeto, clone em um diretório separado e vazio:
+
+```sh
+git clone --recurse-submodules https://github.com/joaobertholino/dotfiles.git "$HOME/src/dotfiles"
 ```
 
-Esse comando é uma conveniência para os binários listados, não um manifesto oficial do projeto. Instale `pandoc`, `hyprlauncher`, `zen-browser`, as fontes e Doom Emacs pelo método compatível com a sua instalação depois de verificar a origem e o nome do pacote. `yay` é apenas configurado; o repositório não o instala.
+Antes de usar os arquivos, faça backup das configurações existentes e revise os caminhos pessoais. A implantação desta máquina mantém o Git em `~/.git`; não tente clonar diretamente sobre uma home preenchida nem copiar ponteiros `.git` de submódulos entre diretórios. Para instalar um submódulo isoladamente, siga seu README e use um destino vazio após o backup.
 
-## Instalação recomendada (seletiva e reversível)
+Pontos que precisam de adaptação em outro computador:
 
-1. Clone fora de `~` e traga os submódulos:
+- `/home/joaob` nos módulos Hyprland, scripts e Waybar;
+- monitor `HDMI-A-1`, modo `1920x1080@120`, rotação `transform = 1`, configuração de cor e tablet;
+- fontes 0xProto Nerd Font, Noto Sans, Wigrum e tema de ícones `bloom-dark`;
+- diretórios pessoais de LaTeX, bibliografia, notas e projetos;
+- caminhos absolutos `/opt/`, `/usr/local/bin/` e `/nix/store/` usados pela instalação local.
 
-   ```bash
-   mkdir -p "$HOME/src"
-   git clone --recurse-submodules https://github.com/joaobertholino/dotfiles.git "$HOME/src/dotfiles"
-   cd "$HOME/src/dotfiles"
-   ```
+A configuração usa a API Lua `hl` do Hyprland 0.56.2 instalado nesta máquina. Não deve ser aplicada sem adaptação a uma versão que só aceite a sintaxe tradicional de `hyprland.conf`.
 
-2. Audite e adapte os valores pessoais antes de copiar qualquer coisa:
+## Pacotes e binários da máquina
 
-   ```bash
-   rg -n '/home/joaob|HDMI-A-1|1920x1080@120|wacom-one-by-wacom-s-pen|/mnt/WDC-128|disk="sd[ab]"' \
-     .bashrc .bash_aliases .config
-   ```
+O sistema combina pacotes nativos do Gentoo com binários pré-compilados do Nix e distribuições oficiais. A política local do Nix define `max-jobs = 0` e `fallback = false`, impedindo que instalações sem substituto binário iniciem uma compilação local.
 
-3. Faça uma cópia de segurança dos destinos que o repositório realmente fornece. Guarde o caminho mostrado pelo último comando: ele é o ponto de rollback.
+Componentes presentes incluem Hyprland, Hyprpaper, Hyprshot, Hyprlauncher, Hyprpicker, Hyprpwcenter, Hyprsysteminfo, Hyprpolkitagent, portal Hyprland, PipeWire/WirePlumber, Waybar, Alacritty e tmux.
 
-   ```bash
-   backup_dir="$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
-   mkdir -p "$backup_dir/.config"
-   for path in .bashrc .bash_aliases .vimrc \
-     .config/alacritty .config/doom .config/dunst .config/gigolo .config/htop \
-     .config/hypr .config/ly-dur .config/tmux .config/waybar \
-     .config/xournalpp .config/yay .config/zathura .config/zen-cal; do
-     if [ -e "$HOME/$path" ]; then
-       mkdir -p "$backup_dir/$(dirname "$path")"
-       cp -a "$HOME/$path" "$backup_dir/$path"
-     fi
-   done
-   printf 'Backup: %s\n' "$backup_dir"
-   ```
+Ferramentas de desenvolvimento instaladas: Lean 4.35.0 com Lake, Common Lisp/SBCL 2.6.8 e Eclipse Temurin JDK 27.0.1.0.2+1. `JAVA_HOME` aponta para `/opt/jdk-current`. As versões descrevem esta instalação, não dependências fixadas pelo repositório.
 
-4. Copie primeiro uma área pequena e teste-a. Por exemplo, Alacritty + tmux:
+Os binários, wrappers e arquivos globais não são instalados por este checkout. Na máquina atual, podem ser consultados em `/opt/hyprland/`, `/opt/thunar/`, `/opt/development/`, `/usr/local/bin/` e `/usr/local/share/gentoo-install/`. Esses caminhos e os inventários locais não fazem parte do repositório.
 
-   ```bash
-   install -d "$HOME/.config"
-   cp -a .config/alacritty .config/tmux "$HOME/.config/"
-   ```
+### Aliases de pacotes
 
-5. Quando os ajustes específicos estiverem feitos, instale os demais componentes desejados:
+| Comando | Função |
+| --- | --- |
+| `ebin categoria/pacote` | Instalar pelo Portage somente com binários |
+| `ei categoria/pacote` | Instalação normal pelo Portage; pode compilar |
+| `es termo` | Pesquisar no Portage |
+| `esync` | Sincronizar repositórios Gentoo |
+| `ni nixpkgs#pacote` | Instalar binário no perfil `/opt/nix-profile` |
+| `ns termo` | Pesquisar no Nixpkgs |
+| `nl` | Listar pacotes desse perfil Nix |
+| `nu` | Atualizar o perfil Nix usando binários |
+| `nr pacote` | Remover pacote do perfil |
+| `nh` / `nrollback` | Histórico / retorno à geração anterior |
+| `ngc` | Remover objetos sem referências no armazenamento Nix |
 
-   ```bash
-   cp -a .bashrc .bash_aliases .vimrc "$HOME/"
-   cp -a .config/doom .config/gigolo .config/htop .config/hypr \
-     .config/ly-dur .config/waybar .config/xournalpp .config/yay .config/zathura \
-     "$HOME/.config/"
-   ```
+Os atalhos Nix usam `sudo` porque esta instalação mantém o armazenamento sob administração do root. O perfil `/opt/nix-profile` é separado das instalações mantidas diretamente em `/opt/hyprland/`, `/opt/thunar/` e `/opt/development/`.
 
-6. Abra uma nova sessão Bash para carregar os aliases e valide cada aplicativo. Para Doom Emacs, depois de instalar o framework Doom compatível, execute o binário `doom sync` disponibilizado por essa instalação. O repositório não contém o instalador do framework Doom.
+## Doom Emacs como editor padrão
 
-Os comandos usam `cp -a`: substituem arquivos de mesmo nome nos componentes selecionados, mas não removem arquivos extras já existentes. Não use o antigo comando `cp -r temp_dots/. ~`: ele também copiaria o diretório `.git` para a home e não cria um backup.
+A configuração pessoal está no submódulo `.config/doom`; o framework Doom está em `~/.config/emacs`. O daemon `emacs.service` atende os clientes.
 
-## Instalação manual por componente
+Na máquina atual:
 
-Prefira instalar somente o que pretende usar:
+- `EDITOR=/usr/local/bin/doom-editor-terminal` abre um cliente no terminal;
+- `VISUAL=/usr/local/bin/doom-editor` abre um frame gráfico;
+- o Git usa `/usr/local/bin/doom-editor` como `core.editor`;
+- arquivos de texto e código selecionados estão associados a `doom-emacs.desktop`;
+- o ambiente persistente é definido em `/etc/env.d/50emacs` e propagado ao Hyprland.
 
-| Componente | Origem no repositório | Destino |
-| --- | --- | --- |
-| Bash e Vim | `.bashrc`, `.bash_aliases`, `.vimrc` | `~/` |
-| Terminal | `.config/alacritty`, `.config/tmux` | `~/.config/` |
-| Hyprland | `.config/hypr`, `.config/waybar`, `.config/ly-dur` | `~/.config/` |
-| Ly display manager | `.config/ly-dm` (link simbólico) | aponta para `/etc/ly` |
-| Emacs | `.config/doom` (submódulo) | `~/.config/doom` |
-| Anotações | `.config/xournalpp` (submódulo) | `~/.config/xournalpp` |
-| Notificações | `.config/dunst` (submódulo) | `~/.config/dunst` |
-| Calendário | `.config/zen-cal` (submódulo) | `~/.config/zen-cal` |
-| Aplicativos | `.config/zathura`, `.config/htop`, `.config/gigolo`, `.config/yay` | `~/.config/` |
+Os wrappers, a entrada desktop e a unidade global do Emacs precisam ser recriados em outra instalação; não são fornecidos pelo submódulo. Depois de alterar módulos ou pacotes Emacs, execute `doom sync`. Consulte o [README do Doom](.config/doom/README.md).
 
-Exemplo para um único componente:
+## Thunar e arquivos compactados
 
-```bash
-cp -a "$HOME/src/dotfiles/.config/zathura" "$HOME/.config/"
+O Thunar 4.20.10 utiliza uma pilha binária Nix consistente para os plugins Archive, Media Tags, VCS, Shares e Dropbox. Thunar Volman gerencia mídias removíveis; Tumbler fornece miniaturas; GVfs integra arquivos virtuais e acesso aos serviços de montagem.
+
+Ações personalizadas em `.config/Thunar/uca.xml`:
+
+- abrir Alacritty na pasta selecionada;
+- calcular checksums com GtkHash;
+- aplicar imagens como papel de parede pelo Hyprpaper;
+- **Extrair TAR aqui**, incluindo `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst` e variantes relacionadas.
+
+File Roller é o aplicativo padrão para TAR e outros formatos compactados. As associações MIME estão configuradas localmente em `~/.config/mimeapps.list`, fora da lista de arquivos versionados. O GtkHash foi integrado por ação personalizada; o pacote binário disponível não inclui seu módulo Thunar específico.
+
+O suporte Shares utiliza Samba/usershares. Para autenticar seu usuário pela rede, defina uma senha Samba com `sudo smbpasswd -a joaob`; a configuração não cria uma senha nem compartilha uma pasta automaticamente. A extensão Dropbox depende do cliente em execução e da autenticação da conta.
+
+## Sessão, notificações e calendário
+
+O módulo `.config/hypr/modules/startup.lua` chama `/usr/local/bin/gentoo-session-start`, helper local que inicia os complementos da sessão. Esse helper é externo ao repositório. Dunst usa o serviço do usuário; o papel de parede selecionado está em `.config/hypr/hyprpaper.d/selected-wallpaper.conf`, atualmente o fundo preto versionado `black.png`.
+
+O relógio da Waybar chama `.config/zen-cal/toggle.sh`; a regra da janela é carregada por `.config/hypr/modules/rules.lua`. O clique esquerdo alterna o calendário. O clique direito aciona o formato alternativo do relógio, que atualmente tem o mesmo texto do formato principal. Consulte os README de [Dunst](.config/dunst/README.md) e [Zen-Cal](.config/zen-cal/README.md).
+
+Não há bloqueio automático, filtro noturno ou desligamento de tela por inatividade configurados por este conjunto. Hyprlock e Hyprsunset foram retirados; Hypridle está instalado, mas sem serviço ou regras ativos.
+
+### Atalhos principais
+
+`Super` é a tecla Windows. Consulte `modules/bindings.lua` e `modules/ecosystem.lua` para a lista completa.
+
+| Atalho | Ação |
+| --- | --- |
+| `Super+Enter` | Alacritty/tmux |
+| `Super+Espaço` | Hyprlauncher |
+| `Super+Alt+E` | Emacs |
+| `Super+Alt+X` | Xournal++ |
+| `Super+H/J/K/L` | Mudar foco |
+| `Super+1…0` | Trocar de workspace |
+| `Print` | Capturar região |
+| `Shift+Print` | Capturar janela |
+| `Super+Print` | Capturar monitor |
+| `Ctrl+Print` | Região somente para a área de transferência |
+| `Super+Alt+P` | Selecionar e copiar cor |
+| `Super+Alt+A` | Controle de áudio |
+| `Super+Alt+I` | Informações do sistema |
+| `Super+Ctrl+Esc` | Encerrar aplicativos e a sessão com Hyprshutdown |
+
+Capturas salvas ficam em `~/Images/screenshots`.
+
+## Git e push automático
+
+Na instalação atual, `~/` é o repositório principal, na branch `main`. Os remotos `personal` e `origin` apontam para este projeto. O script `.local/bin/auto-push.sh`:
+
+1. processa os submódulos recursivamente, dos filhos para o pai;
+2. cria commits quando existem alterações nos arquivos permitidos pelo Git;
+3. envia os submódulos antes de registrar e enviar suas referências no pai;
+4. comunica falhas ao systemd e volta a tentar commits pendentes na próxima execução;
+5. impede execuções simultâneas e não força push nem faz pull automático.
+
+Se o remoto avançar ou divergir, integre o histórico manualmente antes de executar novamente. Submódulos em HEAD destacado ou com conflitos também interrompem o envio.
+
+```sh
+# Conferir os arquivos que seriam enviados, sem criar commits
+~/.local/bin/auto-push.sh --dry-run
+
+# Executar agora e consultar o resultado
+systemctl --user start git-auto-push.service
+journalctl --user -u git-auto-push.service -n 50
+
+# Habilitar o agendamento em uma instalação já preparada
+systemctl --user daemon-reload
+systemctl --user enable --now git-auto-push.timer
+systemctl --user list-timers git-auto-push.timer
 ```
 
-## Ajustes obrigatórios desta máquina
+O timer executa a cada hora, com atraso aleatório de até dois minutos e `Persistent=true`. O usuário tem linger habilitado para permitir execução após logout. A máquina precisa estar ligada, com rede e autenticação SSH disponíveis. As unidades exigem Bash, Python 3 com `Path.is_relative_to`, Git, OpenSSH e `flock`.
 
-Estes valores não são portáteis e devem ser editados ou removidos antes de habilitar o respectivo componente:
+## Atualização manual e recuperação
 
-- **Usuário `joaob`:** caminhos absolutos em `.bashrc`, `.bash_aliases`, `.config/hypr/hyprland.lua`, scripts Hyprland, `hyprpaper.conf` e Waybar. O `package.path` do Hyprland e as chamadas de scripts deixam de funcionar em outra home.
-- **Monitor/tablet:** `HDMI-A-1`, `1920x1080@120`, HDR, o tablet `wacom-one-by-wacom-s-pen` e o modo canhoto estão fixos nos módulos Hyprland.
-- **Armazenamento:** Waybar consulta `/mnt/WDC-128`, `sda` e `sdb`.
-- **Arquivos pessoais:** `.bashrc` aponta para uma instalação local de TeX Live 2026, cache do yay, `~/Latex/References` e `~/.tmp`. Doom aponta para `~/Org-Notes/`, `~/Projects/` e `~/Documents/{refs.bib,papers,notes}`.
-- **Papel de parede:** `hyprpaper.conf` espera `/home/joaob/Images/wallpapers/black-wall.png`; esse arquivo não está versionado. Há alternativas versionadas em `.config/hypr/wallpaper-oled.png` e `.config/hypr/wallpaper.svg`.
-- **Ly:** `~/.config/ly-dm` é um link simbólico para `/etc/ly`. Este destino é um repositório Git independente, pois a configuração do display manager é administrada pelo sistema.
-- **Carregador Lua:** o arquivo de entrada é `hyprland.lua` e usa a API global `hl`, mas o checkout não inclui a implementação nem informa como o Hyprland carrega esse arquivo. Não há `hyprland.conf` tradicional. Descubra/instale o carregador Lua compatível antes de apontar a sessão para essa configuração.
+Antes de alterar referências de submódulos, confira `git status` no pai e nos filhos. `git submodule update` pode deixar os filhos em HEAD destacado; use uma branch apropriada para editar e publicar.
 
-## Atualização, remoção e rollback
+Em uma árvore limpa, os comandos de atualização convencionais são:
 
-Não existe script de atualização, desinstalação ou rollback. Atualize o checkout e reaplique somente os componentes que desejar:
-
-```bash
-git -C "$HOME/src/dotfiles" pull --ff-only
-git -C "$HOME/src/dotfiles" submodule update --init --recursive
+```sh
+git pull --ff-only
+git submodule update --init --recursive
 ```
 
-Compare antes de copiar:
+Para publicar manualmente, faça commit e push no submódulo primeiro; depois registre o novo gitlink no repositório principal. O script automático já respeita essa ordem.
 
-```bash
-diff -ruN "$HOME/.config/waybar" "$HOME/src/dotfiles/.config/waybar"
-```
-
-Para rollback, restaure o backup criado na instalação. O comando abaixo restaura seu conteúdo; revise conflitos e arquivos criados posteriormente antes de executá-lo:
-
-```bash
-cp -a "$backup_dir"/. "$HOME/"
-```
-
-Não há um comando de desinstalação seguro fornecido pelo projeto, porque a cópia mescla diretórios com a home. Remova manualmente apenas os componentes que você instalou e, de preferência, restaure o backup em seguida.
-
-## Solução de problemas
-
-- **Submódulo falhou:** confirme acesso SSH ao GitHub ou clone sem `--recurse-submodules`; os submódulos são Doom, Xournal++, Dunst e Zen-Cal.
-- **Alacritty não abre:** ele chama `/usr/bin/tmux`; instale tmux ou altere `shell` em `.config/alacritty/alacritty.toml`. Instale também a 0xProto Nerd Font ou ajuste a família de fonte.
-- **Hyprland não carrega ou `hl` não existe:** a camada que fornece a API Lua não é versionada. Não há como inferir um pacote ou comando de instalação confiável a partir deste repositório; mantenha uma configuração Hyprland funcional separada até resolver isso.
-- **Waybar mostra discos errados ou scripts não executam:** corrija `/home/joaob`, `/mnt/WDC-128`, `sda` e `sdb` nos arquivos de Waybar.
-- **Atalho de captura não funciona:** instale `hyprshot`; o script grava em `~/Images/screenshots` após adaptar o caminho absoluto.
-- **Doom/LaTeX falha:** instale Doom Emacs e execute `doom sync`; depois instale os programas explicitamente usados (`aspell` com `pt_BR`, `latexmk`/LuaLaTeX, `texlab` e `pandoc`) conforme sua distribuição.
-- **Fontes diferentes:** instale 0xProto Nerd Font para Alacritty e Wigrum para Zathura, ou escolha fontes presentes no sistema.
-
-## Estrutura do repositório
-
-```text
-.
-├── .bashrc / .bash_aliases / .vimrc
-├── .config/
-│   ├── alacritty/    # terminal; inicia tmux
-│   ├── doom/         # submódulo: configuração Doom Emacs
-│   ├── dunst/        # submódulo: tema das notificações
-│   ├── zen-cal/      # submódulo: calendário compacto da Waybar
-│   ├── hypr/         # entrada Lua, módulos, scripts e papéis de parede
-│   ├── ly-dm → /etc/ly # link para a configuração do display manager
-│   ├── tmux/         # prefixo C-a e layout de panes
-│   ├── waybar/       # painel e scripts de métricas/áudio
-│   ├── xournalpp/    # submódulo: preferências e modelos
-│   └── gigolo/ htop/ ly-dur/ yay/ zathura/
-├── .gitmodules
-└── README.md
-```
-
-## Atalhos principais do Hyprland
-
-Com `Super` como modificador: `Super+Enter` abre Alacritty, `Super+Space` abre `hyprlauncher`, `Super+W` fecha a janela, `Super+M` alterna tela cheia, `Super+H/J/K/L` muda o foco e `Super+1…0` troca de espaço de trabalho. `Print` chama o script de captura e as teclas de mídia controlam PipeWire/Playerctl. Consulte `.config/hypr/modules/bindings.lua` para a lista completa.
-
-## Calendário da Waybar
-
-O clique esquerdo no relógio abre ou fecha o Zen-Cal em uma janela de 320 × 240 pixels. O clique direito alterna o formato do relógio. O tema, o script e a regra Lua estão no submódulo `.config/zen-cal`; o executável oficial deve ser instalado separadamente em `~/.local/bin/zen-cal`. Consulte o README do submódulo para os requisitos e as instruções de instalação.
+A recuperação usa backups locais e o histórico Git. Não há desinstalador ou rollback completo do sistema: pacotes, wrappers e configurações em `/etc` têm manutenção separada.
