@@ -4,7 +4,7 @@ Configurações pessoais para uma sessão **Arch Linux/Wayland com Hyprland**. E
 
 > **Estado verificado:** `main` em `c867d011a453ecf0887f542125a9f9848781de4d` (03/10/2026), incluindo os submódulos `doom` e `xournalpp`. Os submódulos `dunst` e `zen-cal` foram adicionados em 22/10/2026. As instruções abaixo foram conferidas contra esse checkout.
 
-![Captura de tela originalmente associada ao projeto](https://i.imgur.com/WTW3yCB.png)
+![Captura de tela originalmente associada ao projeto](https://i.imgur.com/gtIDuco.png)
 
 
 ## Escopo e compatibilidade
