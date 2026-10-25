@@ -2,6 +2,8 @@
 
 Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Doom Emacs e Xournal++. Estado da máquina conferido em **25/10/2026**.
 
+![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/gtIDuco.png)
+
 O repositório principal tem sua árvore de trabalho em `~/`. O `.gitignore` permite apenas os arquivos de configuração selecionados; documentos, credenciais, chaves SSH, caches e estado local ficam fora do versionamento. Este projeto não contém um instalador completo do sistema.
 
 ## Organização
