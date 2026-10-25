@@ -1,0 +1,8 @@
+[Unit]
+Description=Thunar with binary plugins
+
+[Service]
+Type=dbus
+ExecStart=/usr/local/bin/thunar --daemon
+BusName=org.xfce.FileManager
+KillMode=process

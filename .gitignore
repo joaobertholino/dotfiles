@@ -44,3 +44,42 @@
 
 # Calendário da Waybar versionado como submódulo
 !/.config/zen-cal/
+
+# Integração Gentoo, Thunar e automação de dotfiles.
+!/.bash_profile
+!/.profile
+!/.config/Thunar/
+!/.config/Thunar/**
+!/.config/xfce4/
+/.config/xfce4/*
+!/.config/xfce4/xfconf/
+/.config/xfce4/xfconf/*
+!/.config/xfce4/xfconf/xfce-perchannel-xml/
+/.config/xfce4/xfconf/xfce-perchannel-xml/*
+!/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+!/.config/xfce4/xfconf/xfce-perchannel-xml/thunar-volman.xml
+!/.config/systemd/
+/.config/systemd/*
+!/.config/systemd/user/
+/.config/systemd/user/*
+!/.config/systemd/user/git-auto-push.service
+!/.config/systemd/user/git-auto-push.timer
+!/.local/
+/.local/*
+!/.local/bin/
+/.local/bin/*
+!/.local/bin/auto-push.sh
+!/.config/systemd/user/thunar.service
+!/.config/systemd/user/tumblerd.service
+!/.local/share/
+/.local/share/*
+!/.local/share/dbus-1/
+/.local/share/dbus-1/*
+!/.local/share/dbus-1/services/
+/.local/share/dbus-1/services/*
+!/.local/share/dbus-1/services/org.xfce.Thunar.service
+!/.local/share/dbus-1/services/org.xfce.Thunar.FileManager1.service
+!/.local/share/dbus-1/services/org.xfce.FileManager.service
+!/.local/share/dbus-1/services/org.xfce.Tumbler.Cache1.service
+!/.local/share/dbus-1/services/org.xfce.Tumbler.Manager1.service
+!/.local/share/dbus-1/services/org.xfce.Tumbler.Thumbnailer1.service

@@ -7,3 +7,5 @@ require("modules.appearance")
 require("modules.input")
 require("modules.bindings")
 require("modules.rules")
+
+require("modules.ecosystem")

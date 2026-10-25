@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.xfce.Thunar
+Exec=/usr/local/bin/thunar --gapplication-service
+SystemdService=thunar.service

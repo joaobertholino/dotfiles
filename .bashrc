@@ -14,7 +14,8 @@ shopt -s histappend
 
 # Configurações de terminal
 shopt -s checkwinsize
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Gentoo: lesspipe recebe o arquivo diretamente, sem gerar comandos de shell.
+[ -x /usr/bin/lesspipe ] && export LESSOPEN="|/usr/bin/lesspipe %s"
 
 # Configuração de prompt colorido
 if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "xterm-kitty" ] || [ "$TERM" = "screen-256color" ] || [ "$TERM" = "tmux-256color" ] || [ "$TERM" = "alacritty" ] || [ "$TERM" = "screen" ]; then
@@ -55,3 +56,8 @@ export PATH="/home/joaob/.cache/yay/texlive-full/pkg/texlive-full/opt/texlive/20
 export BIBINPUTS="/home/joaob/Latex/References"
 export TMPDIR="/home/joaob/.tmp/"
 export PATH="$HOME/.elan/bin:$PATH"
+
+# TeX Live completo: binários oficiais
+export PATH="/home/joaob/.local/share/texlive/2026/bin/x86_64-linux:/home/joaob/.local/bin:$PATH"
+export MANPATH="/home/joaob/.local/share/texlive/2026/texmf-dist/doc/man:${MANPATH:-}"
+export INFOPATH="/home/joaob/.local/share/texlive/2026/texmf-dist/doc/info:${INFOPATH:-}"

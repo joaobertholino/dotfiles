@@ -1,0 +1,11 @@
+[Unit]
+Description=Push dotfiles and submodules every hour
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=2min
+Unit=git-auto-push.service
+
+[Install]
+WantedBy=timers.target

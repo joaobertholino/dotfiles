@@ -16,3 +16,7 @@ hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("GTK2_RC_FILES", "/home/joaob/.config/gtk-2.0/gtkrc")
 hl.env("QT_STYLE_OVERRIDE", "kvantum")
 hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
+
+-- JDK binário do Eclipse Temurin.
+hl.env("JAVA_HOME", "/opt/jdk-current")
+hl.env("JDK_HOME", "/opt/jdk-current")

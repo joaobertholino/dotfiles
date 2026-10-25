@@ -1,0 +1,13 @@
+[Unit]
+Description=Commit and push dotfiles and recursive submodules
+ConditionPathIsDirectory=%h/.git
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h
+ExecStart=%h/.local/bin/auto-push.sh
+Environment=GIT_TERMINAL_PROMPT=0
+UMask=0077
+TimeoutStartSec=10min

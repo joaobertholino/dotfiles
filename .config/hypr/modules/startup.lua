@@ -1,6 +1,3 @@
 hl.on("hyprland.start", function()
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("dunst")
-    hl.exec_cmd("hyprlauncher -d")
-    hl.exec_cmd("nm-applet --indicator")
+    hl.exec_cmd("/usr/local/bin/gentoo-session-start")
 end)

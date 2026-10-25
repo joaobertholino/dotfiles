@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
-set -u
-
-directory="/home/joaob/Images/screenshots"
-filename="$(date '+%d-%m-%YT%H-%M-%S').png"
-
+set -euo pipefail
+mode=${1:-region}
+case "$mode" in region|window|output) ;; *) exit 64 ;; esac
+directory="$HOME/Images/screenshots"
 mkdir -p "$directory"
-
-hyprshot -m region -o "$directory" -f "$filename" -s
+args=(-m "$mode" -o "$directory" -f "$(date '+%d-%m-%YT%H-%M-%S-%N').png")
+if [[ ${2:-} == clipboard ]]; then args+=(--clipboard-only); fi
+exec /usr/local/bin/hyprshot "${args[@]}"

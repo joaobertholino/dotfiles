@@ -1,6 +1,6 @@
-hl.window_rule({ name = "emacs", match = { class = "^Emacs$" }, float = true, center = true, size = "1125 750" })
+--hl.window_rule({ name = "emacs", match = { class = "^Emacs$" }, float = true, center = true, size = "1125 750" })
 hl.window_rule({ name = "qalculate", match = { class = "^Qalculate-gtk$" }, float = true, center = true, fullscreen = false, size = "850 500" })
-hl.window_rule({ name = "alacritty", match = { class = "^Alacritty$" }, float = true, center = true, size = "850 500" })
+hl.window_rule({ name = "alacritty", match = { class = "^Alacritty$" }, float = true, center = true, size = "900 620" })
 hl.window_rule({ name = "pavucontrol", match = { class = "^Pavucontrol$" }, float = true, center = true })
 hl.window_rule({ name = "thunar", match = { class = "^Thunar$" }, float = true, center = true, size = "1050 600" })
 hl.window_rule({ name = "gigolo", match = { class = "^Gigolo$" }, float = true, center = true, size = "700 450" })

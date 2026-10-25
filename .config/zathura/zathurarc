@@ -1,6 +1,6 @@
 set font "Wigrum Regular 10"
 set smooth-scroll true
-set save-history-on-close false
+set save-history-on-close true
 set show-recent 5
 set guioptions shv
 set database sqlite
@@ -57,3 +57,4 @@ map w adjust_window width
 map b adjust_window best-fit
 
 map r recolor
+

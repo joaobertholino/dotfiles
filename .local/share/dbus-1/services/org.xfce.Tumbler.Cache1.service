@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.freedesktop.thumbnails.Cache1
+Exec=/nix/store/lhs7dnrdi72kmbr0dgf0k7cw6vp7vi5p-tumbler-4.20.2/lib/tumbler-1/tumblerd
+SystemdService=tumblerd.service
