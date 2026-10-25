@@ -2,11 +2,11 @@
 <actions>
   <action>
     <icon>utilities-terminal</icon>
-    <name>Open Terminal Here</name>
+    <name>Abrir terminal aqui</name>
     <submenu />
     <unique-id>1785120639487163-1</unique-id>
-    <command>exo-open --working-directory %f --launch TerminalEmulator</command>
-    <description>Example for a custom action</description>
+    <command>/opt/hyprland/bin/alacritty --working-directory %f</command>
+    <description>Abrir o Alacritty nesta pasta</description>
     <range />
     <patterns>*</patterns>
     <startup-notify />
@@ -24,5 +24,14 @@
     <other-files />
     <text-files />
     <video-files />
+  </action>
+  <action>
+    <icon>preferences-desktop-wallpaper</icon>
+    <name>Usar como papel de parede (Hyprland)</name>
+    <unique-id>hyprland-wallpaper</unique-id>
+    <command>/home/joaob/.config/hypr/scripts/set-wallpaper.sh %f</command>
+    <description>Aplicar e salvar esta imagem como papel de parede</description>
+    <patterns>*.png;*.jpg;*.jpeg;*.webp;*.jxl</patterns>
+    <image-files />
   </action>
 </actions>
