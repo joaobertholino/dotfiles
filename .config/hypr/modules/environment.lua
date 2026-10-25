@@ -20,3 +20,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
 -- JDK binário do Eclipse Temurin.
 hl.env("JAVA_HOME", "/opt/jdk-current")
 hl.env("JDK_HOME", "/opt/jdk-current")
+
+-- Doom Emacs como editor padrão.
+hl.env("EDITOR", "/usr/local/bin/doom-editor-terminal")
+hl.env("VISUAL", "/usr/local/bin/doom-editor")

@@ -34,4 +34,13 @@
     <patterns>*.png;*.jpg;*.jpeg;*.webp;*.jxl</patterns>
     <image-files />
   </action>
+  <action>
+    <icon>package-x-generic</icon>
+    <name>Extrair TAR aqui</name>
+    <unique-id>extract-tar-here</unique-id>
+    <command>/usr/local/bin/file-roller --extract-here --force %F</command>
+    <description>Extrair arquivos TAR nesta pasta</description>
+    <patterns>*.tar;*.tar.gz;*.tgz;*.tar.bz2;*.tbz2;*.tar.xz;*.txz;*.tar.zst;*.tzst;*.tar.lz4</patterns>
+    <other-files />
+  </action>
 </actions>
