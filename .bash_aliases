@@ -83,3 +83,7 @@ case ":${XDG_DATA_DIRS:-/usr/local/share:/usr/share}:" in
     *:/opt/nix-profile/share:*) ;;
     *) export XDG_DATA_DIRS="/opt/nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}" ;;
 esac
+
+alias fp='flatpak'
+
+alias steam='flatpak run com.valvesoftware.Steam'
