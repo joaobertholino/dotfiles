@@ -1,6 +1,6 @@
 # Dotfiles — Gentoo + Hyprland
 
-Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Doom Emacs e Xournal++. Estado da máquina conferido em **25/10/2026**.
+Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Doom Emacs e Xournal++. Integração da sessão e do Portage atualizada em **26/10/2026**.
 
 ![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/gtIDuco.png)
 
@@ -16,7 +16,7 @@ O repositório principal tem sua árvore de trabalho em `~/`. O `.gitignore` per
 | `.config/alacritty/`, `.config/tmux/` | Terminal e sessão tmux `main` |
 | `.config/Thunar/` | Ações personalizadas e atalhos do gerenciador de arquivos |
 | `.config/xfce4/xfconf/xfce-perchannel-xml/thunar*.xml` | Preferências do Thunar e Volman |
-| `.config/systemd/user/` | Unidades selecionadas de Thunar, Tumbler e push automático |
+| `.config/systemd/user/` | Unidades versionadas de Thunar, Tumbler e push automático; serviços da sessão instalados localmente |
 | `.local/share/dbus-1/services/` | Ativação dos serviços Thunar e Tumbler |
 | `.local/bin/auto-push.sh` | Commit e push recursivo dos dotfiles |
 | `.config/zathura/`, `.config/htop/`, `.config/gigolo/` | Configurações de aplicativos |
@@ -82,6 +82,26 @@ Os binários, wrappers e arquivos globais não são instalados por este checkout
 
 Os atalhos Nix usam `sudo` porque esta instalação mantém o armazenamento sob administração do root. O perfil `/opt/nix-profile` é separado das instalações mantidas diretamente em `/opt/hyprland/`, `/opt/thunar/` e `/opt/development/`.
 
+## Interface gráfica do Portage: Kuroo
+
+A máquina tem `app-portage/kuroo-1.2.4::gentoo`, frontend Qt 6/KDE Frameworks 6 do repositório oficial Gentoo. Essa versão tem keyword `~amd64`; a aceitação local está restrita a `=app-portage/kuroo-1.2.4` em `/etc/portage/package.accept_keywords/kuroo`. Não foi habilitado testing para o sistema inteiro nem adicionado overlay para esse pacote.
+
+```sh
+emerge -pv =app-portage/kuroo-1.2.4
+kuroo --version
+kuroo
+```
+
+O lançador `/usr/local/bin/kuroo` usa `/usr/bin/kuroo` com Qt/Wayland nativo, limpa variáveis gráficas Nix incompatíveis e aplica o grupo `portage` ao processo com `sg` quando a sessão ainda não herdou a associação. O usuário precisa estar cadastrado nesse grupo. Não execute a interface como root.
+
+Os dados ficam em `/var/cache/kuroo`, com backup em `/var/cache/kuroo/backup`; ambos permitem escrita ao grupo `portage` e herdam esse grupo com modo `2770`. A configuração pessoal fica em `~/.config/kuroorc`. Na primeira atualização do banco de dados, confirme **Refresh** para carregar os pacotes; uma janela aberta não confirma que todas as funções administrativas foram testadas.
+
+A conta root desta instalação está bloqueada. A regra local `/etc/polkit-1/rules.d/40-kuroo-admin.rules` permite autenticar as cinco ações administrativas do Kuroo com a senha de `joaob`, apenas em sessão local ativa e com participação no grupo `wheel`. Ela seleciona a identidade administrativa; a senha continua obrigatória. A autenticação de criação do diretório foi confirmada no journal.
+
+Para corrigir a descoberta de repositórios, `repoLocations` do Kuroo contém os caminhos obtidos do Portage e `/etc/portage/repos.conf/gentoo.conf` explicita a localização já usada `/var/db/repos/gentoo`. Localização, tipo/URI de sincronização, auto-sync e prioridade efetivos foram comparados antes/depois e permaneceram iguais.
+
+O lançador, a regra Polkit, o cadastro de grupos, os diretórios de dados e esses arquivos locais de Portage/Kuroo não são fornecidos por este checkout. Avisos internos de QProcess/SQLite foram observados; não foram feitas instalações ou remoções pela GUI durante a validação. Em outra máquina, verifique versão, keyword e dependências antes de instalar.
+
 ## Doom Emacs como editor padrão
 
 A configuração pessoal está no submódulo `.config/doom`; o framework Doom está em `~/.config/emacs`. O daemon `emacs.service` atende os clientes.
@@ -113,7 +133,36 @@ O suporte Shares utiliza Samba/usershares. Para autenticar seu usuário pela red
 
 ## Sessão, notificações e calendário
 
-O módulo `.config/hypr/modules/startup.lua` chama `/usr/local/bin/gentoo-session-start`, helper local que inicia os complementos da sessão. Esse helper é externo ao repositório. Dunst usa o serviço do usuário; o papel de parede selecionado está em `.config/hypr/hyprpaper.d/selected-wallpaper.conf`, atualmente o fundo preto versionado `black.png`.
+O módulo `.config/hypr/modules/startup.lua` chama `/usr/local/bin/gentoo-session-start` quando o compositor está pronto. Esse helper apenas importa o ambiente Wayland para D-Bus/systemd e ativa `hyprland-session.target`. Os aplicativos de início da sessão são executados e supervisionados pelo **systemd do usuário**; não há lançamento direto desses daemons por `exec-once` ou pelo helper.
+
+| Componente | Serviço de usuário |
+| --- | --- |
+| Painel Waybar | `waybar.service` |
+| Notificações Dunst | `dunst.service` |
+| Lançador Hyprlauncher | `hyprlauncher.service` |
+| Indicador de rede | `nm-applet.service` |
+| Papel de parede awww/Waypaper | `gentoo-animated-wallpaper.service` |
+| Agente de autenticação | `hyprpolkitagent.service` |
+
+Os seis serviços estão habilitados no `hyprland-session.target`, ligado a `graphical-session.target`. `hyprland-session-guard.service` acompanha o PID da instância atual do compositor; quando ela termina, o target e seus aplicativos são encerrados. O helper importa display, IPC, temas, cursores e bibliotecas da sessão antes de ativar o conjunto. A instalação atual usa essa integração local, sem UWSM.
+
+O papel de parede ativo é restaurado com `waypaper --restore` sobre o daemon `awww`; o helper tem como alternativa o GIF `~/.local/share/wallpapers/gentoo-violet-orbit-vertical-hd.gif`. Os arquivos `hyprpaper.conf` e `hyprpaper.d/` continuam no checkout, mas não descrevem o daemon ativo.
+
+Comandos de consulta e manutenção na sessão gráfica já preparada:
+
+```sh
+systemctl --user status hyprland-session.target
+systemctl --user status waybar dunst hyprlauncher nm-applet gentoo-animated-wallpaper hyprpolkitagent
+systemctl --user restart waybar.service
+systemctl --user reload waybar.service
+journalctl --user -u waybar.service -b
+```
+
+Reiniciar `hyprland-session.target` reinicia todos os componentes vinculados, incluindo notificações e papel de parede. Para uma alteração em apenas um aplicativo, reinicie sua unidade. Foram verificados início/parada do conjunto e uma única instância de cada componente; a Waybar também foi testada com recuperação automática após falha. O logout/login completo não foi executado durante esses testes.
+
+**Limite do checkout:** o helper em `/usr/local/bin`, o monitor em `~/.local/libexec/hyprland-session-guard`, `~/.local/bin/apply-gentoo-wallpaper`, as novas unidades/targets e seus drop-ins não estão versionados neste repositório. O `.gitignore` de `systemd/user` atualmente permite apenas Thunar, Tumbler e push automático. Em outra máquina, recrie e adapte essa integração antes de usar o hook Lua; clonar os dotfiles não instala esses serviços. Não adicione um segundo início de Waybar, Dunst, Hyprlauncher ou nm-applet no Hyprland enquanto seus serviços estiverem ativos.
+
+PipeWire, WirePlumber, portais e o daemon Emacs já usam unidades systemd separadas. Aplicativos abertos por atalhos e o calendário aberto por clique continuam sob demanda.
 
 O relógio da Waybar chama `.config/zen-cal/toggle.sh`; a regra da janela é carregada por `.config/hypr/modules/rules.lua`. O clique esquerdo alterna o calendário. O clique direito aciona o formato alternativo do relógio, que atualmente tem o mesmo texto do formato principal. Consulte os README de [Dunst](.config/dunst/README.md) e [Zen-Cal](.config/zen-cal/README.md).
 
