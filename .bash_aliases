@@ -20,8 +20,34 @@ alias tshp='trash-put -rvf'
 alias tshl='trash-list'
 alias tshr='trash-restore'
 alias tshe='trash-empty'
-alias pwoff='systemctl poweroff'
-alias rebootsys='systemctl reboot'
+_safe_power() {
+    if [[ $# -ne 1 || ( "$1" != reboot && "$1" != poweroff ) ]]; then
+        printf '%s\n' 'Use reboot or poweroff without additional options.' >&2
+        return 2
+    fi
+    if ! command -v pgrep >/dev/null 2>&1; then
+        printf '%s\n' 'Unable to check Portage processes.' >&2
+        return 1
+    fi
+    local status
+    if pgrep -x 'emerge|ebuild|emaint|eclean-dist|eclean-pkg' >/dev/null; then
+        printf '%s\n' 'A Portage operation is in progress. Wait for it to finish.' >&2
+        return 1
+    else
+        status=$?
+        if [[ $status -ne 1 ]]; then
+            printf '%s\n' 'Failed to check processes. Operation cancelled.' >&2
+            return 1
+        fi
+    fi
+    command systemctl --check-inhibitors=yes "$1"
+}
+
+alias reboot='_safe_power reboot'
+alias poweroff='_safe_power poweroff'
+
+alias pwoff='_safe_power poweroff'
+alias rebootsys='_safe_power reboot'
 alias logout='loginctl terminate-user $(whoami)'
 alias suspend='systemctl suspend'
 alias btral='btrfs-assistant-launcher'
@@ -81,7 +107,7 @@ alias nu='sudo nix profile upgrade --profile /opt/nix-profile --max-jobs 0 --all
 alias nr='sudo nix profile remove --profile /opt/nix-profile'
 alias nh='sudo nix profile history --profile /opt/nix-profile'
 alias nrollback='sudo nix profile rollback --profile /opt/nix-profile'
-alias ngc='sudo nix store gc'
+alias ngc='sudo nix store gc --dry-run'
 
 case ":$PATH:" in
     *:/opt/nix-profile/bin:*) ;;
