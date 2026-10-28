@@ -6,6 +6,7 @@ local function bind(key, dispatcher, opts)
     hl.bind(mod .. " + " .. key, dispatcher, opts)
 end
 
+bind("CTRL + L", hl.dsp.exec_cmd("systemctl --user start hyprlock.service"))
 bind("ALT + E", hl.dsp.exec_cmd("emacs"))
 bind("RETURN", hl.dsp.exec_cmd(terminal))
 bind("ALT + C", hl.dsp.exec_cmd("qalculate-gtk"))
