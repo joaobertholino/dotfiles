@@ -89,6 +89,8 @@ alias vimf='vim +'
 
 # Gentoo: atalhos do Portage
 alias ei='sudo emerge --ask'
+alias eum='sudo emerge --unmerge'
+alias eds='sudo emerge --deselect'
 alias eu='sudo emerge --ask --update --deep --newuse @world'
 alias es='emerge --search'
 alias ep='emerge --pretend --verbose'
