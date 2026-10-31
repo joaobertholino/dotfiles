@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Salva e envia submódulos recursivamente antes do repositório principal.
+# Salva e envia dotfiles, submódulos e o site como repositório independente.
 set -euo pipefail
 export PATH="/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 export GIT_TERMINAL_PROMPT=0
@@ -12,6 +12,7 @@ python3 - "$@" <<'PY'
 import os,sys,subprocess
 from pathlib import Path
 root=Path(os.environ.get('DOTFILES_ROOT',str(Path.home()))).resolve()
+website=Path(os.environ.get('WWW_ROOT',str(Path.home()/'www'))).resolve()
 dry=sys.argv[1:]==['--dry-run']
 if sys.argv[1:] and not dry:
     raise SystemExit('Uso: auto-push.sh [--dry-run]')
@@ -67,9 +68,13 @@ def sync(repo):
     print(f'[enviado] {repo} -> {remote}/{branch}',flush=True)
     if r.stderr:print(r.stderr,end='',flush=True)
 
-try:
-    sync(root)
-except Exception as e:
-    print(f'ERRO: {e}',file=sys.stderr,flush=True)
+errors=[]
+for repo in dict.fromkeys([root,website]):
+    try:
+        sync(repo)
+    except Exception as e:
+        errors.append(str(e))
+        print(f'ERRO: {e}',file=sys.stderr,flush=True)
+if errors:
     sys.exit(1)
 PY

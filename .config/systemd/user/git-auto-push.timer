@@ -1,5 +1,5 @@
 [Unit]
-Description=Push dotfiles and submodules every hour
+Description=Push dotfiles, submodules and independent www repository every hour
 
 [Timer]
 OnCalendar=hourly

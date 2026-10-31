@@ -1,5 +1,5 @@
 [Unit]
-Description=Commit and push dotfiles and recursive submodules
+Description=Commit and push dotfiles, recursive submodules and independent www repository
 ConditionPathIsDirectory=%h/.git
 Wants=network-online.target
 After=network-online.target
