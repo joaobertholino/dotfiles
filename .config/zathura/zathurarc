@@ -1,9 +1,10 @@
 set font "Wigrum Regular 10"
 set smooth-scroll true
-set save-history-on-close true
 set show-recent 5
 set guioptions shv
 set database sqlite
+set continuous-hist-save true
+set open-first-page false
 
 set default-bg                  "#000000"
 set default-fg                  "#ffffff"
