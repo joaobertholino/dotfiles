@@ -61,3 +61,6 @@ export PATH="$HOME/.elan/bin:$PATH"
 export PATH="/home/joaob/.local/share/texlive/2026/bin/x86_64-linux:/home/joaob/.local/bin:$PATH"
 export MANPATH="/home/joaob/.local/share/texlive/2026/texmf-dist/doc/man:${MANPATH:-}"
 export INFOPATH="/home/joaob/.local/share/texlive/2026/texmf-dist/doc/info:${INFOPATH:-}"
+
+export EDITOR="/usr/local/bin/prelude-editor-terminal"
+export VISUAL="/usr/local/bin/prelude-editor"

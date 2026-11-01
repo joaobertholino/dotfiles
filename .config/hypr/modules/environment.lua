@@ -21,6 +21,6 @@ hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
 hl.env("JAVA_HOME", "/opt/jdk-current")
 hl.env("JDK_HOME", "/opt/jdk-current")
 
--- Doom Emacs como editor padrão.
-hl.env("EDITOR", "/usr/local/bin/doom-editor-terminal")
-hl.env("VISUAL", "/usr/local/bin/doom-editor")
+-- Prelude Emacs como editor padrão.
+hl.env("EDITOR", "/usr/local/bin/prelude-editor-terminal")
+hl.env("VISUAL", "/usr/local/bin/prelude-editor")
