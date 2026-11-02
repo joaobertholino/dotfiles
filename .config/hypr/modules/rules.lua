@@ -9,3 +9,6 @@ hl.window_rule({ name = "xwayland-drag", match = { class = "^$", title = "^$", x
 
 -- Integração do calendário mantida no submódulo zen-cal.
 dofile(os.getenv("HOME") .. "/.config/zen-cal/hyprland.lua")
+
+-- Hide the compositor border around Firefox windows.
+hl.window_rule({ name = "firefox-no-border", match = { class = "^[Ff]irefox$" }, border_size = 0 })
