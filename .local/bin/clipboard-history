@@ -1,5 +1,39 @@
 #!/usr/bin/python3
-import subprocess,sys
+import subprocess,sys,json,time
+
+def focused_window():
+    try:
+        result=subprocess.run(['/usr/local/bin/hyprctl','activewindow','-j'],capture_output=True,text=True,timeout=2,check=True)
+        return json.loads(result.stdout)
+    except (OSError,ValueError,subprocess.SubprocessError):
+        return {}
+
+def paste_into_previous(window):
+    address=window.get('address')
+    if not address:
+        subprocess.run(['/usr/local/bin/notify-send','Clipboard history','Item copied. Press Ctrl+V to paste.'])
+        return
+    time.sleep(0.15)
+    deadline=time.monotonic()+0.8
+    while focused_window().get('address')!=address:
+        if time.monotonic()>=deadline:
+            subprocess.run(['/usr/local/bin/notify-send','Clipboard history','Focus changed. Item copied without automatic paste.'])
+            return
+        time.sleep(0.05)
+    terminal=window.get('class','').lower() in {
+        'alacritty','kitty','foot','footclient','org.gnome.terminal',
+        'org.gnome.console','org.wezfurlong.wezterm','com.mitchellh.ghostty',
+        'ghostty','konsole','xfce4-terminal','xterm',
+    }
+    keys=['/usr/local/bin/wtype','-M','ctrl']
+    if terminal:keys+=['-M','shift']
+    keys+=['-k','v']
+    if terminal:keys+=['-m','shift']
+    keys+=['-m','ctrl']
+    result=subprocess.run(keys,capture_output=True)
+    if result.returncode:
+        subprocess.run(['/usr/local/bin/notify-send','Clipboard history','Item copied; automatic paste unavailable. Paste manually.'])
+
 if '--clear' in sys.argv:
     subprocess.run(['systemctl','--user','stop','clipboard-history.service'],check=True)
     try:
@@ -9,6 +43,7 @@ if '--clear' in sys.argv:
         subprocess.run(['systemctl','--user','start','clipboard-history.service'],check=True)
     subprocess.run(['/usr/local/bin/notify-send','Clipboard history','History and clipboard cleared.'])
 else:
+    previous_window=focused_window()
     items=subprocess.run(['/usr/local/bin/cliphist','list'],capture_output=True,check=True).stdout
     if not items:
         subprocess.run(['/usr/local/bin/notify-send','Clipboard history','Nothing copied yet.']);sys.exit(0)
@@ -16,3 +51,5 @@ else:
     if choice.returncode or not choice.stdout:sys.exit(0)
     data=subprocess.run(['/usr/local/bin/cliphist','decode'],input=choice.stdout,capture_output=True,check=True).stdout
     subprocess.run(['/usr/local/bin/wl-copy'],input=data,check=True)
+    if '--copy-only' not in sys.argv:
+        paste_into_previous(previous_window)

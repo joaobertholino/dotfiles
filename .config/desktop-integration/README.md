@@ -8,7 +8,10 @@ launched through `/usr/local/bin/nix-desktop-run`; `/usr/local/bin` must precede
 
 ## Shortcuts
 
-- Super+V: search clipboard history; Enter copies the selected entry, then Ctrl+V pastes it.
+- Super+V: search clipboard history; Enter copies and pastes into the previously focused application.
+  Terminals receive Ctrl+Shift+V; other applications receive Ctrl+V.
+  If focus changes, the item is copied without automatic paste.
+  Run `clipboard-history --copy-only` to select an item without pasting.
 - Super+Shift+V: clear clipboard and its history.
 - Super+Ctrl+N: temporarily toggle the night-light service.
 
