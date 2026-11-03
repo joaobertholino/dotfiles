@@ -7,6 +7,6 @@
 [submodule ".config/zen-cal"]
 	path = .config/zen-cal
 	url = git@github.com:joaobertholino/zen-cal.git
-[submodule ".config/prelude"]
-	path = .config/prelude
+[submodule ".config/prelude-personal"]
+	path = .config/prelude-personal
 	url = git@github.com:joaobertholino/prelude-emacs.git

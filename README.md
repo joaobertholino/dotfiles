@@ -27,7 +27,7 @@ Existem arquivos e aliases herdados do Arch, como `.config/yay/` e atalhos para 
 
 | Diretório | Repositório | Finalidade |
 | --- | --- | --- |
-| `.config/prelude` | [prelude-emacs](https://github.com/joaobertholino/prelude-emacs) | Prelude Emacs e configurações pessoais |
+| `.config/prelude-personal` | [prelude-emacs](https://github.com/joaobertholino/prelude-emacs) | Prelude Emacs e configurações pessoais |
 | `.config/xournalpp` | [xournalpp](https://github.com/joaobertholino/xournalpp) | Preferências, paletas e modelos de anotação |
 | `.config/dunst` | [Dunst](https://github.com/joaobertholino/Dunst) | Tema das notificações |
 | `.config/zen-cal` | [zen-cal](https://github.com/joaobertholino/zen-cal) | Calendário do relógio da Waybar |
@@ -104,9 +104,11 @@ O lançador, a regra Polkit, o cadastro de grupos, os diretórios de dados e ess
 
 ## Prelude Emacs como editor padrão
 
-O submódulo `.config/prelude` contém o Prelude e os módulos pessoais em
-`personal/modules/`. O remoto `origin` acompanha bbatsov/prelude e `personal`
-aponta para joaobertholino/prelude-emacs. O serviço horário envia a branch `main`.
+O submódulo `.config/prelude-personal` contém apenas as configurações pessoais.
+O framework oficial permanece separado em `~/.config/prelude`, e seu diretório
+`personal` aponta por link simbólico para o submódulo. O remoto `origin` das
+configurações aponta para joaobertholino/prelude-emacs. O serviço horário envia
+a branch `main`.
 O vínculo `.config/doom` foi removido dos dotfiles; os objetos Git antigos foram
 preservados localmente para recuperação.
 
@@ -114,7 +116,7 @@ preservados localmente para recuperação.
 - `VISUAL=/usr/local/bin/prelude-editor` abre um frame gráfico;
 - `emacs.service` mantém o daemon com socket `prelude`;
 - os módulos pessoais de aparência, edição, LaTeX, Org, Copilot, Prettier e live
-  server estão em `personal/modules/`.
+  server estão em `.config/prelude-personal/modules/`.
 
 ## Integração do desktop
 

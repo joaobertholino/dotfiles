@@ -112,3 +112,6 @@
 **/__pycache__/
 *.pyc
 /.config/gtk-3.0/bookmarks
+
+!/.config/prelude-personal/
+/.config/prelude/
