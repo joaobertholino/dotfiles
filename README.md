@@ -1,6 +1,6 @@
 # Dotfiles — Gentoo + Hyprland
 
-Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Doom Emacs e Xournal++. Integração da sessão e do Portage atualizada em **26/10/2026**.
+Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Prelude Emacs e Xournal++. Integração da sessão e do Portage atualizada em **26/10/2026**.
 
 ![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/gtIDuco.png)
 
@@ -27,7 +27,7 @@ Existem arquivos e aliases herdados do Arch, como `.config/yay/` e atalhos para 
 
 | Diretório | Repositório | Finalidade |
 | --- | --- | --- |
-| `.config/doom` | [doom](https://github.com/joaobertholino/doom) | Configuração pessoal do Doom Emacs |
+| `.config/prelude` | [prelude-emacs](https://github.com/joaobertholino/prelude-emacs) | Prelude Emacs e configurações pessoais |
 | `.config/xournalpp` | [xournalpp](https://github.com/joaobertholino/xournalpp) | Preferências, paletas e modelos de anotação |
 | `.config/dunst` | [Dunst](https://github.com/joaobertholino/Dunst) | Tema das notificações |
 | `.config/zen-cal` | [zen-cal](https://github.com/joaobertholino/zen-cal) | Calendário do relógio da Waybar |
@@ -102,19 +102,29 @@ Para corrigir a descoberta de repositórios, `repoLocations` do Kuroo contém os
 
 O lançador, a regra Polkit, o cadastro de grupos, os diretórios de dados e esses arquivos locais de Portage/Kuroo não são fornecidos por este checkout. Avisos internos de QProcess/SQLite foram observados; não foram feitas instalações ou remoções pela GUI durante a validação. Em outra máquina, verifique versão, keyword e dependências antes de instalar.
 
-## Doom Emacs como editor padrão
+## Prelude Emacs como editor padrão
 
-A configuração pessoal está no submódulo `.config/doom`; o framework Doom está em `~/.config/emacs`. O daemon `emacs.service` atende os clientes.
+O submódulo `.config/prelude` contém o Prelude e os módulos pessoais em
+`personal/modules/`. O remoto `origin` acompanha bbatsov/prelude e `personal`
+aponta para joaobertholino/prelude-emacs. O serviço horário envia a branch `main`.
+O vínculo `.config/doom` foi removido dos dotfiles; os objetos Git antigos foram
+preservados localmente para recuperação.
 
-Na máquina atual:
+- `EDITOR=/usr/local/bin/prelude-editor-terminal` abre um cliente no terminal;
+- `VISUAL=/usr/local/bin/prelude-editor` abre um frame gráfico;
+- `emacs.service` mantém o daemon com socket `prelude`;
+- os módulos pessoais de aparência, edição, LaTeX, Org, Copilot, Prettier e live
+  server estão em `personal/modules/`.
 
-- `EDITOR=/usr/local/bin/doom-editor-terminal` abre um cliente no terminal;
-- `VISUAL=/usr/local/bin/doom-editor` abre um frame gráfico;
-- o Git usa `/usr/local/bin/doom-editor` como `core.editor`;
-- arquivos de texto e código selecionados estão associados a `doom-emacs.desktop`;
-- o ambiente persistente é definido em `/etc/env.d/50emacs` e propagado ao Hyprland.
+## Integração do desktop
 
-Os wrappers, a entrada desktop e a unidade global do Emacs precisam ser recriados em outra instalação; não são fornecidos pelo submódulo. Depois de alterar módulos ou pacotes Emacs, execute `doom sync`. Consulte o [README do Doom](.config/doom/README.md).
+O tema usa preto com detalhes em roxo Gentoo. A iluminação noturna funciona das
+00h às 7h. `Super+V` abre o histórico de clipboard, `Super+Shift+V` limpa o histórico
+e `Super+Ctrl+N` alterna a iluminação noturna. A Waybar usa ícones de fonte,
+relógio sem ícone e indicadores de compilação, gravação, microfone e falhas.
+
+Consulte [desktop-integration](.config/desktop-integration/README.md) para os
+serviços, limites de armazenamento e isolamento das bibliotecas Gentoo/Nix.
 
 ## Thunar e arquivos compactados
 

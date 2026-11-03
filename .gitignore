@@ -108,3 +108,7 @@
 !/.local/libexec/desktop-status
 !/.local/bin/clipboard-history
 !/.local/bin/night-light-toggle
+
+**/__pycache__/
+*.pyc
+/.config/gtk-3.0/bookmarks
