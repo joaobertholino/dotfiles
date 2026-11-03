@@ -115,3 +115,5 @@
 
 !/.config/prelude-personal/
 /.config/prelude/
+
+!/.config/systemd/user/hyprlauncher.service

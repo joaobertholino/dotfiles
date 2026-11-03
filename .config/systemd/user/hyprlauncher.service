@@ -1,0 +1,19 @@
+[Unit]
+Description=Hyprlauncher daemon
+PartOf=hyprland-session.target graphical-session.target
+Requisite=hyprland-session.target
+After=hyprland-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+ConditionEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=exec
+ExecStart=/usr/local/bin/hyprlauncher -d
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+
+[Install]
+WantedBy=hyprland-session.target
