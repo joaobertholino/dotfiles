@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
-
-if pactl get-source-mute @DEFAULT_SOURCE@ 2>/dev/null | grep -qx 'Mute: yes'; then
-  printf '%s\n' '{"text":"•","class":"red","tooltip":"Microfone desativado"}'
-  exit 0
-fi
-
-printf '%s\n' '{"text":"•","class":"green","tooltip":"Microfone ativado"}'
+#!/usr/bin/python3
+import subprocess,json
+muted='yes' in subprocess.run(['/usr/local/bin/pactl','get-source-mute','@DEFAULT_SOURCE@'],capture_output=True,text=True).stdout
+print(json.dumps({'text':'<span font_desc="Font Awesome 7 Free Solid 10">'+('' if muted else '')+'</span>','class':'red' if muted else 'gray','tooltip':'Microphone muted' if muted else 'Microphone enabled (click to mute)'}))

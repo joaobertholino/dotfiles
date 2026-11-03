@@ -1,0 +1,5 @@
+#!/bin/sh
+umask 077
+mkdir -p "$HOME/.cache/cliphist"
+chmod 700 "$HOME/.cache/cliphist"
+exec /usr/local/bin/wl-paste --watch "$HOME/.local/libexec/clipboard-store"

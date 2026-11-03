@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import subprocess,sys
+if '--clear' in sys.argv:
+    subprocess.run(['systemctl','--user','stop','clipboard-history.service'],check=True)
+    try:
+        subprocess.run(['/usr/local/bin/wl-copy','--clear'],check=True)
+        subprocess.run(['/usr/local/bin/cliphist','wipe'],check=True)
+    finally:
+        subprocess.run(['systemctl','--user','start','clipboard-history.service'],check=True)
+    subprocess.run(['/usr/local/bin/notify-send','Clipboard history','History and clipboard cleared.'])
+else:
+    items=subprocess.run(['/usr/local/bin/cliphist','list'],capture_output=True,check=True).stdout
+    if not items:
+        subprocess.run(['/usr/local/bin/notify-send','Clipboard history','Nothing copied yet.']);sys.exit(0)
+    choice=subprocess.run(['/usr/local/bin/fuzzel','--dmenu','--prompt','Clipboard ❯ ','--width','55','--lines','12'],input=items,capture_output=True)
+    if choice.returncode or not choice.stdout:sys.exit(0)
+    data=subprocess.run(['/usr/local/bin/cliphist','decode'],input=choice.stdout,capture_output=True,check=True).stdout
+    subprocess.run(['/usr/local/bin/wl-copy'],input=data,check=True)

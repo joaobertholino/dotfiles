@@ -1,0 +1,87 @@
+#!/usr/bin/python3
+import json,os,re,subprocess,sys,time,html
+from pathlib import Path
+HOME=Path.home()
+def run(args):
+    try:return subprocess.run(args,capture_output=True,text=True,timeout=3).stdout
+    except (OSError,subprocess.TimeoutExpired):return ''
+def processes():
+    found=[]
+    for p in Path('/proc').glob('[0-9]*'):
+        try:
+            cmd=(p/'cmdline').read_bytes().split(b'\0');comm=(p/'comm').read_text().strip()
+            if comm=='obs' or (comm=='emerge' and not any(x in cmd for x in (b'--pretend',b'-p',b'--info',b'--search'))):found.append((p,comm))
+        except (OSError,PermissionError):pass
+    return found
+def portage(ps):
+    if not any(c=='emerge' for p,c in ps):return None
+    try:
+        with open('/var/log/emerge.log','rb') as f:f.seek(0,2);n=f.tell();f.seek(max(0,n-65536));s=f.read().decode(errors='replace')
+        matches=re.findall(r'>>> emerge \((\d+) of (\d+)\) (\S+)',s)
+        if matches:
+            i,n,pkg=matches[-1];return (' '+i+'/'+n,'Portage: '+pkg)
+    except OSError:pass
+    return ('','Portage is running')
+def recording(ps):
+    cache_path=HOME/'.cache/desktop-panel-obs.json'
+    try:cache=json.loads(cache_path.read_text())
+    except (OSError,ValueError):cache={}
+    result=None;updated={}
+    for p,c in ps:
+        if c!='obs':continue
+        try:
+            logs=set()
+            for fd in (p/'fd').iterdir():
+                try:
+                    link=fd.resolve()
+                    if str(link).startswith(str(HOME/'.config/obs-studio/logs/')) and link.suffix=='.txt':logs.add(link)
+                except OSError:pass
+            for log in logs:
+                stat=log.stat();key=str(p)+':'+str(log)+':'+str(stat.st_ino)
+                offset,active=cache.get(key,[0,False])
+                if offset>stat.st_size:offset,active=0,False
+                with log.open('rb') as f:
+                    f.seek(offset);overlap=b''
+                    while chunk:=f.read(65536):
+                        data=overlap+chunk
+                        events=re.findall(rb'==== Recording (Start|Stop) =',data)
+                        if events:active=events[-1]==b'Start'
+                        overlap=data[-64:]
+                    updated[key]=[f.tell(),active]
+                if active:result=('','OBS recording is active')
+        except OSError:pass
+    try:
+        cache_path.parent.mkdir(parents=True,exist_ok=True)
+        temp=cache_path.with_suffix('.tmp');temp.write_text(json.dumps(updated));temp.replace(cache_path)
+    except OSError:pass
+    return result
+def mic():
+    try:
+        outputs=json.loads(run(['/usr/local/bin/pactl','-f','json','list','source-outputs']) or '[]')
+        if not outputs:return None
+        sources=json.loads(run(['/usr/local/bin/pactl','-f','json','list','sources']) or '[]')
+        monitors={s['index'] for s in sources if s.get('monitor_of_sink') not in (None,4294967295,'n/a')}
+        names={o.get('properties',{}).get('application.name','Application') for o in outputs if o.get('source') not in monitors and not o.get('corked',False) and not o.get('mute',False)}
+        if names:return ('','Microphone in use: '+', '.join(sorted(names)))
+    except (ValueError,TypeError):pass
+    return None
+def failed():
+    result=[]
+    for flag,label in [(['--user'],'User'),([], 'System')]:
+        for line in run(['systemctl',*flag,'--failed','--plain','--no-legend','--no-pager']).splitlines():
+            if line.strip():result.append(label+': '+line.split()[0])
+    return result
+if '--details' in sys.argv:
+    print('Desktop status\n')
+    for scope in [['--user'],[]]:
+        subprocess.run(['systemctl',*scope,'--failed','--no-pager'])
+    subprocess.run(['journalctl','--user','-p','err','-n','20','--no-pager'])
+    input('\nPress Enter to close. ')
+else:
+    ps=processes();items=[];classes=[]
+    for fn,cls in [(lambda:portage(ps),'compiling'),(lambda:recording(ps),'recording'),(mic,'microphone')]:
+        item=fn()
+        if item:items.append(item);classes.append(cls)
+    errors=failed()
+    if errors:items.append((' '+str(len(errors)),'Failed units:\n'+'\n'.join(errors)));classes.append('warning')
+    print(json.dumps({'text':'  '.join(re.sub('[\ue000-\uf8ff\U000f0000-\U000ffffd]', lambda m: '<span font_desc="Font Awesome 7 Free Solid 10">'+m[0]+'</span>', x[0]) for x in items),'tooltip':html.escape('\n\n'.join(x[1] for x in items)),'class':classes},ensure_ascii=False))

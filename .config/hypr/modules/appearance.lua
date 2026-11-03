@@ -3,7 +3,7 @@ hl.config({
         gaps_in = 0,
         gaps_out = 0,
         border_size = 1,
-        col = { active_border = "rgba(737373ff)", inactive_border = "rgba(262626ff)" },
+        col = { active_border = "rgba(9580bfff)", inactive_border = "rgba(302b3aff)" },
         resize_on_border = false,
         hover_icon_on_border = false,
         allow_tearing = false,

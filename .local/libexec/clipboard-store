@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+import os,subprocess,sys
+if os.getenv('CLIPBOARD_STATE') in ('sensitive','nil','clear'):
+    sys.exit(0)
+types=subprocess.run(['/usr/local/bin/wl-paste','--list-types'],capture_output=True,text=True,timeout=3).stdout.lower()
+if 'password' in types or 'x-kde-passwordmanagerhint' in types:
+    sys.exit(0)
+data=sys.stdin.buffer.read(2*1024*1024+1)
+if data and len(data)<=2*1024*1024:
+    subprocess.run(['/usr/local/bin/cliphist','store'],input=data,check=True)

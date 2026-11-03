@@ -1,0 +1,8 @@
+#!/bin/sh
+unset LD_LIBRARY_PATH LD_PRELOAD QT_PLUGIN_PATH QT_QPA_PLATFORM_PLUGIN_PATH QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME QML2_IMPORT_PATH QML_IMPORT_PATH
+export QT_QPA_PLATFORM=wayland
+export LIBGL_DRIVERS_PATH=/usr/lib64/dri
+export LIBVA_DRIVERS_PATH=/usr/lib64/dri
+export GBM_BACKENDS_PATH=/usr/lib64/gbm
+export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+exec /usr/bin/obs "$@"

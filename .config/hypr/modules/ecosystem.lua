@@ -6,3 +6,7 @@ hl.bind("SUPER + ALT + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("SUPER + ALT + A", hl.dsp.exec_cmd("hyprpwcenter"))
 hl.bind("SUPER + ALT + I", hl.dsp.exec_cmd("hyprsysteminfo"))
 hl.bind("SUPER + CTRL + ESCAPE", hl.dsp.exec_cmd("hyprshutdown"))
+
+hl.bind("SUPER + V", hl.dsp.exec_cmd("/home/joaob/.local/bin/clipboard-history"))
+hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("/home/joaob/.local/bin/clipboard-history --clear"))
+hl.bind("SUPER + CTRL + N", hl.dsp.exec_cmd("/home/joaob/.local/bin/night-light-toggle"))

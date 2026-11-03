@@ -1,0 +1,8 @@
+#!/bin/sh
+if systemctl --user is-active --quiet hyprsunset.service; then
+    systemctl --user stop hyprsunset.service
+    notify-send 'Night light' 'Temporarily disabled until the next session or toggle.'
+else
+    systemctl --user start hyprsunset.service
+    notify-send 'Night light' 'Schedule enabled: 00:00–07:00, 4500 K.'
+fi

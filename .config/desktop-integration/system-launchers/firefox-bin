@@ -1,0 +1,3 @@
+#!/bin/sh
+unset LIBGL_DRIVERS_PATH __EGL_VENDOR_LIBRARY_FILENAMES GBM_BACKENDS_PATH
+exec /usr/bin/firefox-bin "$@"

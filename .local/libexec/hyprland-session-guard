@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+"""Keep the systemd session target alive only while this Hyprland instance lives."""
+import json, os, select, socket, subprocess
+signature = os.environ["HYPRLAND_INSTANCE_SIGNATURE"]
+instances = json.loads(subprocess.check_output(["/opt/hyprland/bin/hyprctl", "-j", "instances"]))
+instance = next(i for i in instances if i["instance"] == signature and i["wl_socket"] == os.environ["WAYLAND_DISPLAY"])
+fd = os.pidfd_open(instance["pid"])
+# Notify only after validating and acquiring a handle to the live compositor.
+address = os.environ["NOTIFY_SOCKET"]
+if address.startswith("@"):
+    address = "\0" + address[1:]
+with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as notifier:
+    notifier.connect(address)
+    notifier.sendall(b"READY=1")
+select.select([fd], [], [])
+os.close(fd)

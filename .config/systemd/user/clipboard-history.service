@@ -1,0 +1,16 @@
+[Unit]
+Description=Private clipboard history for this Wayland session
+PartOf=hyprland-session.target graphical-session.target
+Requisite=hyprland-session.target
+After=hyprland-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=exec
+ExecStart=%h/.local/libexec/clipboard-watch
+Restart=on-failure
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=hyprland-session.target

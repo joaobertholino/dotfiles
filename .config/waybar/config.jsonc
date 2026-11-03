@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "height": 20,
-  "spacing": 4,
+  "spacing": 2,
   "modules-left": [
     "hyprland/workspaces",
     "disk#root",
@@ -12,9 +12,9 @@
     "clock"
   ],
   "modules-right": [
+    "custom/desktop-status",
     "custom/memory",
     "cpu",
-    "temperature",
     "network",
     "pulseaudio",
     "custom/mic"
@@ -30,13 +30,12 @@
   "disk#root": {
     "path": "/",
     "interval": 10,
-    "format": "/ {percentage_used}%",
-    "tooltip-format": "{path}: {used} usados de {total}"
+    "format": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span> {percentage_used}%",
+    "tooltip-format": "{path}: {used} / {total}"
   },
   "custom/filesystem-secondary": {
-    "exec": "mountpoint -q /home && df -h /home | awk 'NR==2 {print \"/home \" $5}' || printf '/home não montado'",
-    "interval": 10,
-    "tooltip-format": "{path}: {used} usados de {total}"
+    "exec": "/home/joaob/.config/waybar/home-usage.sh",
+    "interval": 10
   },
   "custom/memory": {
     "exec": "/home/joaob/.config/waybar/memory.sh",
@@ -45,28 +44,30 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "CPU: {usage}%",
-    "tooltip": false
-  },
-  "temperature": {
-    "interval": 1,
-    "critical-threshold": 50,
-    "format": "CPU-TEMP: {temperatureC}°C",
-    "format-critical": "CPU-TEMP: {temperatureC}°C",
+    "format": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span> {usage}%",
     "tooltip": false
   },
   "network": {
     "interval": 1,
-    "format-wifi": "<span foreground='#f5f5f5'>WIFI:</span> <span foreground='#4ade80'>Connected</span>",
-    "format-ethernet": "<span foreground='#f5f5f5'>Ethernet:</span> <span foreground='#4ade80'>Connected</span>",
-    "format-disconnected": "<span foreground='#f5f5f5'>Connection:</span> <span foreground='#f87171'>Disconnected</span>",
-    "tooltip": false
+    "format-wifi": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span> {signalStrength}%",
+    "format-ethernet": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
+    "format-disconnected": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
+    "tooltip": true,
+    "tooltip-format": "{ifname}: {ipaddr}"
   },
   "pulseaudio": {
-    "format": "VOL: {volume}%",
-    "format-muted": "muted",
+    "format": "{icon} {volume}%",
+    "format-muted": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
     "scroll-step": 5,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": {
+      "headphone": "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
+      "default": [
+        "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
+        "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>",
+        "<span font_desc=\"Font Awesome 7 Free Solid 10\"></span>"
+      ]
+    }
   },
   "custom/mic": {
     "exec": "/home/joaob/.config/waybar/mic-activity.sh",
@@ -76,10 +77,16 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{:%A - %d/%b(%m)/%Y - %H:%M}",
-    "format-alt": "{:%A - %d/%b(%m)/%Y - %H:%M}",
-    "tooltip": false,
+    "format": "{:%d/%m · %H:%M}",
+    "tooltip": true,
     "on-click": "/home/joaob/.config/zen-cal/toggle.sh",
-    "format-alt-click": 3
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+  "custom/desktop-status": {
+    "exec": "/home/joaob/.local/libexec/desktop-status",
+    "return-type": "json",
+    "interval": 3,
+    "hide-empty-text": true,
+    "on-click": "/usr/local/bin/alacritty -e /home/joaob/.local/libexec/desktop-status --details"
   }
 }

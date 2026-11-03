@@ -1,0 +1,6 @@
+#!/bin/sh
+export LIBGL_DRIVERS_PATH=/opt/hyprland/packages/mesa/lib/dri
+export __EGL_VENDOR_LIBRARY_FILENAMES=/opt/hyprland/packages/mesa/share/glvnd/egl_vendor.d/50_mesa.json
+export GBM_BACKENDS_PATH=/opt/hyprland/packages/mesa/lib/gbm
+export QT_PLUGIN_PATH="/nix/store/zxbkjh9138096l7n4phx0h599gskj4yv-qtstyleplugin-kvantum5-1.1.8/lib/qt-5.15.19/plugins:/nix/store/z09jwkcd6j08z712hzsbh8mnqz2g76lg-qtstyleplugin-kvantum-1.1.8/lib/qt-6/plugins"
+exec "$@"

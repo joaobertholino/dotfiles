@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-
-awk '
-  /MemTotal:/ { total = $2 }
-  /MemAvailable:/ { available = $2 }
-  END { printf "RAM: %d MB", (total - available) / 1024; print "" }
-' /proc/meminfo
+#!/bin/sh
+value=$(awk '/MemTotal:/ {t=$2} /MemAvailable:/ {a=$2} END {printf "%d",(t-a)/1024}' /proc/meminfo)
+printf '<span font_desc="Font Awesome 7 Free Solid 10"></span> %s MB\n' "$value"
