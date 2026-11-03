@@ -109,8 +109,9 @@ O framework oficial permanece separado em `~/.config/prelude`, e seu diretório
 `personal` aponta por link simbólico para o submódulo. O remoto `origin` das
 configurações aponta para joaobertholino/prelude-emacs. O serviço horário envia
 a branch `main`.
-O vínculo `.config/doom` foi removido dos dotfiles; os objetos Git antigos foram
-preservados localmente para recuperação.
+O vínculo `.config/doom` e a instalação antiga do Doom foram removidos.
+O Emacs nativo e o Prelude permanecem disponíveis. Os objetos Git históricos
+do antigo submódulo continuam fora da instalação para recuperação.
 
 - `EDITOR=/usr/local/bin/prelude-editor-terminal` abre um cliente no terminal;
 - `VISUAL=/usr/local/bin/prelude-editor` abre um frame gráfico;
