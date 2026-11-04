@@ -1,15 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-monitor="HDMI-A-1"
-transform=$(hyprctl monitors -j | jq -er --arg monitor "$monitor" '.[] | select(.name == $monitor) | .transform')
-if [[ "$transform" == "0" ]]; then
-    target=1
-    label="Portrait"
-else
-    target=0
-    label="Landscape"
-fi
+case "${1:---toggle}" in
+    --landscape)
+        target=0
+        label="Landscape"
+        ;;
+    --toggle)
+        monitor="HDMI-A-1"
+        transform=$(hyprctl monitors -j | jq -er --arg monitor "$monitor" '.[] | select(.name == $monitor) | .transform')
+        if [[ "$transform" == "0" ]]; then
+            target=1
+            label="Portrait"
+        else
+            target=0
+            label="Landscape"
+        fi
+        ;;
+    *)
+        printf 'Usage: %s [--landscape|--toggle]\n' "$0" >&2
+        exit 2
+        ;;
+esac
 
 python3 - "$target" <<'PYTHON'
 from pathlib import Path

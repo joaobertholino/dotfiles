@@ -17,8 +17,9 @@ of the system launchers are in `system-launchers/`. Installing them requires
 root privileges. Avoid adding Nix library paths to the desktop environment.
 
 The Wacom pen maps to HDMI-A-1 with the same transform as the monitor.
-Super+Alt+O switches both between portrait and landscape and saves their
-orientation in the Hyprland modules. The device transform takes precedence
+Super+Alt+O sets both to landscape and saves their orientation in the
+Hyprland modules. Running `toggle-orientation.sh --toggle` alternates both
+between portrait and landscape. The device transform takes precedence
 over the udev calibration matrix.
 
 ## Shortcuts
