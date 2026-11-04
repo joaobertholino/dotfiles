@@ -1,6 +1,6 @@
 # Dotfiles — Gentoo + Hyprland
 
-Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Prelude Emacs e Xournal++. Integração da sessão e do Portage atualizada em **26/10/2026**.
+Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Prelude Emacs e Xournal++. Integração da sessão e do Portage atualizada em **03/11/2026**.
 
 ![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/gtIDuco.png)
 
@@ -10,7 +10,7 @@ O repositório principal tem sua árvore de trabalho em `~/`. O `.gitignore` per
 
 | Caminho | Conteúdo |
 | --- | --- |
-| `.bashrc`, `.bash_aliases`, `.bash_profile`, `.profile` | Ambiente Bash e aliases Gentoo/Nix |
+| `.bashrc`, `.bash_aliases`, `.bash_profile`, `.profile` | Ambiente Bash e aliases do Portage |
 | `.config/hypr/` | Entrada Lua, módulos, atalhos, captura e papel de parede |
 | `.config/waybar/` | Painel, relógio, métricas e áudio |
 | `.config/alacritty/`, `.config/tmux/` | Terminal e sessão tmux `main` |
@@ -50,37 +50,30 @@ Pontos que precisam de adaptação em outro computador:
 - monitor `HDMI-A-1`, modo `1920x1080@120`, rotação `transform = 1`, configuração de cor e tablet;
 - fontes 0xProto Nerd Font, Noto Sans, Wigrum e tema de ícones `bloom-dark`;
 - diretórios pessoais de LaTeX, bibliografia, notas e projetos;
-- caminhos absolutos `/opt/`, `/usr/local/bin/` e `/nix/store/` usados pela instalação local.
+- caminhos absolutos `/opt/` e `/usr/local/bin/` usados pela instalação local.
 
 A configuração usa a API Lua `hl` do Hyprland 0.56.2 instalado nesta máquina. Não deve ser aplicada sem adaptação a uma versão que só aceite a sintaxe tradicional de `hyprland.conf`.
 
 ## Pacotes e binários da máquina
 
-O sistema combina pacotes nativos do Gentoo com binários pré-compilados do Nix e distribuições oficiais. A política local do Nix define `max-jobs = 0` e `fallback = false`, impedindo que instalações sem substituto binário iniciem uma compilação local.
+O desktop é gerenciado pelo Portage, com preferência por binários Gentoo compatíveis e compilação quando necessária. O conjunto `/etc/portage/sets/native-desktop` mantém os aplicativos da sessão selecionados para evitar remoção por depclean. Hyprland 0.56.2 é compilado pelo hyproverlay e mantém a configuração Lua atual. O Sway permanece instalado como sessão alternativa.
+
+As configurações do Portage ficam em `/etc/portage`, fora deste repositório. A placa AMD usa `VIDEO_CARDS="amdgpu radeonsi"`; as compilações utilizam até três tarefas e um pacote por vez. Exceções de USE e keywords são específicas por pacote.
 
 Componentes presentes incluem Hyprland, Hyprpaper, Hyprshot, Hyprlauncher, Hyprpicker, Hyprpwcenter, Hyprsysteminfo, Hyprpolkitagent, portal Hyprland, PipeWire/WirePlumber, Waybar, Alacritty e tmux.
 
-Ferramentas de desenvolvimento instaladas: Lean 4.35.0 com Lake, Common Lisp/SBCL 2.6.8 e Eclipse Temurin JDK 27.0.1.0.2+1. `JAVA_HOME` aponta para `/opt/jdk-current`. As versões descrevem esta instalação, não dependências fixadas pelo repositório.
+Ferramentas de desenvolvimento instaladas: Lean 4.35.0 com Lake, Common Lisp/SBCL 2.6.7 e Eclipse Temurin JDK 27.0.1.0.2+1. `JAVA_HOME` aponta para `/opt/jdk-current`. As versões descrevem esta instalação, não dependências fixadas pelo repositório.
 
-Os binários, wrappers e arquivos globais não são instalados por este checkout. Na máquina atual, podem ser consultados em `/opt/hyprland/`, `/opt/thunar/`, `/opt/development/`, `/usr/local/bin/` e `/usr/local/share/gentoo-install/`. Esses caminhos e os inventários locais não fazem parte do repositório.
+Os binários e arquivos globais não são instalados por este checkout. Os pacotes do desktop estão registrados no Portage. Lean 4.35.0 usa a distribuição Linux oficial, empacotada pelo repositório local do Portage para preservar a versão. O JDK continua em `/opt/jdk-current`. Os helpers da sessão ficam em `/usr/local/bin/`; suas cópias de referência estão em `.config/desktop-integration/system-launchers/`.
 
 ### Aliases de pacotes
 
 | Comando | Função |
 | --- | --- |
-| `ebin categoria/pacote` | Instalar pelo Portage somente com binários |
-| `ei categoria/pacote` | Instalação normal pelo Portage; pode compilar |
+| `ei categoria/pacote` | Instalação normal pelo Portage; prefere binários compatíveis e pode compilar |
+| `ecomp categoria/pacote` | Instalação pelo Portage forçando compilação |
 | `es termo` | Pesquisar no Portage |
 | `esync` | Sincronizar repositórios Gentoo |
-| `ni nixpkgs#pacote` | Instalar binário no perfil `/opt/nix-profile` |
-| `ns termo` | Pesquisar no Nixpkgs |
-| `nl` | Listar pacotes desse perfil Nix |
-| `nu` | Atualizar o perfil Nix usando binários |
-| `nr pacote` | Remover pacote do perfil |
-| `nh` / `nrollback` | Histórico / retorno à geração anterior |
-| `ngc` | Remover objetos sem referências no armazenamento Nix |
-
-Os atalhos Nix usam `sudo` porque esta instalação mantém o armazenamento sob administração do root. O perfil `/opt/nix-profile` é separado das instalações mantidas diretamente em `/opt/hyprland/`, `/opt/thunar/` e `/opt/development/`.
 
 ## Interface gráfica do Portage: Kuroo
 
@@ -92,7 +85,7 @@ kuroo --version
 kuroo
 ```
 
-O lançador `/usr/local/bin/kuroo` usa `/usr/bin/kuroo` com Qt/Wayland nativo, limpa variáveis gráficas Nix incompatíveis e aplica o grupo `portage` ao processo com `sg` quando a sessão ainda não herdou a associação. O usuário precisa estar cadastrado nesse grupo. Não execute a interface como root.
+O lançador `/usr/local/bin/kuroo` usa `/usr/bin/kuroo` com Qt/Wayland nativo, limpa variáveis gráficas incompatíveis e aplica o grupo `portage` ao processo com `sg` quando a sessão ainda não herdou a associação. O usuário precisa estar cadastrado nesse grupo. Não execute a interface como root.
 
 Os dados ficam em `/var/cache/kuroo`, com backup em `/var/cache/kuroo/backup`; ambos permitem escrita ao grupo `portage` e herdam esse grupo com modo `2770`. A configuração pessoal fica em `~/.config/kuroorc`. Na primeira atualização do banco de dados, confirme **Refresh** para carregar os pacotes; uma janela aberta não confirma que todas as funções administrativas foram testadas.
 
@@ -127,11 +120,11 @@ e `Super+Ctrl+N` alterna a iluminação noturna. A Waybar usa ícones de fonte,
 relógio sem ícone e indicadores de compilação, gravação, microfone e falhas.
 
 Consulte [desktop-integration](.config/desktop-integration/README.md) para os
-serviços, limites de armazenamento e isolamento das bibliotecas Gentoo/Nix.
+serviços, limites de armazenamento e uso das bibliotecas nativas do Gentoo.
 
 ## Thunar e arquivos compactados
 
-O Thunar 4.20.10 utiliza uma pilha binária Nix consistente para os plugins Archive, Media Tags, VCS, Shares e Dropbox. Thunar Volman gerencia mídias removíveis; Tumbler fornece miniaturas; GVfs integra arquivos virtuais e acesso aos serviços de montagem.
+O Thunar e os plugins Archive, Media Tags, VCS, Shares e Dropbox são instalados pelo Portage. Thunar Volman gerencia mídias removíveis; Tumbler fornece miniaturas; GVfs integra arquivos virtuais e acesso aos serviços de montagem.
 
 Ações personalizadas em `.config/Thunar/uca.xml`:
 
@@ -140,7 +133,7 @@ Ações personalizadas em `.config/Thunar/uca.xml`:
 - aplicar imagens como papel de parede pelo Hyprpaper;
 - **Extrair TAR aqui**, incluindo `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst` e variantes relacionadas.
 
-File Roller é o aplicativo padrão para TAR e outros formatos compactados. As associações MIME estão configuradas localmente em `~/.config/mimeapps.list`, fora da lista de arquivos versionados. O GtkHash foi integrado por ação personalizada; o pacote binário disponível não inclui seu módulo Thunar específico.
+File Roller é o aplicativo padrão para TAR e outros formatos compactados. As associações MIME estão configuradas localmente em `~/.config/mimeapps.list`, fora da lista de arquivos versionados. O GtkHash possui ação personalizada e módulo Thunar compilado pelo repositório local do Portage.
 
 O suporte Shares utiliza Samba/usershares. Para autenticar seu usuário pela rede, defina uma senha Samba com `sudo smbpasswd -a joaob`; a configuração não cria uma senha nem compartilha uma pasta automaticamente. A extensão Dropbox depende do cliente em execução e da autenticação da conta.
 

@@ -5,7 +5,7 @@
     <name>Abrir terminal aqui</name>
     <submenu />
     <unique-id>1785120639487163-1</unique-id>
-    <command>/opt/hyprland/bin/alacritty --working-directory %f</command>
+    <command>/usr/bin/alacritty --working-directory %f</command>
     <description>Abrir o Alacritty nesta pasta</description>
     <range />
     <patterns>*</patterns>

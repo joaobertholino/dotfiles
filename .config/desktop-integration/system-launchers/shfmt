@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /opt/desktop-tools/shfmt/bin/shfmt "$@"
+exec /usr/bin/shfmt "$@"

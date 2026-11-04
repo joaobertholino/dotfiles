@@ -100,26 +100,6 @@ alias edepclean='sudo emerge --ask --depclean'
 alias erebuild='sudo emerge --ask @preserved-rebuild'
 alias enews='sudo eselect news read'
 
-# Nix: perfil de aplicativos e binários pré-compilados.
-# Exemplo: ni nixpkgs#hello ; ns firefox ; nr hello
-alias ni='sudo nix profile add --profile /opt/nix-profile --max-jobs 0'
-alias ns='sudo nix search nixpkgs'
-alias nl='sudo nix profile list --profile /opt/nix-profile'
-alias nu='sudo nix profile upgrade --profile /opt/nix-profile --max-jobs 0 --all'
-alias nr='sudo nix profile remove --profile /opt/nix-profile'
-alias nh='sudo nix profile history --profile /opt/nix-profile'
-alias nrollback='sudo nix profile rollback --profile /opt/nix-profile'
-alias ngc='sudo nix store gc --dry-run'
-
-case ":$PATH:" in
-    *:/opt/nix-profile/bin:*) ;;
-    *) export PATH="/opt/nix-profile/bin:$PATH" ;;
-esac
-case ":${XDG_DATA_DIRS:-/usr/local/share:/usr/share}:" in
-    *:/opt/nix-profile/share:*) ;;
-    *) export XDG_DATA_DIRS="/opt/nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}" ;;
-esac
-
 alias fp='flatpak'
 
 alias steam='flatpak run com.valvesoftware.Steam'

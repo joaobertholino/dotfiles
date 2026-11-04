@@ -15,7 +15,6 @@ hl.env("GTK_USE_PORTAL", "1")
 hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("GTK2_RC_FILES", "/home/joaob/.config/gtk-2.0/gtkrc")
 hl.env("QT_STYLE_OVERRIDE", "kvantum")
-hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
 
 -- JDK binário do Eclipse Temurin.
 hl.env("JAVA_HOME", "/opt/jdk-current")
@@ -25,8 +24,4 @@ hl.env("JDK_HOME", "/opt/jdk-current")
 hl.env("EDITOR", "/usr/local/bin/prelude-editor-terminal")
 hl.env("VISUAL", "/usr/local/bin/prelude-editor")
 
-hl.env("PATH", "/usr/local/sbin:/usr/local/bin:/opt/hyprland/bin:/usr/sbin:/usr/bin:/sbin:/bin")
-hl.env("LIBGL_DRIVERS_PATH", "/usr/lib64/dri")
-hl.env("__EGL_VENDOR_LIBRARY_FILENAMES", "/usr/share/glvnd/egl_vendor.d/50_mesa.json")
-hl.env("GBM_BACKENDS_PATH", "/usr/lib64/gbm")
-hl.env("QT_PLUGIN_PATH", "")
+hl.env("PATH", "/home/joaob/.local/share/texlive/2026/bin/x86_64-linux:/home/joaob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin")

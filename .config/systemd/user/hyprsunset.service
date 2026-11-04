@@ -7,7 +7,7 @@ ConditionEnvironment=WAYLAND_DISPLAY
 
 [Service]
 Type=exec
-ExecStart=/usr/local/bin/hyprsunset
+ExecStart=/usr/bin/hyprsunset
 Restart=on-failure
 RestartSec=3
 UMask=0077

@@ -10,7 +10,7 @@ StartLimitBurst=5
 
 [Service]
 Type=exec
-ExecStart=/usr/local/bin/hyprlauncher -d
+ExecStart=/usr/bin/hyprlauncher -d
 Restart=on-failure
 RestartSec=3
 TimeoutStopSec=10
