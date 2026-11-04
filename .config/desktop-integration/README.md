@@ -16,6 +16,11 @@ xdg-shell version when testing Hyprland inside Sway. Reference copies
 of the system launchers are in `system-launchers/`. Installing them requires
 root privileges. Avoid adding Nix library paths to the desktop environment.
 
+The Wacom pen maps to HDMI-A-1 with the same transform as the monitor.
+Super+Alt+O switches both between portrait and landscape and saves their
+orientation in the Hyprland modules. The device transform takes precedence
+over the udev calibration matrix.
+
 ## Shortcuts
 
 - Super+V: search clipboard history; Enter copies and pastes into the previously focused application.
