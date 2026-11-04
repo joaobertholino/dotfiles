@@ -16,7 +16,7 @@ bind("SPACE", hl.dsp.exec_cmd(launcher))
 bind("ESCAPE", hl.dsp.exec_cmd("hyprctl reload"))
 bind("ALT + Q", hl.dsp.exit())
 bind("ALT + R", hl.dsp.exec_cmd("hyprctl reload"))
-bind("ALT + O", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/toggle-orientation.sh --landscape"))
+bind("ALT + O", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/toggle-orientation.sh --toggle"))
 hl.bind("PRINT", hl.dsp.exec_cmd("/home/joaob/.config/hypr/scripts/screenshot.sh"))
 
 -- Símbolos matemáticos: SUPER + ALT + número; com SHIFT, operadores e cálculo.
