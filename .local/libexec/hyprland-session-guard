@@ -1,16 +1,57 @@
 #!/usr/bin/python3
-"""Keep the systemd session target alive only while this Hyprland instance lives."""
-import json, os, select, socket, subprocess
-signature = os.environ["HYPRLAND_INSTANCE_SIGNATURE"]
-instances = json.loads(subprocess.check_output(["/usr/bin/hyprctl", "-j", "instances"]))
-instance = next(i for i in instances if i["instance"] == signature and i["wl_socket"] == os.environ["WAYLAND_DISPLAY"])
-fd = os.pidfd_open(instance["pid"])
-# Notify only after validating and acquiring a handle to the live compositor.
-address = os.environ["NOTIFY_SOCKET"]
-if address.startswith("@"):
-    address = "\0" + address[1:]
-with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as notifier:
-    notifier.connect(address)
-    notifier.sendall(b"READY=1")
-select.select([fd], [], [])
-os.close(fd)
+"""Track the live compositor, allowing its IPC to become ready at login."""
+import json
+import os
+import select
+import socket
+import subprocess
+import time
+
+
+def decode_instances(text):
+    decoder = json.JSONDecoder()
+    for offset, character in enumerate(text):
+        if character != "[":
+            continue
+        try:
+            value, _ = decoder.raw_decode(text, offset)
+        except ValueError:
+            continue
+        if isinstance(value, list) and all(isinstance(item, dict) for item in value):
+            return value
+    raise ValueError("Hyprland instance list is not ready")
+
+
+def acquire_compositor(signature, display):
+    deadline = time.monotonic() + 6
+    while time.monotonic() < deadline:
+        try:
+            result = subprocess.run(
+                ["/usr/bin/hyprctl", "-j", "instances"],
+                capture_output=True, text=True, timeout=1, check=True,
+            )
+            for instance in decode_instances(result.stdout):
+                if instance.get("instance") == signature and instance.get("wl_socket") == display:
+                    return os.pidfd_open(instance["pid"])
+        except (OSError, ValueError, KeyError, subprocess.SubprocessError):
+            pass
+        time.sleep(0.1)
+    raise SystemExit("Current Hyprland instance did not become ready within six seconds")
+
+
+def main():
+    fd = acquire_compositor(os.environ["HYPRLAND_INSTANCE_SIGNATURE"], os.environ["WAYLAND_DISPLAY"])
+    try:
+        address = os.environ["NOTIFY_SOCKET"]
+        if address.startswith("@"):
+            address = "\0" + address[1:]
+        with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as notifier:
+            notifier.connect(address)
+            notifier.sendall(b"READY=1")
+        select.select([fd], [], [])
+    finally:
+        os.close(fd)
+
+
+if __name__ == "__main__":
+    main()
