@@ -1,0 +1,58 @@
+#!/usr/bin/python3
+from pathlib import Path
+import subprocess,sys,json,time
+
+def focused_window():
+    try:
+        result=subprocess.run(['/usr/bin/niri','msg','-j','focused-window'],capture_output=True,text=True,timeout=2,check=True)
+        window=json.loads(result.stdout)
+        if not window:return {}
+        return {'address':str(window['id']),'class':window.get('app_id') or ''}
+    except (OSError,KeyError,ValueError,subprocess.SubprocessError):
+        return {}
+
+def paste_into_previous(window):
+    address=window.get('address')
+    if not address:
+        subprocess.run(['/usr/bin/notify-send','Clipboard history','Item copied. Press Ctrl+V to paste.'])
+        return
+    time.sleep(0.15)
+    deadline=time.monotonic()+0.8
+    while focused_window().get('address')!=address:
+        if time.monotonic()>=deadline:
+            subprocess.run(['/usr/bin/notify-send','Clipboard history','Focus changed. Item copied without automatic paste.'])
+            return
+        time.sleep(0.05)
+    terminal=window.get('class','').lower() in {
+        'alacritty','kitty','foot','footclient','org.gnome.terminal',
+        'org.gnome.console','org.wezfurlong.wezterm','com.mitchellh.ghostty',
+        'ghostty','konsole','xfce4-terminal','xterm',
+    }
+    keys=['/usr/bin/wtype','-M','ctrl']
+    if terminal:keys+=['-M','shift']
+    keys+=['-k','v']
+    if terminal:keys+=['-m','shift']
+    keys+=['-m','ctrl']
+    result=subprocess.run(keys,capture_output=True)
+    if result.returncode:
+        subprocess.run(['/usr/bin/notify-send','Clipboard history','Item copied; automatic paste unavailable. Paste manually.'])
+
+if '--clear' in sys.argv:
+    subprocess.run(['systemctl','--user','stop','niri-clipboard.service'],check=True)
+    try:
+        subprocess.run(['/usr/bin/wl-copy','--clear'],check=True)
+        subprocess.run(['/usr/bin/cliphist','wipe'],check=True)
+    finally:
+        subprocess.run(['systemctl','--user','start','niri-clipboard.service'],check=True)
+    subprocess.run(['/usr/bin/notify-send','Clipboard history','History and clipboard cleared.'])
+else:
+    previous_window=focused_window()
+    items=subprocess.run(['/usr/bin/cliphist','list'],capture_output=True,check=True).stdout
+    if not items:
+        subprocess.run(['/usr/bin/notify-send','Clipboard history','Nothing copied yet.']);sys.exit(0)
+    choice=subprocess.run(['/usr/bin/fuzzel','--config',str(Path.home()/'.config/niri/fuzzel.ini'),'--dmenu','--prompt','Clipboard ❯ ','--width','55','--lines','12'],input=items,capture_output=True)
+    if choice.returncode or not choice.stdout:sys.exit(0)
+    data=subprocess.run(['/usr/bin/cliphist','decode'],input=choice.stdout,capture_output=True,check=True).stdout
+    subprocess.run(['/usr/bin/wl-copy'],input=data,check=True)
+    if '--copy-only' not in sys.argv:
+        paste_into_previous(previous_window)

@@ -1,0 +1,17 @@
+[Unit]
+Description=Personal Waybar for Niri
+PartOf=niri.service graphical-session.target
+Requisite=niri.service
+After=niri.service
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+UnsetEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+Type=exec
+EnvironmentFile=%h/.config/niri/session.env
+ExecStart=/usr/bin/waybar --config %h/.config/niri/waybar/config.jsonc --style %h/.config/niri/waybar/style.css
+ExecReload=/bin/kill -SIGUSR2 $MAINPID
+Restart=on-failure
+RestartSec=3
+[Install]
+WantedBy=niri.service

@@ -1,0 +1,29 @@
+input {
+    keyboard {
+        xkb {
+            layout "br"
+        }
+    }
+    mouse {
+        accel-speed 0.0
+        accel-profile "flat"
+        scroll-factor 1.25
+    }
+    touchpad {
+        tap
+    }
+    tablet {
+        map-to-output "HDMI-A-1"
+        calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth
+    mod-key "Super"
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@120"
+    scale 1
+    transform "90"
+    position x=0 y=0
+}

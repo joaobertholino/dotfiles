@@ -1,0 +1,17 @@
+environment {
+    "GDK_BACKEND" "wayland,x11"
+    "QT_QPA_PLATFORM" "wayland"
+    "QT_STYLE_OVERRIDE" "kvantum"
+    "GTK_THEME" "adw-gtk3-dark"
+    "GTK2_RC_FILES" "/home/joaob/.config/gtk-2.0/gtkrc"
+    "MOZ_ENABLE_WAYLAND" "1"
+    "ELECTRON_OZONE_PLATFORM_HINT" "auto"
+    "SDL_VIDEODRIVER" "wayland"
+    "XCURSOR_SIZE" "24"
+    "XCURSOR_THEME" "bloom-dark"
+    "JAVA_HOME" "/opt/jdk-current"
+    "JDK_HOME" "/opt/jdk-current"
+    "EDITOR" "/usr/local/bin/prelude-editor-terminal"
+    "VISUAL" "/usr/local/bin/prelude-editor"
+    "PATH" "/home/joaob/.local/share/texlive/2026/bin/x86_64-linux:/home/joaob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+}

@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+if systemctl --user is-active --quiet niri-night-light.service; then
+    systemctl --user stop niri-night-light.service
+    notify-send 'Night light' 'Disabled for this session'
+else
+    systemctl --user start niri-night-light.service
+    notify-send 'Night light' 'Automatic schedule restored: 00:00–07:00'
+fi

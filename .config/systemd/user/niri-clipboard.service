@@ -1,0 +1,17 @@
+[Unit]
+Description=Private clipboard history for Niri
+PartOf=niri.service graphical-session.target
+Requisite=niri.service
+After=niri.service
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+UnsetEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+Type=exec
+EnvironmentFile=%h/.config/niri/session.env
+ExecStart=%h/.local/libexec/clipboard-watch
+UMask=0077
+Restart=on-failure
+RestartSec=3
+[Install]
+WantedBy=niri.service

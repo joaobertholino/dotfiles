@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/alacritty --class TUI.systeminfo --title 'System information' -e /bin/sh -c 'fastfetch; printf "\nNiri outputs\n"; niri msg outputs; printf "\nPress Enter to close"; read -r reply'

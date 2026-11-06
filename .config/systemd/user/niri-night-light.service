@@ -1,0 +1,17 @@
+[Unit]
+Description=Night light for Niri from midnight to 07:00
+PartOf=niri.service graphical-session.target
+Requisite=niri.service
+After=niri.service
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+UnsetEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+Type=exec
+EnvironmentFile=%h/.config/niri/session.env
+ExecStart=%h/.config/niri/scripts/night-light
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=10
+[Install]
+WantedBy=niri.service

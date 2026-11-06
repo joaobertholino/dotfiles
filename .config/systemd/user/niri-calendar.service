@@ -1,0 +1,12 @@
+[Unit]
+Description=Floating calendar for Niri
+PartOf=niri.service graphical-session.target
+Requisite=niri.service
+After=niri.service
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+UnsetEnvironment=HYPRLAND_INSTANCE_SIGNATURE
+Type=exec
+EnvironmentFile=%h/.config/niri/session.env
+ExecStart=/usr/bin/alacritty --class TUI.zencal --title Calendar -o window.padding.x=8 -o window.padding.y=6 -o window.dimensions.columns=38 -o window.dimensions.lines=14 -e %h/.local/bin/zen-cal

@@ -1,0 +1,13 @@
+include "input-output.kdl"
+include "appearance.kdl"
+include "environment.kdl"
+include "bindings.kdl"
+include "window-rules.kdl"
+
+hotkey-overlay {
+    skip-at-startup
+}
+screenshot-path "~/Images/screenshots/%d-%m-%YT%H-%M-%S.png"
+xwayland-satellite {
+    path "/usr/bin/xwayland-satellite"
+}
