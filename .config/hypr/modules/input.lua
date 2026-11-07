@@ -20,5 +20,5 @@ hl.device({
     name = "wacom-one-by-wacom-s-pen",
     --left_handed = true,
     output = "HDMI-A-1",
-    transform = 0,
+    transform = 1,
 })
