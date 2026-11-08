@@ -223,7 +223,9 @@ systemctl --user enable --now git-auto-push.timer
 systemctl --user list-timers git-auto-push.timer
 ```
 
-O timer executa a cada hora, com atraso aleatório de até dois minutos e `Persistent=true`. O usuário tem linger habilitado para permitir execução após logout. A máquina precisa estar ligada, com rede e autenticação SSH disponíveis. As unidades exigem Bash, Python 3 com `Path.is_relative_to`, Git, OpenSSH e `flock`.
+O mesmo serviço também processa `~/Mathematics` como repositório independente, usando seu próprio remoto e o hook de Git LFS para os arquivos grandes. Ele não é um submódulo dos dotfiles.
+
+O timer executa a cada hora, com atraso aleatório de até dois minutos e `Persistent=true`. O usuário tem linger habilitado para permitir execução após logout. A máquina precisa estar ligada, com rede e autenticação SSH disponíveis. As unidades exigem Bash, Python 3 com `Path.is_relative_to`, Git, OpenSSH e `flock`; o repositório Mathematics também exige Git LFS.
 
 ## Atualização manual e recuperação
 

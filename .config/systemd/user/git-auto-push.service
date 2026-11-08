@@ -1,5 +1,5 @@
 [Unit]
-Description=Commit and push dotfiles, recursive submodules and independent www repository
+Description=Commit and push dotfiles, recursive submodules and independent www and Mathematics repositories
 ConditionPathIsDirectory=%h/.git
 Wants=network-online.target
 After=network-online.target
@@ -10,4 +10,4 @@ WorkingDirectory=%h
 ExecStart=%h/.local/bin/auto-push.sh
 Environment=GIT_TERMINAL_PROMPT=0
 UMask=0077
-TimeoutStartSec=10min
+TimeoutStartSec=1h

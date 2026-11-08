@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Salva e envia dotfiles, submódulos e o site como repositório independente.
+# Salva e envia dotfiles, submódulos, site e Mathematics como repositórios independentes.
 set -euo pipefail
 export PATH="/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 export GIT_TERMINAL_PROMPT=0
@@ -13,6 +13,7 @@ import os,sys,subprocess
 from pathlib import Path
 root=Path(os.environ.get('DOTFILES_ROOT',str(Path.home()))).resolve()
 website=Path(os.environ.get('WWW_ROOT',str(Path.home()/'www'))).resolve()
+mathematics=Path(os.environ.get('MATHEMATICS_ROOT',str(Path.home()/'Mathematics'))).resolve()
 dry=sys.argv[1:]==['--dry-run']
 if sys.argv[1:] and not dry:
     raise SystemExit('Uso: auto-push.sh [--dry-run]')
@@ -69,7 +70,7 @@ def sync(repo):
     if r.stderr:print(r.stderr,end='',flush=True)
 
 errors=[]
-for repo in dict.fromkeys([root,website]):
+for repo in dict.fromkeys([root,website,mathematics]):
     try:
         sync(repo)
     except Exception as e:
