@@ -245,3 +245,9 @@ A recuperação usa backups locais e o histórico Git. Não há desinstalador ou
 ## Niri
 
 Sessão independente, com saída a 120 Hz, Waybar própria e rotação conjunta do monitor e da mesa. Consulte [.config/niri/README.md](.config/niri/README.md) para atalhos, serviços e manutenção.
+
+## IME: SSH e Gigolo
+
+O comando `ssh-ime` usa a chave SSH e consulta a senha adicional exigida pelo servidor no chaveiro criptografado GNOME, através de `.local/libexec/ssh-ime-askpass`. A credencial de rede SFTP é compartilhada com o Gigolo/GVfs. O GVfs deve ter a USE flag `keyring` habilitada. A senha e os arquivos do chaveiro ficam fora do Git.
+
+O alias aponta para `.local/bin/ssh-ime`; após atualizar uma sessão Bash já aberta, execute `source ~/.bash_aliases`. A configuração local de `~/.ssh/config` mantém a conexão por 30 minutos após o último uso, com sockets privados em `~/.ssh/control/`. O chaveiro de login é desbloqueado pelo PAM do Ly.

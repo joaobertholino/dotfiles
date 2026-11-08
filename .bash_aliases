@@ -54,7 +54,7 @@ alias btral='btrfs-assistant-launcher'
 alias gbk='~/.local/bin/auto-push.sh'
 
 #SSH
-alias ssh-ime='ssh linux-ime'
+alias ssh-ime='$HOME/.local/bin/ssh-ime'
 
 # Git
 alias ginit='git init'

@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+export SSH_ASKPASS="$HOME/.local/libexec/ssh-ime-askpass"
+export SSH_ASKPASS_REQUIRE=force
+exec /usr/bin/ssh linux-ime "$@"

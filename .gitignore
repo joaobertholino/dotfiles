@@ -131,3 +131,6 @@
 !/.config/systemd/user/niri.service.wants/
 !/.config/systemd/user/niri.service.wants/*
 !/.config/xdg-desktop-portal/niri-portals.conf
+
+!/.local/bin/ssh-ime
+!/.local/libexec/ssh-ime-askpass

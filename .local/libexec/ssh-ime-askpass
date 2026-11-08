@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+case "${1:-}" in
+    *linux.ime.usp.br*password:*|*joaob@linux.ime.usp.br*Password:*)
+        exec /usr/bin/secret-tool lookup user joaob server linux.ime.usp.br protocol sftp authtype password port 22
+        ;;
+    *) exit 1 ;;
+esac
