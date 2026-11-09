@@ -1,4 +1,4 @@
---hl.window_rule({ name = "emacs", match = { class = "^Emacs$" }, float = true, center = true, size = "1125 750" })
+hl.window_rule({ name = "emacs", match = { class = "^Emacs$" }, float = true, center = true, size = "1015 641" })
 hl.window_rule({ name = "qalculate", match = { class = "^[Qq]alculate-gtk$" }, float = true, center = true, fullscreen = false, size = "570 495" })
 hl.window_rule({ name = "alacritty", match = { class = "^Alacritty$" }, float = true, center = true, size = "1000 620" })
 hl.window_rule({ name = "pavucontrol", match = { class = "^Pavucontrol$" }, float = true, center = true })
