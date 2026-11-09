@@ -1,9 +1,0 @@
-#!/usr/bin/python3
-import subprocess
-choices={'Lock':['systemctl','--user','start','niri-lock.service'],
-         'Log out':['niri','msg','action','quit'],
-         'Suspend':['systemctl','suspend'],
-         'Reboot':['systemctl','reboot'],
-         'Power off':['systemctl','poweroff']}
-r=subprocess.run(['fuzzel','--config','/home/joaob/.config/niri/fuzzel.ini','--dmenu','--prompt','Session ❯ '],input='\n'.join(choices)+'\n',text=True,capture_output=True)
-if r.returncode==0 and r.stdout.strip() in choices:subprocess.run(choices[r.stdout.strip()],check=True)

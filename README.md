@@ -242,9 +242,6 @@ Para publicar manualmente, faça commit e push no submódulo primeiro; depois re
 
 A recuperação usa backups locais e o histórico Git. Não há desinstalador ou rollback completo do sistema: pacotes, wrappers e configurações em `/etc` têm manutenção separada.
 
-## Niri
-
-Sessão independente, com saída a 120 Hz, Waybar própria e rotação conjunta do monitor e da mesa. Consulte [.config/niri/README.md](.config/niri/README.md) para atalhos, serviços e manutenção.
 
 ## IME: SSH e Gigolo
 

@@ -123,14 +123,6 @@
 !/.config/xdg-desktop-portal/hyprland-portals.conf
 !/.config/xdg-desktop-portal/sway-portals.conf
 
-!/.config/niri/
-!/.config/niri/**
-!/.config/systemd/user/niri-*.service
-!/.config/systemd/user/niri.service.d/
-!/.config/systemd/user/niri.service.d/*.conf
-!/.config/systemd/user/niri.service.wants/
-!/.config/systemd/user/niri.service.wants/*
-!/.config/xdg-desktop-portal/niri-portals.conf
 
 !/.local/bin/ssh-ime
 !/.local/libexec/ssh-ime-askpass

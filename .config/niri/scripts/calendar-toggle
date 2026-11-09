@@ -1,6 +1,0 @@
-#!/bin/sh
-set -eu
-if systemctl --user is-active --quiet niri-calendar.service; then
-    exec systemctl --user stop niri-calendar.service
-fi
-exec systemctl --user start niri-calendar.service
