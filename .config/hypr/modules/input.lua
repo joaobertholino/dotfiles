@@ -4,7 +4,7 @@ hl.config({
         follow_mouse = 1,
         sensitivity = 0,
         accel_profile = "flat",
-        scroll_factor = 1.25,
+        scroll_factor = 1.5,
         touchpad = { natural_scroll = false, tap_to_click = true },
         tablet = {
             --left_handed = true,
