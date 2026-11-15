@@ -5,6 +5,7 @@ require("modules.monitors")
 require("modules.startup")
 require("modules.appearance")
 require("modules.input")
+require("modules.tablet-buttons")
 require("modules.bindings")
 require("modules.rules")
 
