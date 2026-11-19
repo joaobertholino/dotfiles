@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "position": "top",
+    "output": ["!FALLBACK", "*"],
     "height": 20,
     "spacing": 2,
     "modules-left": ["hyprland/workspaces", "disk#root", "custom/filesystem-secondary"],
@@ -18,7 +19,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "persistent-workspaces": {
-            "*": 5,
+            "*": [1, 2, 3, 4, 5],
         },
     },
     "disk#root": {

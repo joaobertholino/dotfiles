@@ -1,0 +1,94 @@
+#!/usr/bin/python3
+"""Refresh Waybar after logind resume, once real Hyprland outputs settle."""
+import json
+import subprocess
+import sys
+import time
+
+import dbus
+from dbus.mainloop.glib import DBusGMainLoop
+from gi.repository import GLib
+
+
+def output_state():
+    result = subprocess.run(
+        ['/usr/bin/hyprctl', '-j', 'monitors'],
+        check=True, capture_output=True, text=True, timeout=2,
+    )
+    monitors = json.loads(result.stdout)
+    real = [m for m in monitors if m.get('name') != 'FALLBACK' and not m.get('disabled')]
+    if not real or any(not m.get('dpmsStatus') or m.get('width', 0) <= 0 for m in real):
+        return None
+    return sorted((m['name'], m['width'], m['height'], m.get('transform'), m.get('scale'))
+                  for m in real)
+
+
+class Refresh:
+    def __init__(self, loop, once=False):
+        self.loop = loop
+        self.once = once
+        self.timer = None
+        self.previous = None
+        self.stable = 0
+
+    def sleep_changed(self, sleeping):
+        if self.timer is not None:
+            GLib.source_remove(self.timer)
+            self.timer = None
+        if sleeping:
+            return
+        self.previous = None
+        self.stable = 0
+        self.deadline = time.monotonic() + 45
+        self.timer = GLib.timeout_add(500, self.check)
+        print('Resume: waiting for real monitor outputs to settle.', flush=True)
+
+    def check(self):
+        try:
+            state = output_state()
+        except (OSError, ValueError, KeyError, subprocess.SubprocessError):
+            state = None
+        self.stable = self.stable + 1 if state is not None and state == self.previous else 0
+        self.previous = state
+        if self.stable >= 4:
+            result = subprocess.run(
+                ['/usr/bin/systemctl', '--user', '--no-block', 'try-restart', 'waybar.service'],
+                timeout=5, check=False,
+            )
+            print(f'Monitor outputs ready: Waybar refresh requested (status {result.returncode}).', flush=True)
+            return self.finish()
+        if time.monotonic() >= self.deadline:
+            print('Monitor outputs did not settle within 45 seconds; leaving Waybar unchanged.', flush=True)
+            return self.finish()
+        return GLib.SOURCE_CONTINUE
+
+    def finish(self):
+        self.timer = None
+        if self.once:
+            self.loop.quit()
+        return GLib.SOURCE_REMOVE
+
+
+def main():
+    if sys.argv[1:] not in ([], ['--refresh']):
+        raise SystemExit('Usage: waybar-resume-refresh [--refresh]')
+    DBusGMainLoop(set_as_default=True)
+    loop = GLib.MainLoop()
+    refresh = Refresh(loop, once=bool(sys.argv[1:]))
+    if refresh.once:
+        refresh.sleep_changed(False)
+    else:
+        bus = dbus.SystemBus()
+        bus.add_signal_receiver(
+            refresh.sleep_changed,
+            signal_name='PrepareForSleep',
+            dbus_interface='org.freedesktop.login1.Manager',
+            bus_name='org.freedesktop.login1',
+            path='/org/freedesktop/login1',
+        )
+        print('Watching logind resume events.', flush=True)
+    loop.run()
+
+
+if __name__ == '__main__':
+    main()
