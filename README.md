@@ -2,35 +2,35 @@
 
 Configurações pessoais do desktop Gentoo Linux com Hyprland/Wayland, Bash, Waybar, Alacritty, Prelude Emacs e Xournal++. Integração da sessão e do Portage atualizada em **03/11/2026**.
 
-![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/gtIDuco.png)
+![Desktop Gentoo Linux com Hyprland](https://i.imgur.com/NUOMCRR.png)
 
 O repositório principal tem sua árvore de trabalho em `~/`. O `.gitignore` permite apenas os arquivos de configuração selecionados; documentos, credenciais, chaves SSH, caches e estado local ficam fora do versionamento. Este projeto não contém um instalador completo do sistema.
 
 ## Organização
 
-| Caminho | Conteúdo |
-| --- | --- |
-| `.bashrc`, `.bash_aliases`, `.bash_profile`, `.profile` | Ambiente Bash e aliases do Portage |
-| `.config/hypr/` | Entrada Lua, módulos, atalhos, captura e papel de parede |
-| `.config/waybar/` | Painel, relógio, métricas e áudio |
-| `.config/alacritty/`, `.config/tmux/` | Terminal e sessão tmux `main` |
-| `.config/Thunar/` | Ações personalizadas e atalhos do gerenciador de arquivos |
-| `.config/xfce4/xfconf/xfce-perchannel-xml/thunar*.xml` | Preferências do Thunar e Volman |
-| `.config/systemd/user/` | Unidades versionadas de Thunar, Tumbler e push automático; serviços da sessão instalados localmente |
-| `.local/share/dbus-1/services/` | Ativação dos serviços Thunar e Tumbler |
-| `.local/bin/auto-push.sh` | Commit e push recursivo dos dotfiles |
-| `.config/zathura/`, `.config/htop/`, `.config/gigolo/` | Configurações de aplicativos |
+| Caminho                                                 | Conteúdo                                                                                            |
+| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `.bashrc`, `.bash_aliases`, `.bash_profile`, `.profile` | Ambiente Bash e aliases do Portage                                                                  |
+| `.config/hypr/`                                         | Entrada Lua, módulos, atalhos, captura e papel de parede                                            |
+| `.config/waybar/`                                       | Painel, relógio, métricas e áudio                                                                   |
+| `.config/alacritty/`, `.config/tmux/`                   | Terminal e sessão tmux `main`                                                                       |
+| `.config/Thunar/`                                       | Ações personalizadas e atalhos do gerenciador de arquivos                                           |
+| `.config/xfce4/xfconf/xfce-perchannel-xml/thunar*.xml`  | Preferências do Thunar e Volman                                                                     |
+| `.config/systemd/user/`                                 | Unidades versionadas de Thunar, Tumbler e push automático; serviços da sessão instalados localmente |
+| `.local/share/dbus-1/services/`                         | Ativação dos serviços Thunar e Tumbler                                                              |
+| `.local/bin/auto-push.sh`                               | Commit e push recursivo dos dotfiles                                                                |
+| `.config/zathura/`, `.config/htop/`, `.config/gigolo/`  | Configurações de aplicativos                                                                        |
 
 Existem arquivos e aliases herdados do Arch, como `.config/yay/` e atalhos para `yay`. Eles não constituem o método de instalação do Gentoo atual.
 
 ## Submódulos
 
-| Diretório | Repositório | Finalidade |
-| --- | --- | --- |
-| `.config/prelude-personal` | [prelude-emacs](https://github.com/joaobertholino/prelude-emacs) | Prelude Emacs e configurações pessoais |
-| `.config/xournalpp` | [xournalpp](https://github.com/joaobertholino/xournalpp) | Preferências, paletas e modelos de anotação |
-| `.config/dunst` | [Dunst](https://github.com/joaobertholino/Dunst) | Tema das notificações |
-| `.config/zen-cal` | [zen-cal](https://github.com/joaobertholino/zen-cal) | Calendário do relógio da Waybar |
+| Diretório                  | Repositório                                                      | Finalidade                                  |
+| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------- |
+| `.config/prelude-personal` | [prelude-emacs](https://github.com/joaobertholino/prelude-emacs) | Prelude Emacs e configurações pessoais      |
+| `.config/xournalpp`        | [xournalpp](https://github.com/joaobertholino/xournalpp)         | Preferências, paletas e modelos de anotação |
+| `.config/dunst`            | [Dunst](https://github.com/joaobertholino/Dunst)                 | Tema das notificações                       |
+| `.config/zen-cal`          | [zen-cal](https://github.com/joaobertholino/zen-cal)             | Calendário do relógio da Waybar             |
 
 Os quatro diretórios são submódulos Git, não cópias comuns. As URLs em `.gitmodules` usam SSH e exigem autenticação no GitHub.
 
@@ -68,12 +68,12 @@ Os binários e arquivos globais não são instalados por este checkout. Os pacot
 
 ### Aliases de pacotes
 
-| Comando | Função |
-| --- | --- |
-| `ei categoria/pacote` | Instalação normal pelo Portage; prefere binários compatíveis e pode compilar |
-| `ecomp categoria/pacote` | Instalação pelo Portage forçando compilação |
-| `es termo` | Pesquisar no Portage |
-| `esync` | Sincronizar repositórios Gentoo |
+| Comando                  | Função                                                                       |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `ei categoria/pacote`    | Instalação normal pelo Portage; prefere binários compatíveis e pode compilar |
+| `ecomp categoria/pacote` | Instalação pelo Portage forçando compilação                                  |
+| `es termo`               | Pesquisar no Portage                                                         |
+| `esync`                  | Sincronizar repositórios Gentoo                                              |
 
 ## Interface gráfica do Portage: Kuroo
 
@@ -141,14 +141,14 @@ O suporte Shares utiliza Samba/usershares. Para autenticar seu usuário pela red
 
 O módulo `.config/hypr/modules/startup.lua` chama `/usr/local/bin/gentoo-session-start` quando o compositor está pronto. Esse helper apenas importa o ambiente Wayland para D-Bus/systemd e ativa `hyprland-session.target`. Os aplicativos de início da sessão são executados e supervisionados pelo **systemd do usuário**; não há lançamento direto desses daemons por `exec-once` ou pelo helper.
 
-| Componente | Serviço de usuário |
-| --- | --- |
-| Painel Waybar | `waybar.service` |
-| Notificações Dunst | `dunst.service` |
-| Lançador Hyprlauncher | `hyprlauncher.service` |
-| Indicador de rede | `nm-applet.service` |
+| Componente                    | Serviço de usuário                  |
+| ----------------------------- | ----------------------------------- |
+| Painel Waybar                 | `waybar.service`                    |
+| Notificações Dunst            | `dunst.service`                     |
+| Lançador Hyprlauncher         | `hyprlauncher.service`              |
+| Indicador de rede             | `nm-applet.service`                 |
 | Papel de parede awww/Waypaper | `gentoo-animated-wallpaper.service` |
-| Agente de autenticação | `hyprpolkitagent.service` |
+| Agente de autenticação        | `hyprpolkitagent.service`           |
 
 Os seis serviços estão habilitados no `hyprland-session.target`, ligado a `graphical-session.target`. `hyprland-session-guard.service` acompanha o PID da instância atual do compositor; quando ela termina, o target e seus aplicativos são encerrados. O helper importa display, IPC, temas, cursores e bibliotecas da sessão antes de ativar o conjunto. A instalação atual usa essa integração local, sem UWSM.
 
@@ -178,21 +178,21 @@ Não há bloqueio automático, filtro noturno ou desligamento de tela por inativ
 
 `Super` é a tecla Windows. Consulte `modules/bindings.lua` e `modules/ecosystem.lua` para a lista completa.
 
-| Atalho | Ação |
-| --- | --- |
-| `Super+Enter` | Alacritty/tmux |
-| `Super+Espaço` | Hyprlauncher |
-| `Super+Alt+E` | Emacs |
-| `Super+Alt+X` | Xournal++ |
-| `Super+H/J/K/L` | Mudar foco |
-| `Super+1…0` | Trocar de workspace |
-| `Print` | Capturar região |
-| `Shift+Print` | Capturar janela |
-| `Super+Print` | Capturar monitor |
-| `Ctrl+Print` | Região somente para a área de transferência |
-| `Super+Alt+P` | Selecionar e copiar cor |
-| `Super+Alt+A` | Controle de áudio |
-| `Super+Alt+I` | Informações do sistema |
+| Atalho           | Ação                                             |
+| ---------------- | ------------------------------------------------ |
+| `Super+Enter`    | Alacritty/tmux                                   |
+| `Super+Espaço`   | Hyprlauncher                                     |
+| `Super+Alt+E`    | Emacs                                            |
+| `Super+Alt+X`    | Xournal++                                        |
+| `Super+H/J/K/L`  | Mudar foco                                       |
+| `Super+1…0`      | Trocar de workspace                              |
+| `Print`          | Capturar região                                  |
+| `Shift+Print`    | Capturar janela                                  |
+| `Super+Print`    | Capturar monitor                                 |
+| `Ctrl+Print`     | Região somente para a área de transferência      |
+| `Super+Alt+P`    | Selecionar e copiar cor                          |
+| `Super+Alt+A`    | Controle de áudio                                |
+| `Super+Alt+I`    | Informações do sistema                           |
 | `Super+Ctrl+Esc` | Encerrar aplicativos e a sessão com Hyprshutdown |
 
 Capturas salvas ficam em `~/Images/screenshots`.
@@ -241,7 +241,6 @@ git submodule update --init --recursive
 Para publicar manualmente, faça commit e push no submódulo primeiro; depois registre o novo gitlink no repositório principal. O script automático já respeita essa ordem.
 
 A recuperação usa backups locais e o histórico Git. Não há desinstalador ou rollback completo do sistema: pacotes, wrappers e configurações em `/etc` têm manutenção separada.
-
 
 ## IME: SSH e Gigolo
 
