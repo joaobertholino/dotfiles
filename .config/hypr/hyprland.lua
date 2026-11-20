@@ -6,6 +6,7 @@ require("modules.startup")
 require("modules.appearance")
 require("modules.input")
 require("modules.bindings")
+require("modules.tabs")
 require("modules.rules")
 
 require("modules.ecosystem")
