@@ -17,10 +17,10 @@ hl.config({
         shadow = { enabled = false },
         blur = {
             enabled = false,
-            size = 8,
-            passes = 3,
+            size = 10,
+            passes = 5,
             new_optimizations = true,
-            ignore_opacity = true,
+            ignore_opacity = false,
         },
     },
     animations = { enabled = true},
